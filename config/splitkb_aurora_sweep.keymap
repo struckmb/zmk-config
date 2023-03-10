@@ -45,7 +45,7 @@
                 >;
         };
 
-        symbol_number_layer { // _SYM_NR
+        symbol_number_layer {
             bindings = <
                 // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
                 // │  @  │  _  │  [  │  ]  │ ^ ° │     │ 0 = │ 1 ! │ 2 " │ 4 $ │ 8 ( │
@@ -84,11 +84,10 @@
 
         /*special_layer { */
         /*    bindings = < */
-        /*        //          |             |             |             |             |   |             |             |             |             |             | */
         /*        &kp K_EJECT   &kp K_VOL_DN  &kp K_MUTE    &kp K_VOL_UP  &kp K_STOP        &none         &kp DE_UE     &none         &none         &none */
         /*        &kp DE_AE     &kp K_PREV    &kp K_PLAY    &kp K_NEXT    &none             &none         &none         &none         &none         &none */
         /*        &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none */
-        /*        /1**/                                      &none         &none             &none         &none */
+        /*        //                                      &none         &none             &none         &none */
         /*        >; */
         /*}; */
 
@@ -172,30 +171,6 @@
             layers = <2>;
             bindings = <&kp F12>;
         };
-
-        /* combo_tab { */
-        /*    timeout-ms = <50>; */
-        /*    key-positions = <10 11>; */
-        /*    bindings = <&kp TAB>; */
-        /* }; */
-
-        /*    combo_ralt { */
-        /*    timeout-ms = <50>; */
-        /*    key-positions = <17 16>; */
-        /*    bindings = <&kp RALT>; */
-        /* }; */
-
-        /*            combo_lalt { */
-        /*    timeout-ms = <50>; */
-        /*    key-positions = <11 12>; */
-        /*    bindings = <&kp LALT>; */
-        /* }; */
-
-        /*                   combo_lgui { */
-        /*    timeout-ms = <50>; */
-        /*    key-positions = <12 13>; */
-        /*    bindings = <&kp LGUI>; */
-        /* }; */
 
     };
 };
