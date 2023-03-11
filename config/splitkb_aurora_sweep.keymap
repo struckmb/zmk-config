@@ -38,9 +38,9 @@
                 // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
-                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y      &kp DE_U      &kp DE_I      &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S  &mt LGUI DE_D  &mt LCTRL DE_F    &kp DE_G          &kp DE_H  &mt LCTRL DE_J  &mt LGUI DE_K  &kp DE_L    /*&lt 3*/ DE_SEMI
-           &mt LSHFT DE_Z     &kp DE_X        &kp DE_C         &mt LALT DE_V     &kp DE_B          &kp DE_N        &mt LALT DE_M    &kp DE_COMMA       &kp DE_DOT    &mt LSHFT DE_SZ
+                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
+                &kp DE_A      &kp DE_S      &mt LGUI DE_D  &mt LCTRL DE_F  &kp DE_G       &kp DE_H       &mt LCTRL DE_J  &mt LGUI DE_K  &kp DE_L    &lt 3 DE_SEMI
+                &mt LSHFT DE_Z  &kp DE_X    &kp DE_C    &mt LALT DE_V    &kp DE_B         &kp DE_N       &mt LALT DE_M  &kp DE_COMMA   &kp DE_DOT   &mt LSHFT DE_SZ
                 /**/                                       &lt 2 ESC     &lt 1 RET        &lt 1 SPACE    &lt 2 TAB
                 >;
         };
