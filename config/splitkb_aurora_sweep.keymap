@@ -39,8 +39,8 @@
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y      &kp DE_U      &kp DE_I      &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S      HRML2(DE_D,       DE_F)     &kp DE_G          &kp DE_H      HRML2(DE_J,       DE_K)     &kp DE_L    /*&lt 3*/ DE_SEMI
-                HRML3(DE_Z,      DE_X,         DE_C,          DE_V)     &kp DE_B          &kp DE_N      HRML3(DE_M,     DE_COMMA,       DE_DOT,       DE_SZ)
+                &kp DE_A      &kp DE_S  &ht LGUI DE_D  &ht LCTRL DE_F    &kp DE_G          &kp DE_H  &ht LCTRL DE_J  &ht LGUI DE_K  &kp DE_L    /*&lt 3*/ DE_SEMI
+           &ht LSHFT DE_Z     &kp DE_X        &kp DE_C         &ht LALT DE_V     &kp DE_B          &kp DE_N        &ht LALT DE_M    &kp DE_COMMA       &kp DE_DOT    &ht LSHFT DE_SZ
                 /**/                                       &lt 2 ESC     &lt 1 RET        &lt 1 SPACE    &lt 2 TAB
                 >;
         };
