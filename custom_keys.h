@@ -10,6 +10,10 @@
 #define CCP_CPY LC(INS)
 #define CCP_PST LS(INS)
 
+// sticky keys
+#define MEH   &sk LS(LA(LCTRL))
+#define HYPER &sk LG(LS(LA(LCTRL)))
+
 // clang-format off
 /*
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
