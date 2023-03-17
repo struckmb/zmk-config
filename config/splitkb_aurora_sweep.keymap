@@ -8,12 +8,13 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include "../custom_keys.h"
-#include "../custom_combos.h"
+// #include "../custom_combos.h"
 
 // hrm
-#define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
-#define HRMR(k1,k2,k3) HRML2(k3,k2,k1)
-#define HRMS(k1) &mt LSHFT k1
+#define HRML2(k1,k2) &mt LGUI k1  &mt LCTRL k2
+#define HRML3(k1,k2,k3,k4) &mt LSHFT k1  &kp k2  &kp k3  &mt LALT k4
+#define HRMR2(k1,k2) HRML2(k2,k1)
+#define HRMR3(k1,k2,k3,k4) HRML3(k4,k3,k2,k1)
 
 &mt {
     // flavor = "tap-preferred";
@@ -41,8 +42,8 @@
                 //                   └─────┴─────┘     └─────┴─────┘
                 //          |             |             |             |             |   |             |             |             |             |             |
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)        HRMR(DE_H,          DE_J,         DE_K)       &kp DE_L      &lt 3 DE_SEMI
-                HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
+                &kp DE_A      &kp DE_S    HRML2(DE_D,         DE_F)     &kp DE_G          &kp DE_H     HRMR2(DE_J,         DE_K)       &kp DE_L      &lt 3 DE_SEMI
+                HRML3(DE_Z,       DE_X,         DE_C,         DE_V)     &kp DE_B          &kp DE_N     HRMR3(DE_M,         DE_COMMA,       DE_DOT,       DE_SZ)
                 /**/                                      &lt 2 ESC     &lt 1 RET        &lt 1 SPACE    &lt 2 TAB
                 >;
         };
