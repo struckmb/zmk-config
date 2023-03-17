@@ -2,7 +2,7 @@
 
 // hrm
 #define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
-#define HRMR(k1,k2,k3) HRML2(k3,k2,k1)
+#define HRMR(k1,k2,k3) HRML(k3,k2,k1)
 #define HRMS(k1) &mt LSHFT k1
 
 // cut copy paste
