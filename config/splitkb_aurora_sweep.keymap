@@ -8,20 +8,16 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include "../custom_keys.h"
-
-// hrm
-#define HRML2(k1,k2) &mt LGUI k1  &mt LCTRL k2
-#define HRML3(k1,k2,k3,k4) &mt LSHFT k1  &kp k2  &kp k3  &mt LALT k4
-#define HRMR2(k1,k2) HRML2(k2,k1)
-#define HRMR3(k1,k2,k3,k4) HRML3(k4,k3,k2,k1)
+#include "../custom_combos.h"
 
 &mt {
-  //  flavor = "tap-preferred";
-   // tapping_term_ms = <200>;
+    // flavor = "tap-preferred";
+    // tapping_term_ms = <200>;
 };
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
 };
+
 / { 
 
     keymap {
@@ -38,9 +34,10 @@
                 // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
+                //          |             |             |             |             |   |             |             |             |             |             |
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S    HRML2(DE_D,         DE_F)     &kp DE_G          &kp DE_H     HRMR2(DE_J,         DE_K)       &kp DE_L      &lt 3 DE_SEMI
-                HRML3(DE_Z,       DE_X,         DE_C,         DE_V)     &kp DE_B          &kp DE_N     HRMR3(DE_M,         DE_COMMA,       DE_DOT,       DE_SZ)
+                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)        HRMR(DE_H,          DE_J,         DE_K)       &kp DE_L      LT3(DE_SEMI)
+                HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
                 /**/                                      &lt 2 ESC     &lt 1 RET        &lt 1 SPACE    &lt 2 TAB
                 >;
         };
@@ -74,7 +71,6 @@
                 // └─────┴─────┴─────┼─────┼─────┤             ├─────┼─────┼─────┴─────┴─────┘
                 //                   │     │     │             │ App │     │
                 //                   └─────┴─────┘             └─────┴─────┘
-                //          |             |             |             |             |   |             |             |             |             |             |
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
                 &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LSHIFT    &sk LCTRL     &sk LGUI      &none         &sk RALT
                 &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk LALT      &none         &none         &caps_word
@@ -93,84 +89,84 @@
 
     };
 
-    combos {
-        compatible = "zmk,combos";
+    /* combos { */
+    /*     compatible = "zmk,combos"; */
 
-        // numbers
-        combo_N3 {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            layers = <1>;
-            bindings = <&kp DE_N3>;
-        };
-        combo_N5 {
-            timeout-ms = <50>;
-            key-positions = <6 8>;
-            layers = <1>;
-            bindings = <&kp DE_N5>;
-        };
-        combo_N6 {
-            timeout-ms = <50>;
-            key-positions = <7 8>;
-            layers = <1>;
-            bindings = <&kp DE_N6>;
-        };
-        combo_N7 {
-            timeout-ms = <50>;
-            key-positions = <6 7 8>;
-            layers = <1>;
-            bindings = <&kp DE_N7>;
-        };
-        combo_N9 {
-            timeout-ms = <50>;
-            key-positions = <6 9>;
-            layers = <1>;
-            bindings = <&kp DE_N9>;
-        };
+    /*     // numbers */
+    /*     combo_N3 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N3>; */
+    /*     }; */
+    /*     combo_N5 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N5>; */
+    /*     }; */
+    /*     combo_N6 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <7 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N6>; */
+    /*     }; */
+    /*     combo_N7 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N7>; */
+    /*     }; */
+    /*     combo_N9 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 9>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N9>; */
+    /*     }; */
 
-        // function keys
-        combo_F3 {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            layers = <2>;
-            bindings = <&kp F3>;
-        };
-        combo_F5 {
-            timeout-ms = <50>;
-            key-positions = <6 8>;
-            layers = <2>;
-            bindings = <&kp F5>;
-        };
-        combo_F6 {
-            timeout-ms = <50>;
-            key-positions = <7 8>;
-            layers = <2>;
-            bindings = <&kp F6>;
-        };
-        combo_F7 {
-            timeout-ms = <50>;
-            key-positions = <6 7 8>;
-            layers = <2>;
-            bindings = <&kp F7>;
-        };
-        combo_F9 {
-            timeout-ms = <50>;
-            key-positions = <6 9>;
-            layers = <2>;
-            bindings = <&kp F9>;
-        };
-        combo_F11 {
-            timeout-ms = <50>;
-            key-positions = <5 6>;
-            layers = <2>;
-            bindings = <&kp F11>;
-        };
-        combo_F12 {
-            timeout-ms = <50>;
-            key-positions = <5 7>;
-            layers = <2>;
-            bindings = <&kp F12>;
-        };
+    /*     // function keys */
+    /*     combo_F3 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F3>; */
+    /*     }; */
+    /*     combo_F5 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F5>; */
+    /*     }; */
+    /*     combo_F6 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <7 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F6>; */
+    /*     }; */
+    /*     combo_F7 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F7>; */
+    /*     }; */
+    /*     combo_F9 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 9>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F9>; */
+    /*     }; */
+    /*     combo_F11 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <5 6>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F11>; */
+    /*     }; */
+    /*     combo_F12 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <5 7>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F12>; */
+    /*     }; */
 
-    };
+    /* }; */
 };

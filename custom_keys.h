@@ -1,12 +1,18 @@
 #include <dt-bindings/zmk/keys.h>
 
-// clang-format off
+// hrm
+#define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
+#define HRMS(k1) &mt LSHFT k1
+#define HRMR(k1,k2,k3) HRML2(k3,k2,k1)
+#define LT3(k1) &lt 3 k1
+
 
 // cut copy paste
 #define CCP_CUT LS(DEL)
 #define CCP_CPY LC(INS)
 #define CCP_PST LS(INS)
 
+// clang-format off
 /*
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
  * │ ^ │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ ß │ ´ │       │
