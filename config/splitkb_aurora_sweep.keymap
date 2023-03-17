@@ -10,6 +10,11 @@
 #include "../custom_keys.h"
 #include "../custom_combos.h"
 
+// hrm
+#define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
+#define HRMR(k1,k2,k3) HRML2(k3,k2,k1)
+#define HRMS(k1) &mt LSHFT k1
+
 &mt {
     // flavor = "tap-preferred";
     // tapping_term_ms = <200>;
