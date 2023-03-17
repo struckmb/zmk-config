@@ -65,108 +65,56 @@
                 // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
                 // │PgUp │ BSp │  ↑  │ Del │PgDn │             │ F10 │  F1 │  F2 │  F4 │  F8 │
                 // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-                // │Home │  ←  │  ↓  │  →  │ End │             │OsSft│OsCtl│OsGui│     │OsAGr│
+                // │Home │  ←  │  ↓  │  →  │ End │             │OsAlt│OsCtl│OsGui│OsSft│ RSft│
                 // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-                // │ Ins │ Cut │Copy │Paste│PrScr│             │Power│OsAlt│     │     │CapsW│
+                // │ Ins │ Cut │Copy │Paste│PrScr│             │Power│OsAGr│OsMeh│OsHyp│CapsW│
                 // └─────┴─────┴─────┼─────┼─────┤             ├─────┼─────┼─────┴─────┴─────┘
                 //                   │     │     │             │ App │     │
                 //                   └─────┴─────┘             └─────┴─────┘
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
-                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LSHIFT    &sk LCTRL     &sk LGUI      &none         &sk RALT
-                &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk LALT      &none         &none         &caps_word
-                /**/                                      &trans        &trans             &trans       &trans
+                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
+                &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPR      &caps_word
+                /**/                                      &trans        &trans            &kp K_APP     &trans
                 >;
         };
 
-        special_layer {
+        mouse_media_layer {
             bindings = <
-                &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &none         &none
-                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
+            // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
+            // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │             │MsSp+│  ü  │ Vol+│Eject│ XXX │
+            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+            // │  ä  │  ←  │  ↓  │  →  │Pause│             │MsSpN│ Prev│ Vol-│ Next│ (v) │
+            // ├─────┼─────┼Mouse┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+            // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│             │MsSp-│ Play│ Mute│ Stop│RShft│
+            // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
+            //                   │ MB2 │ MB1 │ MB3 │ │     │LShft│ MB3 │
+            //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
+
+                &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &kp C_EJECT   &none
+                &kp DE_AE     &none         &none         &none         &none             &none         &kp C_PREV    &kp C_VOL_DN  &kp C_NEXT    &trans
+                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &kp C_PLAY    &kp C_MUTE    &kp C_STOP    &kp RSHFT
+                /**/                                      &none         &none             &kp LSHFT     &none
+                >;
+        };
+
+        adjust_layer {
+            bindings = <
+            // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
+            // │ TOGG│Plain│Brthe│Rainb│Swirl│             │EEClr│(Bt1)│(Bt2)│(Bt3)│(B/U)│
+            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+            // │Speed│ Val │ Sat │ Hue │ Mode│             │(BtC)│(Bt←)│ XXX │(Bt→)│ XXX │
+            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼Mouse┼─────┼─────┤
+            // │ Test│ Xmas│Grdnt│Knght│Snake│             │Reset│Build│ XXX │ XXX │ Sft │
+            // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
+            //                   │     │     │     │ │     │     │     │
+            //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
+                &none         &none         &none         &none         &none             &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none
+                &none         &none         &none         &none         &none             &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &trans
+                &none         &none         &none         &none         &none             &none         &none         &none         &none         &kp LSHFT
                 /**/                                      &none         &none             &none         &none
                 >;
         };
 
     };
 
-    /* combos { */
-    /*     compatible = "zmk,combos"; */
-
-    /*     // numbers */
-    /*     combo_N3 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 7>; */
-    /*         layers = <1>; */
-    /*         bindings = <&kp DE_N3>; */
-    /*     }; */
-    /*     combo_N5 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 8>; */
-    /*         layers = <1>; */
-    /*         bindings = <&kp DE_N5>; */
-    /*     }; */
-    /*     combo_N6 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <7 8>; */
-    /*         layers = <1>; */
-    /*         bindings = <&kp DE_N6>; */
-    /*     }; */
-    /*     combo_N7 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 7 8>; */
-    /*         layers = <1>; */
-    /*         bindings = <&kp DE_N7>; */
-    /*     }; */
-    /*     combo_N9 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 9>; */
-    /*         layers = <1>; */
-    /*         bindings = <&kp DE_N9>; */
-    /*     }; */
-
-    /*     // function keys */
-    /*     combo_F3 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 7>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F3>; */
-    /*     }; */
-    /*     combo_F5 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 8>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F5>; */
-    /*     }; */
-    /*     combo_F6 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <7 8>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F6>; */
-    /*     }; */
-    /*     combo_F7 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 7 8>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F7>; */
-    /*     }; */
-    /*     combo_F9 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <6 9>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F9>; */
-    /*     }; */
-    /*     combo_F11 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <5 6>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F11>; */
-    /*     }; */
-    /*     combo_F12 { */
-    /*         timeout-ms = <50>; */
-    /*         key-positions = <5 7>; */
-    /*         layers = <2>; */
-    /*         bindings = <&kp F12>; */
-    /*     }; */
-
-    /* }; */
 };
