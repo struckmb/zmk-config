@@ -10,11 +10,12 @@
 #include "../custom_keys.h"
 #include "../custom_combos.h"
 
+// Layer definitions
 #define DEFAULT 0
-#define SN 1
-#define NF 2
-#define MM 3
-#define KB 4
+#define L_SN 1
+#define L_NF 2
+#define L_MM 3
+#define L_KB 4
 
 &mt {
     // flavor = "tap-preferred";
@@ -25,15 +26,15 @@
     continue-list = <DE_UNDER DE_MINUS BACKSPACE DELETE>;
 };
 
-/ {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <SN NF>;
-            then-layer = <KB>;
-        };
-    };
-};
+// / {
+//     conditional_layers {
+//         compatible = "zmk,conditional-layers";
+//         tri_layer {
+//             if-layers = <L_SN L_NF>;
+//             then-layer = <L_KB>;
+//         };
+//     };
+// };
 
 / { 
 
@@ -74,7 +75,7 @@
                 &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
                 &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
                 &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUT       &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
-                /**/                                      &kp DE_SECT   &mo NF            &mo NF        &kp DE_CENT
+                /**/                                      &kp DE_SECT   &mo L_NF          &mo L_NF        &kp DE_CENT
                 >;
         };
 
@@ -92,7 +93,7 @@
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
                 &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
                 &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-                /**/                                      &mo SN        &trans            &kp K_APP     &mo SN
+                /**/                                      &mo L_SN      &trans            &kp K_APP     &mo L_SN
                 >;
         };
 
