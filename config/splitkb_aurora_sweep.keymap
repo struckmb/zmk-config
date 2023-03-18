@@ -21,20 +21,9 @@
     // flavor = "tap-preferred";
     // tapping_term_ms = <200>;
 };
-
 &caps_word {
-    continue-list = <DE_UNDER DE_MINUS BACKSPACE DELETE>;
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
 };
-
-// / {
-//     conditional_layers {
-//         compatible = "zmk,conditional-layers";
-//         tri_layer {
-//             if-layers = <L_SN L_NF>;
-//             then-layer = <L_KB>;
-//         };
-//     };
-// };
 
 / { 
 
@@ -46,16 +35,14 @@
                 // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
                 // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │  o  │  p  │
                 // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │ 3/ö │
+                // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │  ö  │
                 // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
                 // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
                 // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
-                //          |             |             |             |             |   |             |             |             |             |             |
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-//                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &lt 3 DE_OE
-                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
+                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &lt 3 DE_OE
                 HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
                 /**/                                      &lt 2 ESC     &lt 1 RET        &lt 1 SPACE    &lt 2 TAB
                 >;
@@ -75,7 +62,7 @@
                 &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
                 &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
                 &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUT       &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
-                /**/                                      &kp DE_SECT   &mo L_NF          &mo L_NF        &kp DE_CENT
+                /**/                                      &kp DE_SECT   &trans            &trans        &kp DE_CENT
                 >;
         };
 
@@ -91,47 +78,20 @@
                 //                   │     │     │             │ App │     │
                 //                   └─────┴─────┘             └─────┴─────┘
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
-                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
+                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHIFT    &sk RSHIFT
                 &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-                /**/                                      &mo L_SN      &trans            &kp K_APP     &mo L_SN
+                /**/                                      &trans        &trans            &kp K_APP     &trans
                 >;
         };
 
-//        mouse_media_layer {
-//            bindings = <
-//            // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
-//            // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │             │MsSp+│  ü  │ Vol+│Eject│ XXX │
-//            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-//            // │  ä  │  ←  │  ↓  │  →  │Pause│             │MsSpN│ Prev│ Vol-│ Next│ (v) │
-//            // ├─────┼─────┼Mouse┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-//            // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│             │MsSp-│ Play│ Mute│ Stop│RShft│
-//            // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
-//            //                   │ MB2 │ MB1 │ MB3 │ │     │LShft│ MB3 │
-//            //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
-//                &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &kp C_EJECT   &none
-//                &kp DE_AE     &none         &none         &none         &none             &none         &kp C_PREV    &kp C_VOL_DN  &kp C_NEXT    &trans
-//                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &kp C_PLAY    &kp C_MUTE    &kp C_STOP    &kp RSHFT
-//                /**/                                      &none         &none             &kp LSHFT     &none
-//                >;
-//        };
-
-//        adjust_layer {
-//            bindings = <
-//            // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
-//            // │ TOGG│Plain│Brthe│Rainb│Swirl│             │EEClr│(Bt1)│(Bt2)│(Bt3)│(B/U)│
-//            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-//            // │Speed│ Val │ Sat │ Hue │ Mode│             │(BtC)│(Bt←)│ XXX │(Bt→)│ XXX │
-//            // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼Mouse┼─────┼─────┤
-//            // │ Test│ Xmas│Grdnt│Knght│Snake│             │Reset│Build│ XXX │ XXX │ Sft │
-//            // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
-//            //                   │     │     │     │ │     │     │     │
-//            //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
-//                &kp RGB_TOG   &none         &none         &none         &none             &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none
-//                &none         &none         &none         &none         &none             &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &trans
-//                &none         &none         &none         &none         &none             &none         &none         &none         &none         &kp LSHFT
-//                /**/                                      &none         &none             &none         &none
-//                >;
-//        };
+        special_layer {
+            bindings = <
+                &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &none         &none
+                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
+                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
+                /**/                                      &none         &none             &none         &none
+                >;
+        };
 
     };
 
