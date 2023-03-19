@@ -53,7 +53,7 @@
                 // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
-                &reset        &bt BT_SEL 0  &bt BT_NXT    &bt BT_CLR  &out OUT_TOG        &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
+                &reset        &bt BT_SEL 0  &bt BT_NXT    &bt BT_CLR  &out OUT_TOG        &reset        &bt BT_SEL 0  &bt BT_NXT    &bt BT_CLR  &out OUT_TOG
 //                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
                 &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
                 HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &bootloader       &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
