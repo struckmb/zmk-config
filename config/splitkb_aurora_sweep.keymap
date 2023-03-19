@@ -10,6 +10,11 @@
 #include "../custom_keys.h"
 #include "../custom_combos.h"
 
+#define DEFAULT 0
+#define L_SN  1
+#define L_NF  2
+#define L_MM  3
+
 &mt {
     // flavor = "tap-preferred";
     // tapping_term_ms = <200>;
@@ -17,12 +22,19 @@
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
 };
-
-/ { 
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <L_SN L_NF>;
+            then-layer = <L_MM>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
+        // 0. DEFAULT
         default_layer {
             bindings = <
                 // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -35,12 +47,13 @@
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &lt 3 DE_OE
+                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &lt L_MM DE_OE
                 HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-                /**/                                      &lt 2 ESC     &lt 1 RET         &lt 1 SPACE    &lt 2 TAB
+                /**/                                  &lt L_NF ESC  &lt L_SN RET  &lt L_SN SPACE  &lt L_NF TAB
                 >;
         };
 
+        // 1. L_SN
         symbol_number_layer {
             bindings = <
                 // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -59,6 +72,7 @@
                 >;
         };
 
+        // 2. L_NF
         navigation_function_layer {
             bindings = <
                 // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
@@ -73,13 +87,14 @@
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
                 &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LSHIFT    &sk LCTRL     &sk LGUI      &none         &sk RALT
                 &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk LALT      &none         &none         &caps_word
-                /**/                                      &trans        &trans             &trans       &trans
+                /**/                                      &trans        &mo L_SN        &mo L_SN    &trans
                 >;
         };
 
+        // 3. L_MM
         special_layer {
             bindings = <
-                &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &none         &none
+                &reset        &bootloader   &none         &none         &none             &none         &kp DE_UE     &bootloader   &reset        &none
                 &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
                 &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
                 /**/                                      &none         &none             &none         &none
