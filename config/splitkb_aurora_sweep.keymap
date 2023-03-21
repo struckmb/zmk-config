@@ -103,10 +103,19 @@
         // 3. L_MS_MED
         mouse_media_layer {
             bindings = <
-                &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &kp DE_OE     &none
-                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &sk LSHIFT    &none         &none         &none         &none             &none         &none         &none         &none         &sk RSHIFT
-                /**/                                      &none         &none             &none         &none
+                // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
+                // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │             │MsSp+│  ü  │ Vol+│  ö  │Eject│
+                // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+                // │  ä  │  ←  │  ↓  │  →  │Pause│             │MsSpN│ Prev│ Vol-│ Next│ (v) │
+                // ├─────┼─────┼Mouse┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+                // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│             │MsSp-│ Play│ Mute│ Stop│RShft│
+                // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
+                //                   │ MB2 │ MB1 │ MB3 │ │     │LShft│ MB3 │
+                //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
+                &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &kp DE_OE     &kp C_EJECT
+                &kp DE_AE     &none         &none         &none         &none             &none         &kp C_PREV    &kp C_VOL_DN  &kp C_NEXT    &trans
+                &sk LSHIFT    &none         &none         &none         &none             &none         &kp C_PLAY    &kp C_MUTE    &kp C_STOP    &kp RSHFT
+                /**/                                      &none         &none             &kp LSHFT     &none
                 >;
         };
 
