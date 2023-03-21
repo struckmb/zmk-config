@@ -20,7 +20,7 @@
 #define SYMNR_SPC &lt L_SYM_NR SPACE
 #define NAVFN_ESC &lt L_NAV_FN ESC
 #define NAVFN_TAB &lt L_NAV_FN TAB
-// #define MSMED_OE &lt L_MS_MED DE_OE
+#define MSMED_OE  &lt L_MS_MED DE_OE
 
 &mt {
     flavor = "tap-preferred";
@@ -54,7 +54,7 @@
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
                 &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
+                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      MSMED_OE
                 HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &bootloader       &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
                 /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
                 >;
