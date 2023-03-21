@@ -8,37 +8,19 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "keys_de.h"
-/* #include "custom_keys.h" */
+#include "custom_keys.h"
 #include "custom_combos.h"
 
-// layers
-#define DEFAULT  0
-#define L_SYM_NR 1
-#define L_NAV_FN 2
-#define L_MS_MED 3
-#define L_ADJUST 4
+#define DEFAULT 0
+#define L_SYM_NR  1
+#define L_NAV_FN  2
+#define L_MS_MED  3
 
-// hrm functions
-#define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
-#define HRMR(k1,k2,k3) HRML(k3,k2,k1)
-#define HRMS(k1) &mt LSHFT k1
-
-// layer switching combinations
 #define SYMNR_RET &lt L_SYM_NR RET
 #define SYMNR_SPC &lt L_SYM_NR SPACE
 #define NAVFN_ESC &lt L_NAV_FN ESC
 #define NAVFN_TAB &lt L_NAV_FN TAB
-#define MSMED_OE  &lt L_MS_MED DE_OE
-
-// meh and hyper
-/* #define MEH   LS(LA(LCTRL))     // Left Control, Shift and Alt */
-/* #define HYPER LS(LA(LG(LCTRL))) // Left Control, Shift, Alt and GUI */
-
-// universal cut copy paste
-#define CCP_CUT LS(DEL)
-#define CCP_CPY LC(INS)
-#define CCP_PST LS(INS)
+// #define MSMED_OE &lt L_MS_MED DE_OE
 
 &mt {
     flavor = "tap-preferred";
@@ -48,13 +30,13 @@
 };
 
 / {
-    /* conditional_layers { */
-    /*     compatible = "zmk,conditional-layers"; */
-    /*     tri_layer { */
-    /*         if-layers = <L_SYM_NR L_NAV_FN>; */
-    /*         then-layer = <L_ADJUST>; */
-    /*     }; */
-    /* }; */
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <L_SYM_NR L_NAV_FN>;
+            then-layer = <L_MS_MED>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -65,17 +47,17 @@
                 // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
                 // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │  o  │  p  │
                 // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │ 3/ö │
+                // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │  ö  │
                 // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
                 // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
                 // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
                 //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
                 //                   └─────┴─────┘     └─────┴─────┘
-                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                // &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      MSMED_OE
+                &reset        &bt BT_SEL 0  &bt BT_NXT    &bt BT_CLR  &out OUT_TOG        &reset        &bt BT_SEL 0  &bt BT_NXT    &bt BT_CLR  &out OUT_TOG
+//                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
                 &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
                 HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &bootloader       &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-                NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+                /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
                 >;
         };
 
@@ -93,8 +75,8 @@
                 //                   └─────┴─────┘     └─────┴─────┘
                 &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
                 &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
-                &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUTE      &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
-                &kp DE_SECT   &mo L_NAV_FN      &mo L_NAV_FN  &kp DE_CENT
+                &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUT       &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
+                /**/                                      &kp DE_SECT   &mo L_NAV_FN      &mo L_NAV_FN  &kp DE_CENT
                 >;
         };
 
@@ -104,60 +86,109 @@
                 // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
                 // │PgUp │ BSp │  ↑  │ Del │PgDn │             │ F10 │  F1 │  F2 │  F4 │  F8 │
                 // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-                // │Home │  ←  │  ↓  │  →  │ End │             │OsAlt│OsCtl│OsGui│OsSft│OsRSh│
+                // │Home │  ←  │  ↓  │  →  │ End │             │OsSft│OsCtl│OsGui│     │OsAGr│
                 // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
-                // │ Ins │ Cut │Copy │Paste│PrScr│             │Power│OsAGr│OsMeh│OsHyp│CapsW│
+                // │ Ins │ Cut │Copy │Paste│PrScr│             │Power│OsAlt│     │     │CapsW│
                 // └─────┴─────┴─────┼─────┼─────┤             ├─────┼─────┼─────┴─────┴─────┘
-                //                   │     │     │             │     │ App │
+                //                   │     │     │             │ App │     │
                 //                   └─────┴─────┘             └─────┴─────┘
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
-                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHIFT    &sk RALT
-                &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &none         &none         &caps_word
-                &kp K_APP     &mo L_SYM_NR      &mo L_SYM_NR  &kp K_APP
+                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LSHIFT    &sk LCTRL     &sk LGUI      &none         &sk RALT
+                &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk LALT      &none         &none         &caps_word
+                /**/                                      &trans        &mo L_SYM_NR        &mo L_SYM_NR    &trans
                 >;
         };
 
         // 3. L_MS_MED
         special_layer {
             bindings = <
-                // ╭──────┬──────┬──────┬──────┬──────╮                ╭──────┬──────┬──────┬──────┬──────╮
-                // │ MW ↓ │ MW ← │ Ms ↑ │ MW → │ MW ↑ │                │MS_Ac2│  ü   │ Vol+ │  ö   │ Eject│
-                // ├──────┼──────┼──────┼──────┼──────┤                ├──────┼──────┼──────┼──────┼──────┤
-                // │  ä   │ Ms ← │ Ms ↑ │ Ms → │Pause │                │MS_Ac1│ Prev │ Vol- │ Next │ (vv) │
-                // ├──────┼──────┼──────┼──────┼──────┤                ├──────┼──────┼──────┼──────┼──────┤
-                // │ LSft │ MsB4 │ MsB3 │ MsB5 │ScrLk │                │MS_Ac0│ Play │ Mute │ Stop │ RSft │
-                // ╰──────┴──────┴──────┴──────┼──────┼──────╮  ╭──────┼──────┼──────┴──────┴──────┴──────╯
-                //                             │ MsB2 │ MsB1 │  │ Shft │ MsB3 │
-                //                             ╰──────┴──────╯  ╰──────┴──────╯
-
-                // &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &kp DE_OE     &none
-                // &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
-                // &kp LSHIFT    &none         &none         &none         &none             &none         &none         &none         &none         &none
-                // &none         &none             &none         &none
-
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none             &none         &none
-                >;
-        };
-
-        // 4. L_ADJUST
-        config_layer {
-            bindings = <
-                // &reset        &bootloader   &none         &none         &none             &none         &none         &bootloader   &reset        &none
-                // &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                // &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
-                // &none         &none             &none         &none
-
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &none         &none             &none         &none
-                >;
+                &reset        &bootloader   &none         &none         &none             &none         &kp DE_UE     &bootloader   &reset        &none
+                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
+                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
+                /**/                                      &none         &none             &none         &none
                 >;
         };
 
     };
 
+    /* combos { */
+    /*     compatible = "zmk,combos"; */
+
+    /*     // numbers */
+    /*     combo_N3 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N3>; */
+    /*     }; */
+    /*     combo_N5 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N5>; */
+    /*     }; */
+    /*     combo_N6 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <7 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N6>; */
+    /*     }; */
+    /*     combo_N7 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7 8>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N7>; */
+    /*     }; */
+    /*     combo_N9 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 9>; */
+    /*         layers = <1>; */
+    /*         bindings = <&kp DE_N9>; */
+    /*     }; */
+
+    /*     // function keys */
+    /*     combo_F3 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F3>; */
+    /*     }; */
+    /*     combo_F5 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F5>; */
+    /*     }; */
+    /*     combo_F6 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <7 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F6>; */
+    /*     }; */
+    /*     combo_F7 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 7 8>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F7>; */
+    /*     }; */
+    /*     combo_F9 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <6 9>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F9>; */
+    /*     }; */
+    /*     combo_F11 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <5 6>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F11>; */
+    /*     }; */
+    /*     combo_F12 { */
+    /*         timeout-ms = <50>; */
+    /*         key-positions = <5 7>; */
+    /*         layers = <2>; */
+    /*         bindings = <&kp F12>; */
+    /*     }; */
+
+    /* }; */
 };
