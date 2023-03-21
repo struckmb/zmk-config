@@ -8,7 +8,7 @@
 // CK_N4, CK_N8 and your F10, F1, F2, F4, F8 positions (if they differ) as CK_F10,
 // CK_F1, CK_F2, CK_F4, CK_F8 as well as the intended layers they are located
 // on as CK_LN, CK_LF for this to work.
-// Here are (my) default locations for a kyria:
+// Here are (my) default locations for a sweep:
 #ifndef CK_LN
 #define CK_LN 1
 #endif
