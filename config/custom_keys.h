@@ -6,6 +6,10 @@
 #define HRMR(k1,k2,k3) HRML(k3,k2,k1)
 #define HRMS(k1) &mt LSHFT k1
 
+// mod combo keys
+#define MEH   LS(LA(LCTRL))
+#define HYPER LG(LS(LA(LCTRL)))
+
 // cut copy paste
 #define CCP_CUT LS(DEL)
 #define CCP_CPY LC(INS)
