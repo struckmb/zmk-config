@@ -96,7 +96,7 @@
                 &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
                 &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
                 &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-                /**/                                      &trans        &mo L_SYM_NR        &mo L_SYM_NR    &trans
+                /**/                                      &trans        &mo L_SYM_NR      &mo L_SYM_NR  &trans
                 >;
         };
 
