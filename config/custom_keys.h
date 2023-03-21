@@ -1,20 +1,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include "keys_de.h"
 
-// hrm functions
-#define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
-#define HRMR(k1,k2,k3) HRML(k3,k2,k1)
-#define HRMS(k1) &mt LSHFT k1
-
-// cut copy paste
-#define CCP_CUT LS(DEL)
-#define CCP_CPY LC(INS)
-#define CCP_PST LS(INS)
-
-// meh and hyper
-#define MEH   LS(LA(LCTRL))     // Left Control, Shift and Alt
-#define HYPER LG(LS(LA(LCTRL))) // Left Control, Shift, Alt and GUI
-
 // // Linux extended chars
 // #define DE_NOT  RA(DE_N5)    // ¬ not
 // #define DE_CED  RA(DE_ACUT)  // ¸ cedilla (dead)
