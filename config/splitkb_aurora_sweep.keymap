@@ -122,9 +122,18 @@
         // 4. L_ADJUST
         keyboard_config_layer {
             bindings = <
-                &reset        &bootloader   &none         &none         &none             &none         &kp DE_UE     &bootloader   &reset        &none
-                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
-                &bt BT_CLR    &bt BT_PRV    &none         &bt BT_NXT    &none             &none         &none         &none         &none         &none
+                // ┌─────┬─────┬─────┬─────┬─────┐             ┌─────┬─────┬─────┬─────┬─────┐
+                // │ TOGG│Plain│Brthe│Rainb│Swirl│             │EEClr│(Bt2)│(Bt3)│(Bt4)│(Bt5)│
+                // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼─────┼─────┼─────┤
+                // │Speed│ Val │ Sat │ Hue │ Mode│             │(BtC)│(Bt←)│(Bt1)│(Bt→)│(B/U)│
+                // ├─────┼─────┼─────┼─────┼─────┤             ├─────┼─────┼Mouse┼─────┼─────┤
+                // │ Test│ Xmas│Grdnt│Knght│Snake│             │Reset│Build│ XXX │ XXX │ Sft │
+                // └─────┴─────┴─────┼─────┼─────┼─────┐ ┌─────┼─────┼─────┼─────┴─────┴─────┘
+                //                   │     │     │     │ │     │     │     │
+                //                   └─────┴─────┴─────┘ └─────┴─────┴─────┘
+                &reset        &bootloader   &none         &none         &none             &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                &none         &none         &none         &none         &none             &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
+                &none         &none         &none         &none         &none             &reset        &none         &none         &none         &kp LSHFT
                 /**/                                      &none         &none             &none         &none
                 >;
         };
