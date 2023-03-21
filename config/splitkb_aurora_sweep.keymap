@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include "keys_de.h"
 #include "custom_keys.h"
 #include "custom_combos.h"
 
@@ -15,6 +16,7 @@
 #define L_SYM_NR  1
 #define L_NAV_FN  2
 #define L_MS_MED  3
+#define L_ADJUST  4
 
 #define SYMNR_RET &lt L_SYM_NR RET
 #define SYMNR_SPC &lt L_SYM_NR SPACE
@@ -34,7 +36,7 @@
         compatible = "zmk,conditional-layers";
         tri_layer {
             if-layers = <L_SYM_NR L_NAV_FN>;
-            then-layer = <L_MS_MED>;
+            then-layer = <L_ADJUST>;
         };
     };
 
@@ -99,7 +101,17 @@
         };
 
         // 3. L_MS_MED
-        special_layer {
+        mouse_media_layer {
+            bindings = <
+                &none         &none         &none         &none         &none             &none         &kp DE_UE     &none         &kp DE_OE     &none
+                &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
+                &sk LSHIFT    &none         &none         &none         &none             &none         &none         &none         &none         &sk RSHIFT
+                /**/                                      &none         &none             &none         &none
+                >;
+        };
+
+        // 4. L_ADJUST
+        keyboard_config_layer {
             bindings = <
                 &reset        &bootloader   &none         &none         &none             &none         &kp DE_UE     &bootloader   &reset        &none
                 &kp DE_AE     &none         &none         &none         &none             &none         &none         &none         &none         &none
