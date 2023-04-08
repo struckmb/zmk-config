@@ -1,6 +1,13 @@
 #include <dt-bindings/zmk/keys.h>
 /* #include "keys_de.h" */
 
+// Layer definitions
+#define DEFAULT 0
+#define L_SYM_NR  1
+#define L_NAV_FN  2
+#define L_MS_MED  3
+#define L_ADJUST  4
+
 // hrm
 #define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
 #define HRMR(k1,k2,k3) HRML(k3,k2,k1)
