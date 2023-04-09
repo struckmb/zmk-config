@@ -140,10 +140,10 @@ nice_view_spi: &spi0 {
                 //                   └─────┴─────┘     └─────┴─────┘
                 &ext_power EP_TOG  &none    &none         &none         &none                &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
                 &none              &none    &none         &none         &bootloader          &bootloader   &none         &none         &none         &none
-                &none              &none    &none         &none         &reset               &reset        &none         &none         &none         &kp LSHFT
-                // &rgb_ug RGB_TOG  &none            &none            &reset           &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                &none              &none    &none         &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
+                // &rgb_ug RGB_TOG  &none            &none            &sys_reset       &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
                 // &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF      &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
-                // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &reset        &none         &none         &none         &kp LSHFT
+                // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &sys_reset    &none         &none         &none         &kp LSHFT
                 /**/                                      &none         &none             &none         &none
                 >;
         };
