@@ -14,13 +14,6 @@
 #include "custom_keys.h"
 #include "custom_combos.h"
 
-// Layer-tap keys
-#define SYMNR_RET &lt L_SYM_NR RET
-#define SYMNR_SPC &lt L_SYM_NR SPACE
-#define NAVFN_ESC &lt L_NAV_FN ESC
-#define NAVFN_TAB &lt L_NAV_FN TAB
-#define MSMED_OE  &lt L_MS_MED DE_OE
-
 &mt {
   flavor = "tap-preferred";
 };
@@ -49,26 +42,46 @@ nice_view_spi: &spi0 {
   keymap {
     compatible = "zmk,keymap";
 
-    // 0. DEFAULT
+    // 0. QWERTZ
     default_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-        // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │  o  │  p  │
+        // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │ 3/o │  p  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │ 3/ö │
+        // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │  ö  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
         // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
         // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
         //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
         //                   └─────┴─────┘     └─────┴─────┘
-        &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-        &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      MSMED_OE
-        HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
+        &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Z       &kp DE_U      &kp DE_I        MSMED_O       &kp DE_P
+        &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
+        HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
         /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
         >;
     };
 
-    // 1. L_SYM_NR
+    // 1. COLEMAK
+    default_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │  q  │  w  │  f  │  p  │  b  │     │  j  │  l  │  u  │ 3/z │  ö  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  a  │  r  │  s  │  t  │  g  │     │  m  │  n  │  e  │  i  │  o  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp DE_Q      &kp DE_W      &kp DE_F      &kp DE_P      &kp DE_B          &kp DE_J       &kp DE_L      &kp DE_U        MSMED_Z       &kp DE_OE
+        &kp DE_A      &kp DE_R     HRML(DE_S,         DE_T,         DE_G)         HRMR(DE_M,         DE_N,         DE_E)       &kp DE_I      &kp DE_O
+        HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_D      &kp DE_V          &kp DE_K       &kp DE_H      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        >;
+    };
+
+
+    // 2. L_SYM_NR
     symbol_number_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -87,7 +100,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 2. L_NAV_FN
+    // 3. L_NAV_FN
     navigation_function_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -106,7 +119,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 3. L_MS_MED
+    // 4. L_MS_MED
     mouse_media_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -125,7 +138,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 4. L_ADJUST
+    // 5. L_ADJUST
     keyboard_config_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐

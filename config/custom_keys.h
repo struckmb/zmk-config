@@ -2,11 +2,22 @@
 /* #include "keys_de.h" */
 
 // Layer definitions
-#define DEFAULT 0
-#define L_SYM_NR  1
-#define L_NAV_FN  2
-#define L_MS_MED  3
-#define L_ADJUST  4
+#define QWERTZ 0
+#define COLEMAK 1
+#define L_SYM_NR  2
+#define L_NAV_FN  3
+#define L_MS_MED  4
+#define L_ADJUST  5
+
+// Layer keys
+#define L_QWRT    &to QWERTZ
+#define L_CLMK    &to COLEMAK
+#define SYMNR_RET &lt L_SYM_NR RET
+#define SYMNR_SPC &lt L_SYM_NR SPACE
+#define NAVFN_ESC &lt L_NAV_FN ESC
+#define NAVFN_TAB &lt L_NAV_FN TAB
+#define MSMED_O   &lt L_MS_MED DE_O 
+#define MSMED_Z   &lt L_MS_MED DE_Z 
 
 // hrm
 #define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
