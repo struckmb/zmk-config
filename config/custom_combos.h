@@ -47,86 +47,99 @@
 #ifndef CK_F8
 #define CK_F8 CK_N8
 #endif
-/ { 
 
-    combos {
-        compatible = "zmk,combos";
+/ { combos {
+  compatible = "zmk,combos";
 
-        // numbers
-        combo_N3 {
-            timeout-ms = <50>;
-            key-positions = <CK_N1 CK_N2>;
-            layers = <CK_LN>;
-            bindings = <&kp DE_N3>;
-        };
-        combo_N5 {
-            timeout-ms = <50>;
-            key-positions = <CK_N1 CK_N4>;
-            layers = <CK_LN>;
-            bindings = <&kp DE_N5>;
-        };
-        combo_N6 {
-            timeout-ms = <50>;
-            key-positions = <CK_N2 CK_N4>;
-            layers = <CK_LN>;
-            bindings = <&kp DE_N6>;
-        };
-        combo_N7 {
-            timeout-ms = <50>;
-            key-positions = <CK_N1 CK_N2 CK_N4>;
-            layers = <CK_LN>;
-            bindings = <&kp DE_N7>;
-        };
-        combo_N9 {
-            timeout-ms = <50>;
-            key-positions = <CK_N1 CK_N8>;
-            layers = <CK_LN>;
-            bindings = <&kp DE_N9>;
-        };
+  // browser tab left/right
+  tab_left {
+    timeout-ms = <50>;
+    key-positions = <1 2>;
+    layers = <L_NAV_FN>;
+    bindings = <&kp LS(LC(TAB))>;
+  };
+  tab_right {
+    timeout-ms = <50>;
+    key-positions = <1 2>;
+    layers = <L_NAV_FN>;
+    bindings = <&kp LC(TAB)>;
+  };
 
-        // function keys
-        combo_F3 {
-            timeout-ms = <50>;
-            key-positions = <CK_F1 CK_F2>;
-            layers = <CK_LF>;
-            bindings = <&kp F3>;
-        };
-        combo_F5 {
-            timeout-ms = <50>;
-            key-positions = <CK_F1 CK_F4>;
-            layers = <CK_LF>;
-            bindings = <&kp F5>;
-        };
-        combo_F6 {
-            timeout-ms = <50>;
-            key-positions = <CK_F2 CK_F4>;
-            layers = <CK_LF>;
-            bindings = <&kp F6>;
-        };
-        combo_F7 {
-            timeout-ms = <50>;
-            key-positions = <CK_F1 CK_F2 CK_F4>;
-            layers = <CK_LF>;
-            bindings = <&kp F7>;
-        };
-        combo_F9 {
-            timeout-ms = <50>;
-            key-positions = <CK_F1 CK_F8>;
-            layers = <CK_LF>;
-            bindings = <&kp F9>;
-        };
-        combo_F11 {
-            timeout-ms = <50>;
-            key-positions = <CK_F10 CK_F1>;
-            layers = <CK_LF>;
-            bindings = <&kp F11>;
-        };
-        combo_F12 {
-            timeout-ms = <50>;
-            key-positions = <CK_F10 CK_F2>;
-            layers = <CK_LF>;
-            bindings = <&kp F12>;
-        };
+  // numbers
+  combo_N3 {
+    timeout-ms = <50>;
+    key-positions = <CK_N1 CK_N2>;
+    layers = <CK_LN>;
+    bindings = <&kp DE_N3>;
+  };
+  combo_N5 {
+    timeout-ms = <50>;
+    key-positions = <CK_N1 CK_N4>;
+    layers = <CK_LN>;
+    bindings = <&kp DE_N5>;
+  };
+  combo_N6 {
+    timeout-ms = <50>;
+    key-positions = <CK_N2 CK_N4>;
+    layers = <CK_LN>;
+    bindings = <&kp DE_N6>;
+  };
+  combo_N7 {
+    timeout-ms = <50>;
+    key-positions = <CK_N1 CK_N2 CK_N4>;
+    layers = <CK_LN>;
+    bindings = <&kp DE_N7>;
+  };
+  combo_N9 {
+    timeout-ms = <50>;
+    key-positions = <CK_N1 CK_N8>;
+    layers = <CK_LN>;
+    bindings = <&kp DE_N9>;
+  };
 
-    };
+  // function keys
+  combo_F3 {
+    timeout-ms = <50>;
+    key-positions = <CK_F1 CK_F2>;
+    layers = <CK_LF>;
+    bindings = <&kp F3>;
+  };
+  combo_F5 {
+    timeout-ms = <50>;
+    key-positions = <CK_F1 CK_F4>;
+    layers = <CK_LF>;
+    bindings = <&kp F5>;
+  };
+  combo_F6 {
+    timeout-ms = <50>;
+    key-positions = <CK_F2 CK_F4>;
+    layers = <CK_LF>;
+    bindings = <&kp F6>;
+  };
+  combo_F7 {
+    timeout-ms = <50>;
+    key-positions = <CK_F1 CK_F2 CK_F4>;
+    layers = <CK_LF>;
+    bindings = <&kp F7>;
+  };
+  combo_F9 {
+    timeout-ms = <50>;
+    key-positions = <CK_F1 CK_F8>;
+    layers = <CK_LF>;
+    bindings = <&kp F9>;
+  };
+  combo_F11 {
+    timeout-ms = <50>;
+    key-positions = <CK_F10 CK_F1>;
+    layers = <CK_LF>;
+    bindings = <&kp F11>;
+  };
+  combo_F12 {
+    timeout-ms = <50>;
+    key-positions = <CK_F10 CK_F2>;
+    layers = <CK_LF>;
+    bindings = <&kp F12>;
+  };
+
+};
 };

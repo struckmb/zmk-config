@@ -1,10 +1,26 @@
 #include <dt-bindings/zmk/keys.h>
 /* #include "keys_de.h" */
 
+// Layer definitions
+#define QWERTZ 0
+#define COLEMAK 1
+#define NEOBONE 2
+#define L_SYM_NR  3
+#define L_NAV_FN  4
+#define L_MS_MED  5
+#define L_ADJUST  6
+
+// Layer keys
+#define SYMNR_RET &lt L_SYM_NR RET
+#define SYMNR_SPC &lt L_SYM_NR SPACE
+#define NAVFN_ESC &lt L_NAV_FN ESC
+#define NAVFN_TAB &lt L_NAV_FN TAB
+
 // hrm
 #define HRML(k1,k2,k3) &mt LGUI k1  &mt LCTRL k2  &mt LALT k3
 #define HRMR(k1,k2,k3) HRML(k3,k2,k1)
 #define HRMS(k1) &mt LSHFT k1
+#define MSMD(k1) &lt L_MS_MED k1
 
 // mod combo keys
 #define MEH   LS(LA(LCTRL))
