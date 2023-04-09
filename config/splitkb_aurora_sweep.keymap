@@ -22,132 +22,131 @@
 #define MSMED_OE  &lt L_MS_MED DE_OE
 
 &mt {
-    flavor = "tap-preferred";
+  flavor = "tap-preferred";
 };
 &caps_word {
-    continue-list = <DE_UNDER DE_MINUS BACKSPACE DELETE>;
+  continue-list = <DE_UNDER DE_MINUS BACKSPACE DELETE>;
 };
 
 // pin 1 is blocked by rgb, so use pin 16 as I have no encoders installed
 nice_view_spi: &spi0 {
-    compatible = "nordic,nrf-spim";
-    sck-pin = <20>;
-    mosi-pin = <17>;
-    miso-pin = <25>;
-    cs-gpios = <&pro_micro 16 GPIO_ACTIVE_HIGH>;  // default is D1 in the pinout
-};
+                 compatible = "nordic,nrf-spim";
+                 pinctrl-0 = <&spi0_default>;
+                 pinctrl-1 = <&spi0_sleep>;
+                 pinctrl-names = "default", "sleep";
+                 cs-gpios = <&pro_micro 16 GPIO_ACTIVE_HIGH>;  // default is D1 in the pinout
+               };
 
 / {
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    tri_layer {
+      if-layers = <L_SYM_NR L_NAV_FN>;
+      then-layer = <L_ADJUST>;
+    };
+  };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <L_SYM_NR L_NAV_FN>;
-            then-layer = <L_ADJUST>;
-        };
+  keymap {
+    compatible = "zmk,keymap";
+
+    // 0. DEFAULT
+    default_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │  o  │  p  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │ 3/ö │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
+        &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      MSMED_OE
+        HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        >;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
-
-        // 0. DEFAULT
-        default_layer {
-            bindings = <
-                // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-                // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │  o  │  p  │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │ 3/ö │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  y  │  x  │  c  │  v  │  b  │     │  n  │  m  │  ,  │  .  │  ß  │
-                // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-                //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
-                //                   └─────┴─────┘     └─────┴─────┘
-                &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Y       &kp DE_U      &kp DE_I        &kp DE_O      &kp DE_P
-                &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      MSMED_OE
-                HRMS(DE_Z)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-                /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
-                >;
-        };
-
-        // 1. L_SYM_NR
-        symbol_number_layer {
-            bindings = <
-                // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-                // │  @  │  _  │  [  │  ]  │ ^ ° │     │ 0 = │ 1 ! │ 2 " │ 4 $ │ 8 ( │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  \  │  /  │  {  │  }  │  *  │     │ < > │  (  │  )  │ - _ │  &  │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │ # ' │  $  │  |  │  ~  │  ´  │     │ + * │  %  │  "  │  '  │  €  │
-                // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-                //                   │ (§) │ ___ │     │ ___ │  ¢  │
-                //                   └─────┴─────┘     └─────┴─────┘
-                &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
-                &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
-                &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUTE      &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
-                /**/                                      &kp DE_SECT   &mo L_NAV_FN      &trans        &kp DE_CENT
-                >;
-        };
-
-        // 2. L_NAV_FN
-        navigation_function_layer {
-            bindings = <
-                // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-                // │PgUp │ BSp │  ↑  │ Del │PgDn │     │ F10 │  F1 │  F2 │  F4 │  F8 │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │Home │  ←  │  ↓  │  →  │ End │     │OsAlt│OsCtl│OsGui│OsSft│ RSft│
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │ Ins │ Cut │Copy │Paste│PrScr│     │Power│OsAGr│OsMeh│OsHyp│CapsW│
-                // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-                //                   │     │     │     │ App │     │
-                //                   └─────┴─────┘     └─────┴─────┘
-                &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
-                &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
-                &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-                /**/                                      &trans        &mo L_SYM_NR      &kp K_APP     &trans
-                >;
-        };
-
-        // 3. L_MS_MED
-        mouse_media_layer {
-            bindings = <
-                // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-                // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │     │MsSp+│  ü  │ Vol+│ (v) │Eject│
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │  ä  │  ←  │  ↓  │  →  │Pause│     │MsSpN│ Next│ Vol-│ XXX │ Prev│
-                // ├─────┼─────┼Mouse┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│     │MsSp-│ Play│ Mute│ XXX │RShft│
-                // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-                //                   │ MB2 │ MB1 │     │LShft│ MB3 │
-                //                   └─────┴─────┘     └─────┴─────┘
-                &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &trans   &kp C_EJECT
-                &kp DE_AE     &none         &none         &none         &none             &none         &kp C_NEXT    &kp C_VOL_DN  &none    &kp C_PREV
-                &sk LSHIFT    &none         &none         &none         &none             &none         &kp C_PLAY    &kp C_MUTE    &none    &kp RSHFT
-                /**/                                      &none         &none             &kp LSHFT     &none
-                >;
-        };
-
-        // 4. L_ADJUST
-        keyboard_config_layer {
-            bindings = <
-                // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-                // │ TOGG│(Md-)│(Md+)│ XXX │ XXX │     │ BtC │ Bt← │ Bt0 │ Bt→ │ B/U │
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │(Sp+)│(Vl+)│(St+)│(Hu+)│BOOTL│     │BOOTL│QWERT│COLMK│ BONE│LYPND│
-                // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-                // │(Sp-)│(Vl-)│(St-)│(Hu-)│RESET│     │RESET│ ASET│ARTSN│ XXX │ Sft │
-                // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-                //                   │     │     │     │     │     │
-                //                   └─────┴─────┘     └─────┴─────┘
-                &ext_power EP_TOG  &none    &none         &none         &none                &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
-                &none              &none    &none         &none         &bootloader          &bootloader   &none         &none         &none         &none
-                &none              &none    &none         &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
-                // &rgb_ug RGB_TOG  &none            &none            &sys_reset       &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                // &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF      &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
-                // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &sys_reset    &none         &none         &none         &kp LSHFT
-                /**/                                      &none         &none             &none         &none
-                >;
-        };
-
+    // 1. L_SYM_NR
+    symbol_number_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │  @  │  _  │  [  │  ]  │ ^ ° │     │ 0 = │ 1 ! │ 2 " │ 4 $ │ 8 ( │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  \  │  /  │  {  │  }  │  *  │     │ < > │  (  │  )  │ - _ │  &  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │ # ' │  $  │  |  │  ~  │  ´  │     │ + * │  %  │  "  │  '  │  €  │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │ (§) │ ___ │     │ ___ │  ¢  │
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
+        &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
+        &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUTE      &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
+        /**/                                      &kp DE_SECT   &mo L_NAV_FN      &trans        &kp DE_CENT
+        >;
     };
+
+    // 2. L_NAV_FN
+    navigation_function_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │PgUp │ BSp │  ↑  │ Del │PgDn │     │ F10 │  F1 │  F2 │  F4 │  F8 │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │Home │  ←  │  ↓  │  →  │ End │     │OsAlt│OsCtl│OsGui│OsSft│ RSft│
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │ Ins │ Cut │Copy │Paste│PrScr│     │Power│OsAGr│OsMeh│OsHyp│CapsW│
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │     │     │     │ App │     │
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
+        &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
+        &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
+        /**/                                      &trans        &mo L_SYM_NR      &kp K_APP     &trans
+        >;
+    };
+
+    // 3. L_MS_MED
+    mouse_media_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │     │MsSp+│  ü  │ Vol+│ (v) │Eject│
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  ä  │  ←  │  ↓  │  →  │Pause│     │MsSpN│ Next│ Vol-│ XXX │ Prev│
+        // ├─────┼─────┼Mouse┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│     │MsSp-│ Play│ Mute│ XXX │RShft│
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │ MB2 │ MB1 │     │LShft│ MB3 │
+        //                   └─────┴─────┘     └─────┴─────┘
+        &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &trans   &kp C_EJECT
+        &kp DE_AE     &none         &none         &none         &none             &none         &kp C_NEXT    &kp C_VOL_DN  &none    &kp C_PREV
+        &sk LSHIFT    &none         &none         &none         &none             &none         &kp C_PLAY    &kp C_MUTE    &none    &kp RSHFT
+        /**/                                      &none         &none             &kp LSHFT     &none
+        >;
+    };
+
+    // 4. L_ADJUST
+    keyboard_config_layer {
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │ TOGG│(Md-)│(Md+)│ XXX │ XXX │     │ BtC │ Bt← │ Bt0 │ Bt→ │ B/U │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │(Sp+)│(Vl+)│(St+)│(Hu+)│BOOTL│     │BOOTL│QWERT│COLMK│ BONE│LYPND│
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │(Sp-)│(Vl-)│(St-)│(Hu-)│RESET│     │RESET│ ASET│ARTSN│ XXX │ Sft │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │     │     │     │     │     │
+        //                   └─────┴─────┘     └─────┴─────┘
+        &ext_power EP_TOG  &none    &none         &none         &none                &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
+        &none              &none    &none         &none         &bootloader          &bootloader   &none         &none         &none         &none
+        &none              &none    &none         &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
+        // &rgb_ug RGB_TOG  &none            &none            &sys_reset       &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+        // &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF      &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
+        // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &sys_reset    &none         &none         &none         &kp LSHFT
+        /**/                                      &none         &none             &none         &none
+        >;
+    };
+
+  };
 
 };
