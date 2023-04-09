@@ -43,7 +43,7 @@ nice_view_spi: &spi0 {
     compatible = "zmk,keymap";
 
     // 0. QWERTZ
-    default_layer {
+    qwertz_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │ 3/o │  p  │
@@ -62,7 +62,7 @@ nice_view_spi: &spi0 {
     };
 
     // 1. COLEMAK
-    default_layer {
+    colemak_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  q  │  w  │  f  │  p  │  b  │     │  j  │  l  │  u  │ 3/z │  ö  │
@@ -99,7 +99,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 2. L_SYM_NR
+    // 3. L_SYM_NR
     symbol_number_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -118,7 +118,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 3. L_NAV_FN
+    // 4. L_NAV_FN
     navigation_function_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -137,7 +137,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 4. L_MS_MED
+    // 5. L_MS_MED
     mouse_media_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -156,7 +156,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 5. L_ADJUST
+    // 6. L_ADJUST
     keyboard_config_layer {
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
