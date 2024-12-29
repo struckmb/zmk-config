@@ -56,7 +56,7 @@ nice_view_spi: &spi0 {
         &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Z       &kp DE_U      &kp DE_I        MSMD(DE_O)    &kp DE_P
         &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
         HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
         >;
     };
 
@@ -75,7 +75,7 @@ nice_view_spi: &spi0 {
         &kp DE_Q      &kp DE_W      &kp DE_F      &kp DE_P      &kp DE_B          &kp DE_J       &kp DE_L      &kp DE_U        MSMD(DE_Z)    &kp DE_OE
         &kp DE_A      &kp DE_R     HRML(DE_S,         DE_T,         DE_G)         HRMR(DE_M,         DE_N,         DE_E)       &kp DE_I      &kp DE_O
         HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_D      &kp DE_V          &kp DE_K       &kp DE_H      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
         >;
     };
 
@@ -94,7 +94,7 @@ nice_view_spi: &spi0 {
         &kp DE_J      &kp DE_D      &kp DE_U      &kp DE_A      &kp DE_X          &kp DE_P       &kp DE_H      &kp DE_L        MSMD(DE_M)    &kp DE_W
         &kp DE_C      &kp DE_T     HRML(DE_I,         DE_E,         DE_O)         HRMR(DE_B,         DE_N,         DE_R)       &kp DE_S      &kp DE_G
         HRMS(DE_F)    &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_K)
-        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
         >;
     };
 
@@ -144,7 +144,7 @@ nice_view_spi: &spi0 {
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
         // │  ä  │  ←  │  ↓  │  →  │Pause│     │MsSpN│ Next│ Vol-│ XXX │ Prev│
         // ├─────┼─────┼Mouse┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │ XXX │ MB4 │ MB3 │ MB5 │SrlLk│     │MsSp-│ Play│ Mute│ XXX │RShft│
+        // │LShft│ MB4 │ MB3 │ MB5 │SrlLk│     │MsSp-│ Play│ Mute│ XXX │RShft│
         // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
         //                   │ MB2 │ MB1 │     │LShft│ MB3 │
         //                   └─────┴─────┘     └─────┴─────┘

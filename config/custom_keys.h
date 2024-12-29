@@ -3,14 +3,13 @@
 #include "keys_de.h"
 #include <dt-bindings/zmk/keys.h>
 
-// Layer definitions
+// Layer definitions (corne)
 // #define L_QWERTY 0
 #define L_SYMBOL 1
 #define L__LOWER 2
 #define L__RAISE 3
 #define L__ATTIC 4
 #define L__MOUSE 5
-
 // thumb and layer keys
 #define LSFT(kc) &mt LSHFT kc
 #define RSFT(kc) &mt RSHFT kc
@@ -21,18 +20,30 @@
 #define SFT_RET LSFT(RET)
 #define SFT_SPC RSFT(SPACE)
 
+// Layer definitions (sweep)
+#define QWERTZ 0
+#define COLEMAK 1
+#define NEOBONE 2
+#define L_SYM_NR 3
+#define L_NAV_FN 4
+#define L_MS_MED 5
+#define L_ADJUST 6
+// thumb and layer keys
+#define SYMNR(kc) &lt L_SYM_NR kc
+#define NAVFN(kc) &lt L_NAV_FN kc
+
 // shorter umlauts
 #define DE_AE (DE_A_UMLAUT)
 #define DE_OE (DE_O_UMLAUT)
 #define DE_UE (DE_U_UMLAUT)
 
-// // hrm
-// #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
-// #define HRMR(k1, k2, k3) &mt LCTRL k1 &mt LALT k2 &mt LGUI k3
-// #define HRMS(k1) &mt LSHFT k1
-// #define MSMD(k1) &lt L_MS_MED k1
+// hrm
+#define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
+#define HRMR(k1, k2, k3) &mt LCTRL k1 &mt LALT k2 &mt LGUI k3
+#define HRMS(k1) &mt LSHFT k1
+#define MSMD(k1) &lt L_MS_MED k1
 
-// // mod combo keys
+// mod combo keys
 #define MEH LS(LA(LCTRL))
 #define HYPER LG(LS(LA(LCTRL)))
 
