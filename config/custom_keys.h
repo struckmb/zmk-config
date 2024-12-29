@@ -1,3 +1,6 @@
+#pragma once
+
+#include "keys_de.h"
 #include <dt-bindings/zmk/keys.h>
 
 // Layer definitions
