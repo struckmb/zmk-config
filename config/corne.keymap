@@ -82,7 +82,7 @@
    &none  &bt BT_CLR  &bt BT_SEL 0 &bt BT_NXT &bt BT_PRV &kp K_APP  &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &kp DE_SECT
    &none  &none &none &none &none &none                             &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
    &none  &none &none &none &none &none                             &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &none
-                                     &none  LSFT(C_BRI_DN)  &trans  &trans  RSFT(C_BRI_UP)  &none
+                                     &none  LSH(C_BRI_DN)  &trans   &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 

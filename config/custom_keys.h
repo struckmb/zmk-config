@@ -11,14 +11,14 @@
 #define L__ATTIC 4
 #define L__MOUSE 5
 // thumb and layer keys
-#define LSFT(kc) &mt LSHFT kc
-#define RSFT(kc) &mt RSHFT kc
+#define LSH(kc) &mt LSHFT kc
+#define RSH(kc) &mt RSHFT kc
 #define SYM(kc) &lt L_SYMBOL kc
 #define LOW(kc) &lt L__LOWER kc
 #define RSE(kc) &lt L__RAISE kc
 #define ATT(kc) &lt L__ATTIC kc
-#define SFT_RET LSFT(RET)
-#define SFT_SPC RSFT(SPACE)
+#define SFT_RET LSH(RET)
+#define SFT_SPC RSH(SPACE)
 
 // Layer definitions (sweep)
 #define QWERTZ 0
