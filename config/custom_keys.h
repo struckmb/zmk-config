@@ -29,8 +29,13 @@
 #define L_MS_MED 5
 #define L_ADJUST 6
 // thumb and layer keys
+#define MSMD(k1) &lt L_MS_MED k1
 #define SYMNR(kc) &lt L_SYM_NR kc
 #define NAVFN(kc) &lt L_NAV_FN kc
+#define SYMNR_RET &lt L_SYM_NR RET
+#define SYMNR_SPC &lt L_SYM_NR SPACE
+#define NAVFN_ESC &lt L_NAV_FN ESC
+#define NAVFN_TAB &lt L_NAV_FN TAB
 
 // shorter umlauts
 #define DE_AE (DE_A_UMLAUT)
@@ -40,8 +45,6 @@
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
 #define HRMR(k1, k2, k3) &mt LCTRL k1 &mt LALT k2 &mt LGUI k3
-#define HRMS(k1) &mt LSHFT k1
-#define MSMD(k1) &lt L_MS_MED k1
 
 // mod combo keys
 #define MEH LS(LA(LCTRL))

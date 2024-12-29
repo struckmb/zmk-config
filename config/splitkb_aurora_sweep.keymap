@@ -55,8 +55,8 @@ nice_view_spi: &spi0 {
         //                   └─────┴─────┘     └─────┴─────┘
         &kp DE_Q      &kp DE_W      &kp DE_E      &kp DE_R      &kp DE_T          &kp DE_Z       &kp DE_U      &kp DE_I        MSMD(DE_O)    &kp DE_P
         &kp DE_A      &kp DE_S     HRML(DE_D,         DE_F,         DE_G)         HRMR(DE_H,         DE_J,         DE_K)       &kp DE_L      &kp DE_OE
-        HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
+        LSH(DE_Y)     &kp DE_X      &kp DE_C      &kp DE_V      &kp DE_B          &kp DE_N       &kp DE_M      &kp DE_COMMA    &kp DE_DOT    RSH(DE_SZ)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
         >;
     };
 
@@ -74,8 +74,8 @@ nice_view_spi: &spi0 {
         //                   └─────┴─────┘     └─────┴─────┘
         &kp DE_Q      &kp DE_W      &kp DE_F      &kp DE_P      &kp DE_B          &kp DE_J       &kp DE_L      &kp DE_U        MSMD(DE_Z)    &kp DE_OE
         &kp DE_A      &kp DE_R     HRML(DE_S,         DE_T,         DE_G)         HRMR(DE_M,         DE_N,         DE_E)       &kp DE_I      &kp DE_O
-        HRMS(DE_Y)    &kp DE_X      &kp DE_C      &kp DE_D      &kp DE_V          &kp DE_K       &kp DE_H      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_SZ)
-        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
+        LSH(DE_Y)     &kp DE_X      &kp DE_C      &kp DE_D      &kp DE_V          &kp DE_K       &kp DE_H      &kp DE_COMMA    &kp DE_DOT    RSH(DE_SZ)
+                                                  NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
         >;
     };
 
@@ -93,8 +93,8 @@ nice_view_spi: &spi0 {
         //                   └─────┴─────┘     └─────┴─────┘
         &kp DE_J      &kp DE_D      &kp DE_U      &kp DE_A      &kp DE_X          &kp DE_P       &kp DE_H      &kp DE_L        MSMD(DE_M)    &kp DE_W
         &kp DE_C      &kp DE_T     HRML(DE_I,         DE_E,         DE_O)         HRMR(DE_B,         DE_N,         DE_R)       &kp DE_S      &kp DE_G
-        HRMS(DE_F)    &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    HRMS(DE_K)
-        /**/                                      NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
+        LSH(DE_F)     &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    RSH(DE_K)
+                                                  NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
         >;
     };
 
@@ -113,7 +113,7 @@ nice_view_spi: &spi0 {
         &kp DE_AT     &kp DE_UNDER  &kp DE_LBKT   &kp DE_RBKT   &kp DE_CARET      &kp N0        &kp N1        &kp N2        &kp N4        &kp N8
         &kp DE_BSLH   &kp DE_FSLH   &kp DE_LBRC   &kp DE_RBRC   &kp DE_STAR       &kp DE_LT     &kp DE_LPAR   &kp DE_RPAR   &kp DE_MINUS  &kp DE_AMPS
         &kp DE_HASH   &kp DE_DLLR   &kp DE_PIPE   &kp DE_TILDE  &kp DE_ACUTE      &kp DE_PLUS   &kp DE_PRCNT  &kp DE_DQT    &kp DE_SQT    &kp DE_EURO
-        /**/                                      &kp DE_SECT   &mo L_NAV_FN      &trans        &kp DE_CENT
+                                                  &kp DE_SECT   &mo L_NAV_FN      &trans        &kp DE_CENT
         >;
     };
 
@@ -132,7 +132,7 @@ nice_view_spi: &spi0 {
         &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
         &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
         &kp INS       &kp CCP_CUT   &kp CCP_CPY   &kp CCP_PST   &kp PSCRN         &kp C_PWR     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-        /**/                                      &trans        &mo L_SYM_NR      &kp K_APP     &trans
+                                                  &trans        &mo L_SYM_NR      &kp K_APP     &trans
         >;
     };
 
@@ -151,7 +151,7 @@ nice_view_spi: &spi0 {
         &none         &none         &none         &none         &none             &none         &kp DE_UE     &kp C_VOL_UP  &trans   &kp C_EJECT
         &kp DE_AE     &none         &none         &none         &none             &none         &kp C_NEXT    &kp C_VOL_DN  &none    &kp C_PREV
         &sk LSHIFT    &none         &none         &none         &none             &none         &kp C_PLAY    &kp C_MUTE    &none    &kp RSHFT
-        /**/                                      &none         &none             &kp LSHFT     &none
+                                                  &none         &none             &kp LSHFT     &none
         >;
     };
 
@@ -173,7 +173,7 @@ nice_view_spi: &spi0 {
         // &rgb_ug RGB_TOG  &none            &none            &sys_reset       &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
         // &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF      &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
         // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &sys_reset    &none         &none         &none         &kp LSHFT
-        /**/                                      &none         &none             &none         &none
+                                                  &none         &none             &none         &none
         >;
     };
 
