@@ -30,8 +30,6 @@
 #define L_ADJUST 6
 // thumb and layer keys
 #define MSMD(k1) &lt L_MS_MED k1
-#define SYMNR(kc) &lt L_SYM_NR kc
-#define NAVFN(kc) &lt L_NAV_FN kc
 #define SYMNR_RET &lt L_SYM_NR RET
 #define SYMNR_SPC &lt L_SYM_NR SPACE
 #define NAVFN_ESC &lt L_NAV_FN ESC

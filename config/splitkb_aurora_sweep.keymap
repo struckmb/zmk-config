@@ -75,7 +75,7 @@ nice_view_spi: &spi0 {
         &kp DE_Q      &kp DE_W      &kp DE_F      &kp DE_P      &kp DE_B          &kp DE_J       &kp DE_L      &kp DE_U        MSMD(DE_Z)    &kp DE_OE
         &kp DE_A      &kp DE_R     HRML(DE_S,         DE_T,         DE_G)         HRMR(DE_M,         DE_N,         DE_E)       &kp DE_I      &kp DE_O
         LSH(DE_Y)     &kp DE_X      &kp DE_C      &kp DE_D      &kp DE_V          &kp DE_K       &kp DE_H      &kp DE_COMMA    &kp DE_DOT    RSH(DE_SZ)
-                                                  NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
         >;
     };
 
@@ -94,7 +94,7 @@ nice_view_spi: &spi0 {
         &kp DE_J      &kp DE_D      &kp DE_U      &kp DE_A      &kp DE_X          &kp DE_P       &kp DE_H      &kp DE_L        MSMD(DE_M)    &kp DE_W
         &kp DE_C      &kp DE_T     HRML(DE_I,         DE_E,         DE_O)         HRMR(DE_B,         DE_N,         DE_R)       &kp DE_S      &kp DE_G
         LSH(DE_F)     &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    RSH(DE_K)
-                                                  NAVFN(ESC)    SYMNR(RET)        SYMNR(SPCACE)  NAVFN(TAB)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
         >;
     };
 
