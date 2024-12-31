@@ -77,12 +77,9 @@
 
                 mouse_layer {
                         bindings = <
-   &none  &none &none &none &none &none      &none &none &none &none &none  &none
-   &none  &none &none &none &none &none      &none &none &none &none &none  &none
-   &none  &none &none &none &none &none      &none &none &none &none &none  &none
- //   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &mkp LSG_MSB1 &mkp LSC_MSB1 &sk RALT &none         &kp LALT
- //   &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LSHFT &sk LCTRL         &sk LALT &sk LGUI      &kp RCTRL
- //   &kp LGUI   &kp TAB_PREV   &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none             &none    &kp TAB_NEXT  &kp RGUI
+   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &none &none &sk RALT &none         &kp LALT
+   &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LSHFT &sk LCTRL         &sk LALT &sk LGUI      &kp RCTRL
+   &kp LGUI   &kp TAB_PREV   &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none             &none    &kp TAB_NEXT  &kp RGUI
                                                                  &none  &mkp MB1  &mkp MB2     &mkp MB3  &kp LSHFT  &none
                         >;
                 };

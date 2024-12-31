@@ -44,7 +44,6 @@
 #define SFT_SPC RSH(SPACE)
 #define TAB_NEXT LC(TAB)
 #define TAB_PREV LS(TAB_NEXT)
-#define LSC_MSB1 LC(LS(MSB1))
 #define LSG_MSB1 LG(LS(MSB1))
 
 // hrm
