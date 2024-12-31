@@ -8,17 +8,16 @@
 #define L_SYMBOL 1
 #define L__LOWER 2
 #define L__RAISE 3
-#define L__ATTIC 4
-#define L__MOUSE 5
+#define L__MOUSE 4
+#define L__ATTIC 5
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
 #define SYM(kc) &lt L_SYMBOL kc
 #define LOW(kc) &lt L__LOWER kc
 #define RSE(kc) &lt L__RAISE kc
+#define MSE(kc) &lt L__MOUSE kc
 #define ATT(kc) &lt L__ATTIC kc
-#define SFT_RET LSH(RET)
-#define SFT_SPC RSH(SPACE)
 
 // Layer definitions (sweep)
 #define QWERTZ 0
@@ -39,6 +38,14 @@
 #define DE_AE (DE_A_UMLAUT)
 #define DE_OE (DE_O_UMLAUT)
 #define DE_UE (DE_U_UMLAUT)
+
+// userful things
+#define SFT_RET LSH(RET)
+#define SFT_SPC RSH(SPACE)
+#define TAB_NEXT LC(TAB)
+#define TAB_PREV LS(TAB_NEXT)
+#define LSC_MSB1 LC(LS(MSB1))
+#define LSG_MSB1 LG(LS(MSB1))
 
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
