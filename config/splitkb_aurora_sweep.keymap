@@ -43,6 +43,7 @@ nice_view_spi: &spi0 {
 
     // 0. QWERTZ
     qwertz_layer {
+      display-name = "QWERTY";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │ 3/o │  p  │
@@ -62,6 +63,7 @@ nice_view_spi: &spi0 {
 
     // 1. COLEMAK
     colemak_layer {
+      display-name = "COLEMAK";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  q  │  w  │  f  │  p  │  b  │     │  j  │  l  │  u  │ 3/z │  ö  │
@@ -81,6 +83,7 @@ nice_view_spi: &spi0 {
 
     // 2. NEO BONE
     default_layer {
+      display-name = "BONE";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  j  │  d  │  u  │  a  │  x  │     │  p  │  h  │  l  │ 3/m │  w  │
@@ -100,6 +103,7 @@ nice_view_spi: &spi0 {
 
     // 3. L_SYM_NR
     symbol_number_layer {
+      display-name = "SYM/NR";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │  @  │  _  │  [  │  ]  │ ^ ° │     │ 0 = │ 1 ! │ 2 " │ 4 $ │ 8 ( │
@@ -119,6 +123,7 @@ nice_view_spi: &spi0 {
 
     // 4. L_NAV_FN
     navigation_function_layer {
+      display-name = "NAV/FN";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │PgUp │ BSp │  ↑  │ Del │PgDn │     │ F10 │  F1 │  F2 │  F4 │  F8 │
@@ -138,6 +143,7 @@ nice_view_spi: &spi0 {
 
     // 5. L_MS_MED
     mouse_media_layer {
+      display-name = "MS/MED";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │ vvv │ <<< │  ↑  │ >>> │ ^^^ │     │MsSp+│  ü  │ Vol+│ (v) │Eject│
@@ -157,6 +163,7 @@ nice_view_spi: &spi0 {
 
     // 6. L_ADJUST
     keyboard_config_layer {
+      display-name = "ADJUST";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │ TOGG│(Md-)│(Md+)│ XXX │ XXX │     │ BtC │ Bt← │ Bt0 │ Bt→ │ B/U │
