@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
 
 #include "custom_keys.h"
@@ -22,14 +23,29 @@
                 base_layer_qwerty {
                         display-name = "QWERTY";
 // -----------------------------------------------------------------------------------------
-// | ALT/BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Y |  U  |  I  |  O  |  P  | Ü  /ALT |
+// | ALT/BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U  |  I  |  O  |  P  | Ü  /ALT |
 // | CTL/ESC  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  Ö  | Ä  /CTL |
-// | GUI/MENU |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ß  | RET/GUI |
+// | GUI/MENU |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ß  | RET/GUI |
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
    &mt LALT  BSPC  &kp DE_Q   &kp DE_W   &kp DE_E   &kp DE_R   &kp DE_T       &kp DE_Z    &kp DE_U   &kp DE_I     &kp DE_O   &kp DE_P    &mt LALT  DE_UE
    &mt LCTRL  ESC  SYM(DE_A)  &kp DE_S   &kp DE_D   &kp DE_F   &kp DE_G       &kp DE_H    &kp DE_J   &kp DE_K     &kp DE_L   SYM(DE_OE)  &mt RCTRL DE_AE
    &mt LGUI K_APP  MSE(DE_Y)  &kp DE_X   &kp DE_C   &kp DE_V   &kp DE_B       &kp DE_N    &kp DE_M   &kp DE_COMMA &kp DE_DOT MSE(DE_SZ)  &mt RGUI  RET
+                                              &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                        >;
+                };
+
+                base_layer_bone {
+                        display-name = "BONE";
+// -----------------------------------------------------------------------------------------
+// | ALT/BSPC |  J  |  D  |  U  |  A  |  X  |   |  P  |  H  |  L  |  M  |  W  | ß  /ALT |
+// | CTL/ESC  |  C  |  T  |  I  |  E  |  O  |   |  B  |  N  |  R  |  S  |  G  | Q  /CTL |
+// | GUI/MENU |  F  |  V  |  Ü  |  Ä  |  Ö  |   |  Y  |  Z  |  ,  |  .  |  K  | RET/GUI |
+//                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
+                        bindings = <
+   &mt LALT  BSPC  &kp DE_J   &kp DE_D   &kp DE_U   &kp DE_A   &kp DE_X       &kp DE_P    &kp DE_H   &kp DE_L     &kp DE_M   &kp DE_W    &mt LALT  DE_SZ
+   &mt LCTRL  ESC  SYM(DE_C)  &kp DE_T   &kp DE_I   &kp DE_E   &kp DE_O       &kp DE_B    &kp DE_N   &kp DE_R     &kp DE_S   SYM(DE_G)   &mt RCTRL DE_Q
+   &mt LGUI K_APP  MSE(DE_F)  &kp DE_V   &kp DE_UE  &kp DE_AE  &kp DE_OE      &kp DE_Y    &kp DE_Z   &kp DE_COMMA &kp DE_DOT MSE(DE_K)   &mt RGUI  RET
                                               &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -85,60 +101,28 @@
    &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &none &none &sk RALT &none         &kp LALT
    &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LSHFT &sk LCTRL         &sk LALT &sk LGUI      &kp RCTRL
    &kp LGUI   &kp TAB_PREV   &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none             &none    &kp TAB_NEXT  &kp RGUI
-                                                                 &none  &mkp MB1  &mkp MB2     &mkp MB3  &kp LSHFT  &none
+                                                            &none  &mkp MB1  &mkp MB2     &mkp MB3  &kp LSHFT  &none
                         >;
                 };
 
                 attic_layer {
                         display-name = "ATTIC";
                         bindings = <
-   &none  &bt BT_CLR  &bt BT_SEL 0 &bt BT_NXT &bt BT_PRV &kp K_APP    &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &kp DE_SECT
-   &none  &none &none &none &none &none                               &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
-   &none  &none &none &none &none &none                               &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &none
-                                     &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
+// -----------------------------------------------------------------------------------------
+//  OuT│BtL│Rst│   │BLy│           ¡ │ ‹ │ « │ » │ › │BtL
+//  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
+//  BCl│BT0│BT1│BT2│BT3│BT4        ¿ │ • │ ‚ │ ‘ │ ’ │(…)
+//  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
+//  BCA│   │   │   │   │          n-–│m-—│ „ │ “ │ ” │Rst
+//
+   &out OUT_TOG    &bootloader  &sys_reset   &none        &tog BL_BONE &none           &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
+   &bt BT_CLR_ALL  &none        &none        &none        &none        &none           &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+                                                      &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 
-// // --(default config)------------------------------------------------------------------
-//                 default_layer {
-// // -----------------------------------------------------------------------------------------
-// // | TAB   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC  |
-// // | LCTL  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  | '     |
-// // | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RSHFT |
-// //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-//                         bindings = <
-//    &kp TAB    &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P      &kp BSPC
-//    &kp LCTRL  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI   &kp SQT
-//    &kp LSHFT  &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLSH  &kp RSHFT
-//                    &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-//                         >;
-//                 };
-//                 lower_layer {
-// // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-// //                    | GUI |     | SPC |   | ENT |     | ALT |
-//                         bindings = <
-//    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-//    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-//    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-//                                     &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-//                         >;
-//                 };
-//                 raise_layer {
-// // -----------------------------------------------------------------------------------------
-// // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-// //                    | GUI |     | SPC |   | ENT |     | ALT |
-//                         bindings = <
-//    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-//    &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-//    &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-//                              &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-//                         >;
-//                 };
-// 
+// --(layer template)------------------------------------------------------------------
 //                 some_layer {
 //                         bindings = <
 //    &none  &none &none &none &none &none      &none &none &none &none &none  &none

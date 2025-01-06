@@ -4,12 +4,13 @@
 #include <dt-bindings/zmk/keys.h>
 
 // Layer definitions (corne)
-// #define L_QWERTY 0
-#define L_SYMBOL 1
-#define L__LOWER 2
-#define L__RAISE 3
-#define L__MOUSE 4
-#define L__ATTIC 5
+// #define BL_QWER 0
+#define BL_BONE 1
+#define L_SYMBOL 2
+#define L__LOWER 3
+#define L__RAISE 4
+#define L__MOUSE 5
+#define L__ATTIC 6
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
