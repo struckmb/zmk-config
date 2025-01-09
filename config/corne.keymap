@@ -39,7 +39,7 @@ ZMK_HOLD_TAP(lyl,
     hold-trigger-on-release;
 )
 /* Right-hand HRMs. */
-ZMK_HOLD_TAP(lyr,
+ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
@@ -48,7 +48,7 @@ ZMK_HOLD_TAP(lyr,
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(symr,
+ZMK_HOLD_TAP(lyr,
     flavor = "balanced";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
