@@ -6,19 +6,19 @@
 // Layer definitions (corne)
 // #define BL_QWER 0
 #define BL_BONE 1
-#define L_SYMBOL 2
-#define L__LOWER 3
-#define L__RAISE 4
-#define L__MOUSE 5
-#define L__ATTIC 6
+#define L_SYM 2
+#define L_LOW 3
+#define L_RSE 4
+#define L_MSE 5
+#define L_ATC 6
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
-#define SYM(kc) &lt L_SYMBOL kc
-#define LOW(kc) &lt L__LOWER kc
-#define RSE(kc) &lt L__RAISE kc
-#define MSE(kc) &lt L__MOUSE kc
-#define ATT(kc) &lt L__ATTIC kc
+#define SYM(kc) &lt L_SYM kc
+#define LOW(kc) &lt L_LOW kc
+#define RSE(kc) &lt L_RSE kc
+#define MSE(kc) &lt L_MSE kc
+#define ATT(kc) &lt L_ATC kc
 
 // Layer definitions (sweep)
 #define QWERTZ 0
@@ -45,7 +45,6 @@
 #define SFT_SPC RSH(SPACE)
 #define TAB_NEXT LC(TAB)
 #define TAB_PREV LS(TAB_NEXT)
-#define LSG_MSB1 LG(LS(MSB1))
 
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
