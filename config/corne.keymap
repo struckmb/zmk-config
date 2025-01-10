@@ -12,6 +12,52 @@
 
 #include "custom_keys.h"
 
+#include "zmk-helpers/helper.h"
+// Source desired key-position labels
+#include "zmk-helpers/key-labels/42.h"
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // Left-hand keys.
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // Right-hand keys.
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                                  // Thumb keys.
+
+/* Left-hand HRMs. */
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+)
+ZMK_HOLD_TAP(lyl,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&mo>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+)
+/* Right-hand HRMs. */
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+)
+ZMK_HOLD_TAP(lyr,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&mo>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+)
+
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
 };
@@ -28,9 +74,9 @@
 // | GUI/MENU |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ß  | RET/GUI |
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
-   &mt LALT  BSPC  &kp DE_Q   &kp DE_W   &kp DE_E   &kp DE_R   &kp DE_T       &kp DE_Z    &kp DE_U   &kp DE_I     &kp DE_O   &kp DE_P    &mt LALT  DE_UE
-   &mt LCTRL  ESC  SYM(DE_A)  &kp DE_S   &kp DE_D   &kp DE_F   &kp DE_G       &kp DE_H    &kp DE_J   &kp DE_K     &kp DE_L   SYM(DE_OE)  &mt RCTRL DE_AE
-   &mt LGUI K_APP  MSE(DE_Y)  &kp DE_X   &kp DE_C   &kp DE_V   &kp DE_B       &kp DE_N    &kp DE_M   &kp DE_COMMA &kp DE_DOT MSE(DE_SZ)  &mt RGUI  RET
+   &hml LALT  BSPC  &kp DE_Q        &kp DE_W       &kp DE_E       &kp DE_R        &kp DE_T       &kp DE_Z &kp DE_U        &kp DE_I       &kp DE_O       &kp DE_P          &hmr LALT  DE_UE
+   &hml LCTRL  ESC  &lyl L_SYM DE_A &hml LALT DE_S &hml LGUI DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RGUI DE_K &hmr LALT DE_L &lyr L_SYM DE_OE  &hmr RCTRL DE_AE
+   &hml LGUI K_APP  &lyl L_MSE DE_Y &kp DE_X       &kp DE_C       &kp DE_V        &kp DE_B       &kp DE_N &kp DE_M        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_SZ  &hmr RGUI  RET
                                               &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -43,9 +89,9 @@
 // | GUI/MENU |  F  |  V  |  Ü  |  Ä  |  Ö  |   |  Y  |  Z  |  ,  |  .  |  K  | RET/GUI |
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
-   &mt LALT  BSPC  &kp DE_J   &kp DE_D   &kp DE_U   &kp DE_A   &kp DE_X       &kp DE_P    &kp DE_H   &kp DE_L     &kp DE_M   &kp DE_W    &mt LALT  DE_SZ
-   &mt LCTRL  ESC  SYM(DE_C)  &kp DE_T   &kp DE_I   &kp DE_E   &kp DE_O       &kp DE_B    &kp DE_N   &kp DE_R     &kp DE_S   SYM(DE_G)   &mt RCTRL DE_Q
-   &mt LGUI K_APP  MSE(DE_F)  &kp DE_V   &kp DE_UE  &kp DE_AE  &kp DE_OE      &kp DE_Y    &kp DE_Z   &kp DE_COMMA &kp DE_DOT MSE(DE_K)   &mt RGUI  RET
+   &hml LALT  BSPC  &kp DE_J        &kp DE_D       &kp DE_U       &kp DE_A        &kp DE_X       &kp DE_P &kp DE_H        &kp DE_L       &kp DE_M       &kp DE_W         &hmr LALT  DE_SZ
+   &hml LCTRL  ESC  &lyl L_SYM DE_C &hml LALT DE_T &hml LGUI DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RGUI DE_R &hmr LALT DE_S &lyr L_SYM DE_G  &hmr RCTRL DE_Q
+   &hml LGUI K_APP  &lyl L_MSE DE_F &kp DE_V       &kp DE_UE      &kp DE_AE       &kp DE_OE      &kp DE_Y &kp DE_Z        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_K  &hmr RGUI  RET
                                               &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -113,11 +159,11 @@
 //  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
 //  BCl│BT0│BT1│BT2│BT3│BT4        ¿ │ • │ ‚ │ ‘ │ ’ │(…)
 //  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
-//  BCA│   │   │   │   │          n-–│m-—│ „ │ “ │ ” │Rst
+//  BCA│   │   │   │   │OuT       n-–│m-—│ „ │ “ │ ” │Rst
 //
    &out OUT_TOG    &bootloader  &sys_reset   &none        &tog BL_BONE &none           &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
    &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
-   &bt BT_CLR_ALL  &none        &none        &none        &none        &none           &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+   &bt BT_CLR_ALL  &none        &none        &none        &none        &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                       &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
