@@ -38,7 +38,7 @@ ZMK_HOLD_TAP(lyl,
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(pthl,
+ZMK_HOLD_TAP(phtl,
     flavor = "hold-preferred";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
@@ -66,7 +66,7 @@ ZMK_HOLD_TAP(lyr,
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(phtr,
+ZMK_HOLD_TAP(pthr,
     flavor = "tap-preferred";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
@@ -75,8 +75,8 @@ ZMK_HOLD_TAP(phtr,
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
-#define SFT_RET &pthl LSHFT ENT
-#define SFT_SPC &phtr RSHFT SPC
+#define SFT_RET &phtl LSHFT RET
+#define SFT_SPC &pthr RSHFT SPC
 
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
@@ -97,7 +97,7 @@ ZMK_HOLD_TAP(phtr,
    &hml LALT  BSPC  &kp DE_Q        &kp DE_W       &kp DE_E       &kp DE_R        &kp DE_T       &kp DE_Z &kp DE_U        &kp DE_I       &kp DE_O       &kp DE_P          &hmr LALT  DE_UE
    &lyl L_SYM  ESC  &kp DE_A        &hml LALT DE_S &hml LGUI DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RGUI DE_K &hmr LALT DE_L &kp DE_OE         &lyr L_SYM DE_AE
    &hml LGUI K_APP  &lyl L_MSE DE_Y &kp DE_X       &kp DE_C       &kp DE_V        &kp DE_B       &kp DE_N &kp DE_M        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_SZ  &hmr RGUI  RET
-                                                         &kp ESC  &pthl LSHFT ENT  LOW(TAB)      RSE(BSPC)  &phtr RSHFT SPC  &kp DEL
+                                                                 &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
 
@@ -110,9 +110,9 @@ ZMK_HOLD_TAP(phtr,
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
    &hml LALT  BSPC &kp DE_J        &kp DE_D       &kp DE_U       &kp DE_A        &kp DE_X       &kp DE_P &kp DE_H        &kp DE_L       &kp DE_M       &kp DE_W         &hmr LALT  DE_SZ
-   &hml LCTRL  ESC &lyl L_SYM DE_C &hml LALT DE_T &hml LGUI DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RGUI DE_R &hmr LALT DE_S &lyr L_SYM DE_G  &hmr RCTRL DE_Q
+   &lyl L_SYM  ESC &kp DE_C        &hml LALT DE_T &hml LGUI DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RGUI DE_R &hmr LALT DE_S &kp DE_G         &lyr L_SYM DE_Q
    &hml LGUI K_APP &lyl L_MSE DE_F &kp DE_V       &kp DE_UE      &kp DE_AE       &kp DE_OE      &kp DE_Y &kp DE_Z        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_K  &hmr RGUI  RET
-                                                         &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                                                                &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
 
