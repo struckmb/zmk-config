@@ -38,7 +38,7 @@ ZMK_HOLD_TAP(lyl,
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(phtl,
+ZMK_HOLD_TAP(hpl,
     flavor = "hold-preferred";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
@@ -66,17 +66,8 @@ ZMK_HOLD_TAP(lyr,
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(pthr,
-    flavor = "tap-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L THUMBS>;
-    hold-trigger-on-release;
-)
-#define SFT_RET &phtl LSHFT RET
-#define SFT_SPC &pthr RSHFT SPC
+#define SFT_RET &hpl LSHFT RET
+#define SFT_SPC &hmr RSHFT SPC
 
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
