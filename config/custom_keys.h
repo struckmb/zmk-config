@@ -41,8 +41,6 @@
 #define DE_UE (DE_U_UMLAUT)
 
 // userful things
-#define SFT_RET LSH(RET)
-#define SFT_SPC RSH(SPACE)
 #define TAB_NEXT LC(TAB)
 #define TAB_PREV LS(TAB_NEXT)
 
