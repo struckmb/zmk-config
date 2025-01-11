@@ -175,15 +175,15 @@ ZMK_HOLD_TAP(pthr,
                         display-name = "ATTIC";
                         bindings = <
 // -----------------------------------------------------------------------------------------
-//  OuT│BtL│Rst│   │BLy│           ¡ │ ‹ │ « │ » │ › │BtL
+//  BtL│   │   │   │BLy│StL        ¡ │ ‹ │ « │ » │ › │BtL
 //  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
-//  BCl│BT0│BT1│BT2│BT3│BT4        ¿ │ • │ ‚ │ ‘ │ ’ │(…)
+//     │BT0│BT1│BT2│BT3│BT4        ¿ │ • │ ‚ │ ‘ │ ’ │(…)
 //  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
-//  BCA│   │   │   │   │OuT       n-–│m-—│ „ │ “ │ ” │Rst
+//  Rst│BCl│BCA│BT←│BT→│OuT       n-–│m-—│ „ │ “ │ ” │Rst
 //
-   &out OUT_TOG    &bootloader  &sys_reset   &none        &tog BL_BONE &none           &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
-   &bt BT_CLR_ALL  &none        &none        &none        &none        &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+   &bootloader  &none        &none          &none       &tog BL_BONE &studio_unlock   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &none        &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
+   &sys_reset   &bt BT_CLR   &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT   &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                       &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
