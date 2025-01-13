@@ -41,8 +41,8 @@
 #define DE_UE (DE_U_UMLAUT)
 
 // userful things
-#define TAB_NEXT LC(TAB)
-#define TAB_PREV LS(TAB_NEXT)
+#define TAB_NEXT &kp LC(TAB)
+#define TAB_PREV &kp LS(TAB_NEXT)
 
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3

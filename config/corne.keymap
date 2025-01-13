@@ -85,9 +85,9 @@ ZMK_HOLD_TAP(lyr,
 // | GUI/MENU |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ß  | RET/GUI |
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
-   &hml LALT  BSPC  &kp DE_Q        &kp DE_W       &kp DE_E       &kp DE_R        &kp DE_T       &kp DE_Z &kp DE_U        &kp DE_I       &kp DE_O       &kp DE_P          &hmr LALT  DE_UE
-   &lyl L_SYM  ESC  &kp DE_A        &hml LALT DE_S &hml LGUI DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RGUI DE_K &hmr LALT DE_L &kp DE_OE         &lyr L_SYM DE_AE
-   &hml LGUI K_APP  &lyl L_MSE DE_Y &kp DE_X       &kp DE_C       &kp DE_V        &kp DE_B       &kp DE_N &kp DE_M        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_SZ  &hmr RGUI  RET
+   &mt  LALT BSPC  &kp DE_Q        &kp DE_W       &kp DE_E       &kp DE_R        &kp DE_T       &kp DE_Z &kp DE_U        &kp DE_I       &kp DE_O       &kp DE_P          &mt  LALT  DE_UE
+   &lyl L_SYM ESC  &kp DE_A        &hml LALT DE_S &hml LGUI DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RGUI DE_K &hmr LALT DE_L &kp DE_OE         &lyr L_SYM DE_AE
+   &mt LGUI K_APP  &lyl L_MSE DE_Y &kp DE_X       &kp DE_C       &kp DE_V        &kp DE_B       &kp DE_N &kp DE_M        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                                  &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -100,9 +100,9 @@ ZMK_HOLD_TAP(lyr,
 // | GUI/MENU |  F  |  V  |  Ü  |  Ä  |  Ö  |   |  Y  |  Z  |  ,  |  .  |  K  | RET/GUI |
 //                | ESC | SFT/ENT | LWR/TAB |   | RSE/BSP | SFT/SPC | DEL |
                         bindings = <
-   &hml LALT  BSPC &kp DE_J        &kp DE_D       &kp DE_U       &kp DE_A        &kp DE_X       &kp DE_P &kp DE_H        &kp DE_L       &kp DE_M       &kp DE_W         &hmr LALT  DE_SZ
-   &lyl L_SYM  ESC &kp DE_C        &hml LALT DE_T &hml LGUI DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RGUI DE_R &hmr LALT DE_S &kp DE_G         &lyr L_SYM DE_Q
-   &hml LGUI K_APP &lyl L_MSE DE_F &kp DE_V       &kp DE_UE      &kp DE_AE       &kp DE_OE      &kp DE_Y &kp DE_Z        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_K  &hmr RGUI  RET
+   &mt  LALT BSPC  &kp DE_J        &kp DE_D       &kp DE_U       &kp DE_A        &kp DE_X       &kp DE_P &kp DE_H        &kp DE_L       &kp DE_M       &kp DE_W         &mt  LALT  DE_SZ
+   &lyl L_SYM ESC  &kp DE_C        &hml LALT DE_T &hml LGUI DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RGUI DE_R &hmr LALT DE_S &kp DE_G         &lyr L_SYM DE_Q
+   &mt LGUI K_APP  &lyl L_MSE DE_F &kp DE_V       &kp DE_UE      &kp DE_AE       &kp DE_OE      &kp DE_Y &kp DE_Z        &kp DE_COMMA   &kp DE_DOT     &lyr L_MSE DE_K  &mt  RGUI  RET
                                                                 &kp ESC  SFT_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -118,7 +118,7 @@ ZMK_HOLD_TAP(lyr,
    &kp LALT   &kp DE_AT    &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET                 &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp LALT
    &kp LCTRL  &kp DE_BSLH  &kp DE_FSLH  &kp DE_LBRC  &kp DE_RBRC  &kp DE_STAR                  &kp DE_QMARK &kp DE_LPAR  &kp DE_RPAR  &kp DE_MINUS &kp DE_COLON  &kp RCTRL
    &kp LGUI   &kp DE_HASH  &kp DE_DLLR  &kp DE_PIPE  &kp DE_TILDE &kp DE_ACUTE                 &kp DE_PLUS  &kp DE_PRCNT &kp DE_DQT   &kp DE_SQT   &kp DE_SEMI   &kp RGUI
-                                              &kp DE_DEG   &kp DE_SECT  &kp DE_GRAVE    &sk RALT  SFT_SPC &caps_word
+                                              &kp DE_DEG   &kp DE_SECT  &kp DE_GRAVE    &sk RALT  &lt RSHFT SPC &caps_word
                         >;
                 };
 
@@ -133,7 +133,7 @@ ZMK_HOLD_TAP(lyr,
    &kp LALT   &kp F1 &kp F2  &kp F3  &kp F4  &kp DE_GBPND    &kp DE_FSLH &kp N7   &kp N8 &kp N9 &kp DE_MINUS  &kp LALT
    &kp LCTRL  &kp F5 &kp F6  &kp F7  &kp F8  &kp DE_EURO     &kp DE_PLUS &kp N4   &kp N5 &kp N6 &kp DE_DOT    &kp RCTRL
    &kp LGUI   &kp F9 &kp F10 &kp F11 &kp F12 &kp DE_CENT     &kp N0      &kp N1   &kp N2 &kp N3 &kp DE_COMMA  &kp RGUI
-                           &kp DE_YEN  &kp LSHFT  &trans     ATT(BSPC)  SFT_SPC  &kp K_APP
+                           &kp DE_YEN  &kp LSHFT  &trans     ATT(BSPC)  RSH(SPC)  &kp K_APP
                         >;
                 };
 
@@ -155,9 +155,9 @@ ZMK_HOLD_TAP(lyr,
                 mouse_layer {
                         display-name = "MOUSE";
                         bindings = <
-   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &none &none &sk RALT &none         &kp LALT
-   &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LSHFT &sk LCTRL         &sk LALT &sk LGUI      &kp RCTRL
-   &kp LGUI   &kp TAB_PREV   &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none             &none    &kp TAB_NEXT  &kp RGUI
+   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &none     &none    &sk RALT &none     &kp LALT
+   &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
+   &kp LGUI   TAB_PREV       &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none    &none    TAB_NEXT  &kp RGUI
                                                             &none  &mkp MB1  &mkp MB2     &mkp MB3  &kp LSHFT  &none
                         >;
                 };
@@ -166,16 +166,14 @@ ZMK_HOLD_TAP(lyr,
                         display-name = "ATTIC";
                         bindings = <
 // -----------------------------------------------------------------------------------------
-//  BtL│   │   │   │BLy│StL        ¡ │ ‹ │ « │ » │ › │BtL
-//  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
-//     │BT0│BT1│BT2│BT3│BT4        ¿ │ • │ ‚ │ ‘ │ ’ │(…)
-//  ─── ───┼───┼───┼───┼───       ───┼───┼───┼───┼─── ───
-//  Rst│BCl│BCA│BT←│BT→│OuT       n-–│m-—│ „ │ “ │ ” │Rst
-//
+// | BtL |     |     |     | BLy | StL |   |  ¡  |  ‹  |  «  |  »  |  ›  | BtL |
+// |     | BT0 | BT1 | BT2 | BT3 | BT4 |   |  ¿  |  •  |  ‚  |  ‘  |  ’  | (…) |
+// | Rst | BCl | BCA | BT← | BT→ | OuT |   | n-– | m-— |  „  |  “  |  ”  │ Rst |
+//                   |     | Br- | (x) |   | (x) | Br+ |     |
    &bootloader  &none        &none          &none       &tog BL_BONE &studio_unlock   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
    &none        &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
    &sys_reset   &bt BT_CLR   &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT   &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
-                                                      &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
+                                                      &none  LSH(C_BRI_DN)  &trans    &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 
