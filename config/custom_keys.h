@@ -42,7 +42,7 @@
 
 // userful things
 #define TAB_NEXT &kp LC(TAB)
-#define TAB_PREV &kp LS(TAB_NEXT)
+#define TAB_PREV &kp LC(LS(TAB))
 
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
