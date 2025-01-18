@@ -120,7 +120,7 @@ ZMK_HOLD_TAP(lyr,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ ALT │  @  │  _  │  [  │  ]  │  ^  │   │  !  │  <  │  >  │  =  │  &  │ ALT │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ CTL │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │ CTL │
+// │ CTL │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  §  │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ GUI │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
@@ -144,7 +144,7 @@ ZMK_HOLD_TAP(lyr,
 // │ GUI │ F9  │ F10 │ F11 │ F12 │  ¢  │   │  0  │  1  │  2  │  3  │  ,  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │  ¥  │ SFT │ (x) │   │ BSP │ SPC │  $  │
-//                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
+//                   └─────┴─────┴─────┘   └─────┴─SFT─┴─────┘
                         bindings = <
    &kp LALT   &kp F1 &kp F2  &kp F3  &kp F4  &kp DE_GBPND    &kp DE_FSLH &kp N7   &kp N8 &kp N9 &kp DE_MINUS  &kp LALT
    &kp LCTRL  &kp F5 &kp F6  &kp F7  &kp F8  &kp DE_EURO     &kp DE_PLUS &kp N4   &kp N5 &kp N6 &kp DE_DOT    &kp RCTRL
@@ -155,15 +155,19 @@ ZMK_HOLD_TAP(lyr,
 
                 raise_layer {
                         display-name = "RAISE";
-// -----------------------------------------------------------------------------------------
-// | ALT | PUp | BSP | Up  | Del | Esc |   | Prv | Stp | Ply | AGr | Nxt | ALT |
-// | CTL | Hme | Lft | Dwn | Rgt | End |   | Meh | Sft | Ctl | Alt | GUI | CTL |
-// | GUI | Ins | Cut | Cpy | Pst | PDn |   | PSc | CAP | Pse | Ejt | SLk | GUI |
-//                   | Prv | V - | Mte |   | (x) | V + | Nxt |
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ ALT │ PUp │ BSP │ Up  │ Del │ PDn │   │ Prv │ Stp │ Ply │ AGr │ Nxt │ ALT │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ CTL │ Hme │ Lft │ Dwn │ Rgt │ End │   │ Meh*│ Ctl*│ Gui*│ Alt*│ Sft*│ CTL │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ GUI │ Esc │ Tab │ Ins │ Ret │ Udo │   │ PSc │ CAP │ Pse │ Ejt │ ScL │ GUI │
+// └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+//                   │ Prv │ V - │ Mte │   │ (x) │ V + │ Nxt │
+//                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
                         bindings = <
-   &kp LALT   &kp PG_UP &kp BSPC    &kp UP      &kp DEL     &kp ESC      &kp C_PREV  &kp C_STOP &kp C_PP        &sk RALT    &kp C_NEXT  &kp LALT
-   &kp LCTRL  &kp HOME  &kp LEFT    &kp DOWN    &kp RIGHT   &kp END      &sk MEH     &sk LSHFT  &sk LCTRL       &sk LALT    &sk LGUI    &kp RCTRL
-   &kp LGUI   &kp INS   &kp CCP_CUT &kp CCP_CPY &kp CCP_PST &kp PG_DN    &kp PSCRN   &caps_word &kp PAUSE_BREAK &kp C_EJECT &kp PIPE    &kp RGUI
+   &kp LALT   &kp PG_UP &kp BSPC    &kp UP      &kp DEL     &kp PG_DN    &kp C_PREV  &kp C_STOP &kp C_PP        &sk RALT    &kp C_NEXT  &kp LALT
+   &kp LCTRL  &kp HOME  &kp LEFT    &kp DOWN    &kp RIGHT   &kp END      &sk MEH     &sk LCTRL  &sk LGUI        &sk LALT    &sk LSHFT   &kp RCTRL
+   &kp LGUI   &kp ESC   &kp TAB     &kp INS     &kp RET  &kp C_AC_UNDO   &kp PSCRN   &caps_word &kp PAUSE_BREAK &kp C_EJECT &kp SLCK    &kp RGUI
                                   &kp C_PREV  &kp C_VOL_DN  ATT(C_MUTE)  &trans  &kp C_VOL_UP  &kp C_NEXT
                         >;
                 };
@@ -171,17 +175,34 @@ ZMK_HOLD_TAP(lyr,
                 mouse_layer {
                         display-name = "MOUSE";
                         bindings = <
-   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none            &none   &none     &none    &sk RALT &none     &kp LALT
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ ALT │ MSD │ MSL │ MUp │ MSR │ MSU │   │     │     │     │ AGr │     │ ALT │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ CTL │ MB4 │ MLt │ MDn │ MRt │ MB5 │   │ Meh │ Ctl │ Gui │ Alt │ Sft │ CTL │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ GUI │ TbL │ Cut │ Cpy │ Pst │     │   │     │     │     │     │ TbR │ GUI │
+// └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+//                   │     │ MB1 │ MB2 │   │ MB3 │ MB1 │     │
+//                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
+   &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &kp LGUI   TAB_PREV       &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &msc SCRL_UP     &none   &none     &none    &none    TAB_NEXT  &kp RGUI
-                                                            &none  &mkp MB1  &mkp MB2     &mkp MB3  &kp LSHFT  &none
+   &kp LGUI   TAB_PREV       &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &none            &none   &none     &none    &none    TAB_NEXT  &kp RGUI
+                                                            &none  &mkp MB1  &mkp MB2     &mkp MB3  &mkp MB1  &none
                         >;
                 };
 
                 attic_layer {
                         display-name = "ATTIC";
                         bindings = <
-// -----------------------------------------------------------------------------------------
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ BtL │     │     │     │ BLy │ StL │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │     │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ Rst │ BCl │ BCA │ BT← │ BT→ │ OuT │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
+// └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+//                   │     │ Br- │ (x) │   │ (x) │ Br+ │     │
+//                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
 // | BtL |     |     |     | BLy | StL |   |  ¡  |  ‹  |  «  |  »  |  ›  | BtL |
 // |     | BT0 | BT1 | BT2 | BT3 | BT4 |   |  ¿  |  •  |  ‚  |  ‘  |  ’  | (…) |
 // | Rst | BCl | BCA | BT← | BT→ | OuT |   | n-– | m-— |  „  |  “  |  ”  │ Rst |
@@ -196,6 +217,15 @@ ZMK_HOLD_TAP(lyr,
 // --(layer template)------------------------------------------------------------------
 //                 some_layer {
 //                         bindings = <
+// // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// // │     │     │     │     │     │     │   │     │     │     │     │     │     │
+// // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// // │     │     │     │     │     │     │   │     │     │     │     │     │     │
+// // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// // │     │     │     │     │     │     │   │     │     │     │     │     │     │
+// // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+// //                   │     │     │     │   │     │     │     │
+// //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
 //    &none  &none &none &none &none &none      &none &none &none &none &none  &none
 //    &none  &none &none &none &none &none      &none &none &none &none &none  &none
 //    &none  &none &none &none &none &none      &none &none &none &none &none  &none
