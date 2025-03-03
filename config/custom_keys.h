@@ -5,12 +5,15 @@
 
 // Layer definitions (corne)
 // #define BL_QWER 0
+#define BL_QWER 0
 #define BL_BONE 1
-#define L_SYM 2
-#define L_LOW 3
-#define L_RSE 4
-#define L_MSE 5
-#define L_ATC 6
+#define BL_COLM 2
+#define L_SYM 3
+#define L_LOW 4
+#define L_RSE 5
+#define L_MSE 6
+#define L_ATC 7
+
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc

@@ -101,7 +101,7 @@ ZMK_HOLD_TAP(lyr,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  j  │  d  │  u  │  a  │  x  │   │  p  │  h  │  l  │  m  │  w  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  c  │ A/t │ G/i │ C/e │  o  │   │  b  │ C/n │ G/r │ A/s │  g  │  q  │
+// │ ESC │  c  │  t  │  i  │  e  │  o  │   │  b  │  n  │  r  │  s  │  g  │  q  │
 // ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  f  │  v  │  ü  │  ä  │  ö  │   │  y  │  z  │  ,  │  .  │  k  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
@@ -111,6 +111,25 @@ ZMK_HOLD_TAP(lyr,
    &mt  LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
    &lyl L_SYM ESC  &hml LGUI DE_C  &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
    &mt LGUI K_APP  &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
+                                                            &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                        >;
+                };
+
+                base_layer_colmak {
+                        display-name = "COL-DH";
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ BSP │  q  │  w  │  f  │  p  │  b  │   │  j  │  l  │  u  │  y  │  ö  │  ü  │
+// ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ ESC │  a  │  r  │  s  │  t  │  g  │   │  m  │  n  │  e  │  i  │  o  │  ä  │
+// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ APP │  z  │  x  │  c  │  d  │  v  │   │  k  │  h  │  ,  │  .  │  ß  │ RET │
+// └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
+//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
+                        bindings = <
+   &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
+   &lyl L_SYM ESC  &hml LGUI DE_A  &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
+   &mt LGUI K_APP  &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
                 };
@@ -195,7 +214,7 @@ ZMK_HOLD_TAP(lyr,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │     │     │     │ BLy │ StL │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │     │COLDH│ BONE│QWERT│ StL │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │     │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -207,7 +226,7 @@ ZMK_HOLD_TAP(lyr,
 // |     | BT0 | BT1 | BT2 | BT3 | BT4 |   |  ¿  |  •  |  ‚  |  ‘  |  ’  | (…) |
 // | Rst | BCl | BCA | BT← | BT→ | OuT |   | n-– | m-— |  „  |  “  |  ”  │ Rst |
 //                   |     | Br- | (x) |   | (x) | Br+ |     |
-   &bootloader  &none        &none          &none       &tog BL_BONE &studio_unlock   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &bootloader  &none        &to BL_COLM    &to BL_BONE  &to BL_QWER &studio_unlock   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
    &none        &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
    &sys_reset   &bt BT_CLR   &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT   &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                       &none  LSH(C_BRI_DN)  &trans    &trans  RSH(C_BRI_UP)  &none
