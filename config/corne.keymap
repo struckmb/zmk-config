@@ -90,7 +90,7 @@ ZMK_HOLD_TAP(lyr,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
-   &lyl L_SYM ESC  &hml LGUI DE_C  &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
+   &lyl L_SYM ESC  &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
    &mt LGUI K_APP  &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
                                                              &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
@@ -128,7 +128,7 @@ ZMK_HOLD_TAP(lyr,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
-   &lyl L_SYM ESC  &hml LGUI DE_A  &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
+   &lyl L_SYM ESC  &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                             &key_repeat  GUI_RET  LOW(TAB)       RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
