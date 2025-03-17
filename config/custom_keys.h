@@ -5,8 +5,8 @@
 
 // Layer definitions (corne)
 // #define BL_QWER 0
-#define BL_QWER 0
-#define BL_BONE 1
+#define BL_BONE 0
+#define BL_QWER 1
 #define BL_COLM 2
 #define L_SYM 3
 #define L_LOW 4
@@ -24,9 +24,9 @@
 #define ATT(kc) &lt L_ATC kc
 
 // Layer definitions (sweep)
-#define QWERTZ 0
-#define COLEMAK 1
-#define NEOBONE 2
+#define NEOBONE 0
+#define QWERTZ 1
+#define COLEMAK 2
 #define L_SYM_NR 3
 #define L_NAV_FN 4
 #define L_MS_MED 5
@@ -44,8 +44,9 @@
 #define DE_UE (DE_U_UMLAUT)
 
 // userful things
-#define TAB_NEXT &kp LC(TAB)
-#define TAB_PREV &kp LC(LS(TAB))
+#define TAB_NEXT  &kp LC(TAB)
+#define TAB_PREV  &kp LC(LS(TAB))
+#define GUI_CARET &kp LG(DE_CARET)
 
 // hrm
 #define HRML(k1, k2, k3) &mt LGUI k1 &mt LALT k2 &mt LCTRL k3
