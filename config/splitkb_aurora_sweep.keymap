@@ -195,7 +195,7 @@ nice_view_spi: &spi0 {
         //                   │     │     │     │     │     │
         //                   └─────┴─────┘     └─────┴─────┘
         &bootloader   &none    &none  &none         &out OUT_TOG         &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &bootloader
-        &none         &none    &none  &none         &ext_power EP_TOG    &none         &to QWERTZ    &to NEO       &to BONE      &to COLEMAK
+        &none         &none    &none  &none         &ext_power EP_TOG    &none         &to QWERTZ    &to NEO2      &to BONE      &to COLEMAK
         &none         &none    &none  &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
 
         // &bootloader      &none            &none            &sys_reset       &rgb_ug RGB_TOG      &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
