@@ -41,32 +41,12 @@ nice_view_spi: &spi0 {
   keymap {
     compatible = "zmk,keymap";
 
-    // 0. NEO BONE
-    default_layer {
-      display-name = "BONE";
-      bindings = <
-        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-        // │  j  │  d  │  u  │  a  │  x  │     │  p  │  h  │  l  │ 3/m │  w  │
-        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │  c  │  t  │  i  │  e  │  o  │     │  b  │  n  │  r  │  s  │  g  │
-        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │  f  │  v  │  ß  │  q  │  ö  │     │  y  │  z  │  ,  │  .  │  k  │
-        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
-        //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
-        //                   └─────┴─────┘     └─────┴─────┘
-        &kp DE_J      &kp DE_D      &kp DE_U      &kp DE_A      &kp DE_X          &kp DE_P       &kp DE_H      &kp DE_L        MSMD(DE_M)    &kp DE_W
-        &kp DE_C      &kp DE_T     HRML(DE_I,         DE_E,         DE_O)         HRMR(DE_B,         DE_N,         DE_R)       &kp DE_S      &kp DE_G
-        LSH(DE_F)     &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    RSH(DE_K)
-        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
-        >;
-    };
-
-    // 1. QWERTZ
+    // 0. QWERTZ
     qwertz_layer {
       display-name = "QWERTY";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-        // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │ 3/o │  p  │
+        // │  q  │  w  │  e  │  r  │  t  │     │  z  │  u  │  i  │ 4/o │  p  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
         // │  a  │  s  │  d  │  f  │  g  │     │  h  │  j  │  k  │  l  │  ö  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
@@ -81,12 +61,52 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 2. COLEMAK
+    // 1. NEO2
+    default_layer {
+      display-name = "NEO2";
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │  x  │  v  │  l  │  c  │  w  │     │  k  │  h  │  g  │ 4/f │  q  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  u  │  i  │  a  │  e  │  o  │     │  s  │  n  │  r  │  t  │  d  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  y  │  ö  │  ß  │  p  │  z  │     │  b  │  m  │  ,  │  .  │  j  │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp DE_X      &kp DE_V      &kp DE_L      &kp DE_C      &kp DE_W          &kp DE_K       &kp DE_H      &kp DE_G        MSMD(DE_F)    &kp DE_Q
+        &kp DE_U      &kp DE_I     HRML(DE_A,         DE_E,         DE_O)         HRMR(DE_S,         DE_N,         DE_R)       &kp DE_T      &kp DE_D
+        LSH(DE_Y)     &kp DE_OE     &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    RSH(DE_K)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        >;
+    };
+
+    // 2. BONE
+    default_layer {
+      display-name = "BONE";
+      bindings = <
+        // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
+        // │  j  │  d  │  u  │  a  │  x  │     │  p  │  h  │  l  │ 4/m │  w  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  c  │  t  │  i  │  e  │  o  │     │  b  │  n  │  r  │  s  │  g  │
+        // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
+        // │  f  │  v  │  ß  │  q  │  ö  │     │  y  │  z  │  ,  │  .  │  k  │
+        // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
+        //                   │2/Esc│1/Ret│     │1/Spc│2/Tab│
+        //                   └─────┴─────┘     └─────┴─────┘
+        &kp DE_J      &kp DE_D      &kp DE_U      &kp DE_A      &kp DE_X          &kp DE_P       &kp DE_H      &kp DE_L        MSMD(DE_M)    &kp DE_W
+        &kp DE_C      &kp DE_T     HRML(DE_I,         DE_E,         DE_O)         HRMR(DE_B,         DE_N,         DE_R)       &kp DE_S      &kp DE_G
+        LSH(DE_F)     &kp DE_V      &kp DE_SZ     &kp DE_Q      &kp DE_OE         &kp DE_Y       &kp DE_Z      &kp DE_COMMA    &kp DE_DOT    RSH(DE_K)
+        /**/                                      NAVFN_ESC     SYMNR_RET         SYMNR_SPC      NAVFN_TAB
+        >;
+    };
+
+    // 3. COLEMAK
     colemak_layer {
       display-name = "COLEMAK";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-        // │  q  │  w  │  f  │  p  │  b  │     │  j  │  l  │  u  │ 3/z │  ö  │
+        // │  q  │  w  │  f  │  p  │  b  │     │  j  │  l  │  u  │ 4/z │  ö  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
         // │  a  │  r  │  s  │  t  │  g  │     │  m  │  n  │  e  │  i  │  o  │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
@@ -101,7 +121,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 3. L_SYM_NR
+    // 4. L_SYM_NR
     symbol_number_layer {
       display-name = "SYM/NR";
       bindings = <
@@ -121,7 +141,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 4. L_NAV_FN
+    // 5. L_NAV_FN
     navigation_function_layer {
       display-name = "NAV/FN";
       bindings = <
@@ -141,7 +161,7 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 5. L_MS_MED
+    // 6. L_MS_MED
     mouse_media_layer {
       display-name = "MS/MED";
       bindings = <
@@ -161,23 +181,24 @@ nice_view_spi: &spi0 {
         >;
     };
 
-    // 6. L_ADJUST
+    // 7. L_ADJUST
     keyboard_config_layer {
       display-name = "ADJUST";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
-        // │ TOGG│(Md-)│(Md+)│ XXX │ XXX │     │ BtC │ Bt← │ Bt0 │ Bt→ │ B/U │
+        // │BOOTL│(Md-)│(Md+)│ XXX │ B/U │     │ BtC │ Bt← │ Bt0 │ Bt→ │BOOTL│
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │(Sp+)│(Vl+)│(St+)│(Hu+)│BOOTL│     │BOOTL│QWERT│ BONE│COLMK│LYPND│
+        // │(Sp+)│(Vl+)│(St+)│(Hu+)│ TOGG│     │ XXX │QWERT│ NEO │ BONE│COLMK│
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │(Sp-)│(Vl-)│(St-)│(Hu-)│RESET│     │RESET│ ASET│ARTSN│ XXX │ Sft │
+        // │(Sp-)│(Vl-)│(St-)│(Hu-)│RESET│     │RESET│ XXX │ XXX │ XXX │ Sft │
         // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
         //                   │     │     │     │     │     │
         //                   └─────┴─────┘     └─────┴─────┘
-        &ext_power EP_TOG  &none    &none         &none         &none                &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
-        &none              &none    &none         &none         &bootloader          &bootloader   &to QWERTZ    &to NEOBONE   &to COLEMAK   &none
-        &none              &none    &none         &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
-        // &rgb_ug RGB_TOG  &none            &none            &sys_reset       &bootloader          &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+        &bootloader   &none    &none  &none         &out OUT_TOG         &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &bootloader
+        &none         &none    &none  &none         &ext_power EP_TOG    &none         &to QWERTZ    &to NEO       &to BONE      &to COLEMAK
+        &none         &none    &none  &none         &sys_reset           &sys_reset    &none         &none         &none         &kp LSHFT
+
+        // &bootloader      &none            &none            &sys_reset       &rgb_ug RGB_TOG      &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
         // &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF      &bt BT_CLR    &bt BT_PRV    &bt BT_SEL 0  &bt BT_NXT    &out OUT_TOG
         // &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR      &sys_reset    &none         &none         &none         &kp LSHFT
                                                   &none         &none             &none         &none
