@@ -42,7 +42,7 @@ nice_view_spi: &spi0 {
     compatible = "zmk,keymap";
 
     // 0. QWERTZ
-    qwertz_layer {
+    default_layer {
       display-name = "QWERTY";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -62,7 +62,7 @@ nice_view_spi: &spi0 {
     };
 
     // 1. NEO2
-    default_layer {
+    neo_layer {
       display-name = "NEO2";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
@@ -82,7 +82,7 @@ nice_view_spi: &spi0 {
     };
 
     // 2. BONE
-    default_layer {
+    bone_layer {
       display-name = "BONE";
       bindings = <
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
