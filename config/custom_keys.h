@@ -4,16 +4,17 @@
 #include <dt-bindings/zmk/keys.h>
 
 // Layer definitions (corne)
-#define BL_QWER 0
-#define BL_NEO2 1
-#define BL_BONE 2
-#define BL_NOTED 3
-#define BL_COL_DH 4
-#define L_SYM 5
-#define L_LOW 6
-#define L_RSE 7
-#define L_MSE 8
-#define L_ATC 9
+#define BL_QWER_M 0
+#define BL_QWER_W 1
+#define BL_NEO2 2
+#define BL_BONE 3
+#define BL_NOTED 4
+#define BL_COL_DH 5
+#define L_SYM 6
+#define L_LOW 7
+#define L_RSE 8
+#define L_MSE 9
+#define L_ATC 10
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
