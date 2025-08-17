@@ -9,11 +9,11 @@
 #define BL_BONE 2
 #define BL_NOTED 3
 #define BL_COL_DH 4
-#define L_SYM 4
-#define L_LOW 5
-#define L_RSE 6
-#define L_MSE 7
-#define L_ATC 8
+#define L_SYM 5
+#define L_LOW 6
+#define L_RSE 7
+#define L_MSE 8
+#define L_ATC 9
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
