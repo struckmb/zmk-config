@@ -7,7 +7,8 @@
 #define BL_QWER 0
 #define BL_NEO2 1
 #define BL_BONE 2
-#define BL_COLM 3
+#define BL_NOTED 3
+#define BL_COL_DH 4
 #define L_SYM 4
 #define L_LOW 5
 #define L_RSE 6

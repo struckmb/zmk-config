@@ -15,46 +15,39 @@
 #include "zmk-helpers/helper.h"
 // Source desired key-position labels
 #include "zmk-helpers/key-labels/42.h"
-#define KEYS_L LT0 LT1 LT2 LT3 LT4     LM0 LM1 LM2 LM3 LM4     LB0 LB1 LB2 LB3 LB4  // Left-hand keys.
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4  // Right-hand keys.
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                              // Thumb keys.
+#define KEYS_L LT0 LT1 LT2 LT3 LT4     LM0 LM1 LM2 LM3 LM4     LB0 LB1 LB2 LB3 LB4  // Left-hand keys
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4  // Right-hand keys
+#define THUMBS_L LH2 LH1 LH0                                                        // Thumb keys on the left
+#define THUMBS_R RH0 RH1 RH2                                                        // Thumb keys on the right
 
-/* Left-hand HRMs. */
+/* HRMs left/right */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-key-positions = <KEYS_R THUMBS_R>;
     hold-trigger-on-release;
 )
-ZMK_HOLD_TAP(lyl,
-    flavor = "balanced";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
-    bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
-    hold-trigger-on-release;
-)
-ZMK_HOLD_TAP(hpl,
-    flavor = "hold-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
-    hold-trigger-on-release;
-)
-/* Right-hand HRMs. */
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     tapping-term-ms = <300>;
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-key-positions = <KEYS_L THUMBS_L>;
+    hold-trigger-on-release;
+)
+
+/* Symbol layer left/right */
+ZMK_HOLD_TAP(lyl,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&mo>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R>;
     hold-trigger-on-release;
 )
 ZMK_HOLD_TAP(lyr,
@@ -63,7 +56,17 @@ ZMK_HOLD_TAP(lyr,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-key-positions = <KEYS_L>;
+    hold-trigger-on-release;
+)
+/* Hold preferred (for GUI/RET) */
+ZMK_HOLD_TAP(hpl,
+    flavor = "hold-preferred";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS_R>;
     hold-trigger-on-release;
 )
 #define GUI_RET &hpl LGUI RET
@@ -134,6 +137,25 @@ ZMK_HOLD_TAP(lyr,
                         >;
                 };
 
+                base_layer_noted {
+                        display-name = "NOTED";
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ BSP │  z  │  y  │  u  │  a  │  q  │   │  p  │  b  │  m  │  l  │  f  │  j  │
+// ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ ESC │  c  │  s  │  i  │  e  │  o  │   │  d  │  t  │  n  │  r  │  h  │  ß  │
+// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ APP │  v  │  x  │  ü  │  ä  │  ö  │   │  w  │  g  │  ,  │  .  │  k  │ RET │
+// └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
+//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
+                        bindings = <
+   &mt  LALT BSPC  &kp  DE_Z       &kp  DE_Y      &kp  DE_U       &kp  DE_A       &kp DE_Q       &kp DE_P &kp  DE_B       &kp  DE_M       &kp  DE_L      &kp  DE_F        &kp  DE_J
+   &lyl L_SYM ESC  &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
+   &mt LGUI K_APP  &lyl L_MSE DE_V &kp  DE_X      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_W &kp  DE_G       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
+                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                        >;
+                };
+
                 base_layer_colmak {
                         display-name = "COL-DH";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -162,7 +184,7 @@ ZMK_HOLD_TAP(lyr,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ GUI │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │  °  │  §  │  ̣`  │   │ AGR │ SPC │ CAP │
+//                   │  °  │  §  │  ̣` │   │ AGR │ SPC │ CAP │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
                         bindings = <
    &kp LALT   &kp DE_AT    &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET       &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp LALT
@@ -233,21 +255,21 @@ ZMK_HOLD_TAP(lyr,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │COLDH│ BONE│ NEO │QWERT│ StL │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │COLDH│NOTED│ BONE│ NEO2│QWERT│   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │     │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
+// │ StL │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ Rst │ BCl │ BCA │ BT← │ BT→ │ OuT │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │     │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
 // | BtL |     |     |     | BLy | StL |   |  ¡  |  ‹  |  «  |  »  |  ›  | BtL |
-// |     | BT0 | BT1 | BT2 | BT3 | BT4 |   |  ¿  |  •  |  ‚  |  ‘  |  ’  | (…) |
+// | StL | BT0 | BT1 | BT2 | BT3 | BT4 |   |  ¿  |  •  |  ‚  |  ‘  |  ’  | (…) |
 // | Rst | BCl | BCA | BT← | BT→ | OuT |   | n-– | m-— |  „  |  “  |  ”  │ Rst |
 //                   |     | Br- | (x) |   | (x) | Br+ |     |
-   &bootloader  &to BL_COLM  &to BL_BONE    &to BL_NEO2  &to BL_QWER &studio_unlock   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &none        &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
-   &sys_reset   &bt BT_CLR   &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT   &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+   &bootloader    &to BL_COL_DH &to BL_NOTED   &to BL_BONE  &to BL_NEO2  &to BL_QWER     &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &studio_unlock &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
+   &sys_reset     &bt BT_CLR    &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT   &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                       &none  LSH(C_BRI_DN)  &trans    &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
