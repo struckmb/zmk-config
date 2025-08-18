@@ -17,8 +17,7 @@
 #include "zmk-helpers/key-labels/42.h"
 #define KEYS_L LT0 LT1 LT2 LT3 LT4     LM0 LM1 LM2 LM3 LM4     LB0 LB1 LB2 LB3 LB4  // Left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4  // Right-hand keys
-#define THUMBS_L LH2 LH1 LH0                                                        // Thumb keys on the left
-#define THUMBS_R RH0 RH1 RH2                                                        // Thumb keys on the right
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                            // Thumb keys
 
 /* HRMs left/right */
 ZMK_HOLD_TAP(hml,
@@ -27,7 +26,7 @@ ZMK_HOLD_TAP(hml,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS_R>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 ZMK_HOLD_TAP(hmr,
@@ -36,7 +35,7 @@ ZMK_HOLD_TAP(hmr,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L THUMBS_L>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
 
@@ -47,7 +46,7 @@ ZMK_HOLD_TAP(lyl,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 ZMK_HOLD_TAP(lyr,
@@ -56,7 +55,7 @@ ZMK_HOLD_TAP(lyr,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 )
 /* Hold preferred (for GUI/RET) */
@@ -66,7 +65,7 @@ ZMK_HOLD_TAP(hpl,
     quick-tap-ms = <175>;
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS_R>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 #define GUI_RET &hpl LGUI RET
@@ -81,38 +80,19 @@ ZMK_HOLD_TAP(hpl,
                 compatible = "zmk,keymap";
 
                 base_layer_qwerty {
-                         display-name = "MAC QWER";
-// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
-// ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  a  │  s  │  d  │  f  │  g  │   │  h  │  j  │  k  │  l  │  ö  │  ä  │
-// ├─SYM─┼─CTL─┼─ALT─┼─GUI─┼─SFT─┼─────┤   ├─────┼─SFT─┼─GUI─┼─ALT─┼─CTL─┼─SYM─┤
-// │ APP │  y  │  x  │  c  │  v  │  b  │   │  n  │  m  │  ,  │  .  │  ß  │ RET │
-// └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
-//                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
-                        bindings = <
-   &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E      &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I      &kp  DE_O      &kp  DE_P         &kp  DE_UE
-   &lyl L_SYM ESC  &hml LCTRL DE_A &hml LALT DE_S &hml LGUI DE_D &hml LSHFT DE_F &kp DE_G       &kp DE_H &hmr RSHFT DE_J &hmr RGUI DE_K &hmr LALT DE_L &hmr RCTRL DE_OE  &lyr L_SYM DE_AE
-   &mt LGUI K_APP  &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C      &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA  &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
-                                                           &key_repeat  GUI_RET  LOW(TAB)       RSE(BSPC)  SFT_SPC  &kp DEL
-                        >;
-                };
-
-                base_layer_qwerty_win {
                          display-name = "WIN QWER";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ ESC │  a  │  s  │  d  │  f  │  g  │   │  h  │  j  │  k  │  l  │  ö  │  ä  │
-// ├─SYM─┼─GUI─┼─ALT─┼─CTL─┼─SFT─┼─────┤   ├─────┼─SFT─┼─CTL─┼─ALT─┼─GUI─┼─SYM─┤
+// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  y  │  x  │  c  │  v  │  b  │   │  n  │  m  │  ,  │  .  │  ß  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
 //                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E       &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I       &kp  DE_O      &kp  DE_P         &kp  DE_UE
-   &lyl L_SYM ESC  &hml LGUI  DE_A &hml LALT DE_S &hml LCTRL DE_D &hml LSHFT DE_F &kp DE_G       &kp DE_H &hmr RSHFT DE_J &hmr RCTRL DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
+   &lyl L_SYM ESC  &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C       &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                             &key_repeat  GUI_RET  LOW(TAB)       RSE(BSPC)  SFT_SPC  &kp DEL
                         >;
@@ -274,18 +254,18 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │COLDH│NOTED│ BONE│QWERW│ NEO │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │ BCA │ BCl │ BT← │ BT→ │ OuT │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ StL │COLDH│NOTED│ BONE│QWERM│ NEO │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
+// │ StL │COLDH│ NEO │ BONE│NOTED│QWERT│   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ Rst │ BCl │ BCA │ BT← │ BT→ │ OuT │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
+// │ Rst │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │     │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
-   &bootloader    &to BL_COL_DH &to BL_NOTED   &to BL_BONE  &to BL_QWER_W  &to BL_NEO2     &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &studio_unlock &to BL_COL_DH &to BL_NOTED   &to BL_BONE  &to BL_QWER_M  &to BL_NEO2     &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
-   &sys_reset     &bt BT_CLR    &bt BT_CLR_ALL &bt BT_PRV   &bt BT_NXT     &out OUT_TOG    &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
-                                                          &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
+   &bootloader    &bt BT_CLR_ALL &bt BT_CLR   &bt BT_PRV   &bt BT_NXT    &out OUT_TOG     &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &studio_unlock &to BL_COL_DH  &to BL_NOTED &to BL_BONE  &to BL_QWERTY &to BL_NEO2      &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
+   &sys_reset     &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+                                                         &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 
