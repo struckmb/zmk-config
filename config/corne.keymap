@@ -263,7 +263,7 @@ ZMK_HOLD_TAP(hpl,
 //                   │     │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &bootloader    &bt BT_CLR_ALL &bt BT_CLR   &bt BT_PRV   &bt BT_NXT    &out OUT_TOG     &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &studio_unlock &to BL_COL_DH  &to BL_NOTED &to BL_BONE  &to BL_QWERTY &to BL_NEO2      &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
+   &studio_unlock &to BL_COL_DH  &to BL_NEO2  &to BL_BONE  &to BL_NOTED &to BL_QWERTY      &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp DE_HELL
    &sys_reset     &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                          &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
