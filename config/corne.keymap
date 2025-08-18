@@ -80,7 +80,7 @@ ZMK_HOLD_TAP(hpl,
                 compatible = "zmk,keymap";
 
                 base_layer_qwerty {
-                         display-name = "WIN QWER";
+                         display-name = "QWERTY";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
