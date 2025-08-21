@@ -91,7 +91,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E       &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I       &kp  DE_O      &kp  DE_P         &kp  DE_UE
-   &to L_SYM       &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
+   &mo L_SYM       &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C       &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                             &key_repeat  GUI_RET  LOW(TAB)       RSE(ESC)  &kp SPACE  &kp DEL
                         >;
@@ -110,7 +110,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_X        &kp  DE_V      &kp  DE_L       &kp  DE_C       &kp DE_W       &kp DE_K &kp  DE_H       &kp  DE_G       &kp  DE_F      &kp  DE_Q        &kp  DE_SZ
-   &to L_SYM       &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
+   &mo L_SYM       &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
    &mt LGUI K_APP  &lyl L_MSE DE_UE &kp  DE_AE     &kp  DE_OE      &kp  DE_P       &kp DE_Z       &kp DE_B &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_J  &mt  RGUI  RET
                                                               &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
@@ -129,7 +129,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
-   &to L_SYM       &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
+   &mo L_SYM       &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
    &mt LGUI K_APP  &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
                                                              &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
@@ -148,7 +148,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Z       &kp  DE_Y      &kp  DE_U       &kp  DE_A       &kp DE_Q       &kp DE_P &kp  DE_B       &kp  DE_M       &kp  DE_L      &kp  DE_F        &kp  DE_J
-   &to L_SYM       &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
+   &mo L_SYM       &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
    &mt LGUI K_APP  &lyl L_MSE DE_V &kp  DE_X      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_W &kp  DE_G       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
                                                              &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
@@ -167,7 +167,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
-   &to L_SYM       &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
+   &mo L_SYM       &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
                                                             &key_repeat  GUI_RET  LOW(TAB)       RSE(ESC)  &kp SPACE  &kp DEL
                         >;
@@ -178,7 +178,7 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ ALT │  @  │  _  │  [  │  ]  │  ^  │   │  !  │  <  │  >  │  =  │  &  │ ALT │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ CTL │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  §  │
+// │ (x) │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │ (x) │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ GUI │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
