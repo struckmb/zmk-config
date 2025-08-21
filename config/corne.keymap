@@ -69,7 +69,6 @@ ZMK_HOLD_TAP(hpl,
     hold-trigger-on-release;
 )
 #define GUI_RET &hpl LGUI RET
-#define SFT_SPC &hmr RSHFT SPC
 
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
@@ -84,17 +83,17 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  a  │  s  │  d  │  f  │  g  │   │  h  │  j  │  k  │  l  │  ö  │  ä  │
-// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ SYM │  a  │  s  │  d  │  f  │  g  │   │  h  │  j  │  k  │  l  │  ö  │  ä  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  y  │  x  │  c  │  v  │  b  │   │  n  │  m  │  ,  │  .  │  ß  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   │ REP │ ENT │ TAB │   │ ESC │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E       &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I       &kp  DE_O      &kp  DE_P         &kp  DE_UE
-   &lyl L_SYM ESC  &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
+   &to L_SYM       &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C       &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
-                                                            &key_repeat  GUI_RET  LOW(TAB)       RSE(BSPC)  SFT_SPC  &kp DEL
+                                                            &key_repeat  GUI_RET  LOW(TAB)       RSE(ESC)  &kp SPACE  &kp DEL
                         >;
                 };
 
@@ -103,17 +102,17 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  x  │  v  │  l  │  c  │  w  │   │  k  │  h  │  g  │  f  │  q  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  u  │  i  │  a  │  e  │  o  │   │  s  │  n  │  r  │  t  │  d  │  y  │
-// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ SYM │  u  │  i  │  a  │  e  │  o  │   │  s  │  n  │  r  │  t  │  d  │  y  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  ü  │  ö  │  ä  │  p  │  z  │   │  b  │  m  │  ,  │  .  │  j  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   │ REP │ ENT │ TAB │   │ ESC │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_X        &kp  DE_V      &kp  DE_L       &kp  DE_C       &kp DE_W       &kp DE_K &kp  DE_H       &kp  DE_G       &kp  DE_F      &kp  DE_Q        &kp  DE_SZ
-   &lyl L_SYM ESC  &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
+   &to L_SYM       &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
    &mt LGUI K_APP  &lyl L_MSE DE_UE &kp  DE_AE     &kp  DE_OE      &kp  DE_P       &kp DE_Z       &kp DE_B &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_J  &mt  RGUI  RET
-                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                                                              &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
                 };
 
@@ -122,17 +121,17 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  j  │  d  │  u  │  a  │  x  │   │  p  │  h  │  l  │  m  │  w  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  c  │  t  │  i  │  e  │  o  │   │  b  │  n  │  r  │  s  │  g  │  q  │
-// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ SYM │  c  │  t  │  i  │  e  │  o  │   │  b  │  n  │  r  │  s  │  g  │  q  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  f  │  v  │  ü  │  ä  │  ö  │   │  y  │  z  │  ,  │  .  │  k  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   │ REP │ ENT │ TAB │   │ ESC │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
-   &lyl L_SYM ESC  &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
+   &to L_SYM       &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
    &mt LGUI K_APP  &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
-                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
                 };
 
@@ -141,17 +140,17 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  z  │  y  │  u  │  a  │  q  │   │  p  │  b  │  m  │  l  │  f  │  j  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  c  │  s  │  i  │  e  │  o  │   │  d  │  t  │  n  │  r  │  h  │  ß  │
-// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ SYM │  c  │  s  │  i  │  e  │  o  │   │  d  │  t  │  n  │  r  │  h  │  ß  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  v  │  x  │  ü  │  ä  │  ö  │   │  w  │  g  │  ,  │  .  │  k  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   │ REP │ ENT │ TAB │   │ ESC │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Z       &kp  DE_Y      &kp  DE_U       &kp  DE_A       &kp DE_Q       &kp DE_P &kp  DE_B       &kp  DE_M       &kp  DE_L      &kp  DE_F        &kp  DE_J
-   &lyl L_SYM ESC  &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
+   &to L_SYM       &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
    &mt LGUI K_APP  &lyl L_MSE DE_V &kp  DE_X      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_W &kp  DE_G       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RGUI  RET
-                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(BSPC)  SFT_SPC  &kp DEL
+                                                             &key_repeat  GUI_RET  LOW(TAB)      RSE(ESC)  &kp SPACE  &kp DEL
                         >;
                 };
 
@@ -160,17 +159,17 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  f  │  p  │  b  │   │  j  │  l  │  u  │  y  │  ö  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ ESC │  a  │  r  │  s  │  t  │  g  │   │  m  │  n  │  e  │  i  │  o  │  ä  │
-// ├─SYM─┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ SYM │  a  │  r  │  s  │  t  │  g  │   │  m  │  n  │  e  │  i  │  o  │  ä  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
 // │ APP │  z  │  x  │  c  │  d  │  v  │   │  k  │  h  │  ,  │  .  │  ß  │ RET │
 // └─GUI─┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─GUI─┘
-//                   │ REP │ ENT │ TAB │   │ BSP │ SPC │ DEL │
+//                   │ REP │ ENT │ TAB │   │ ESC │ SPC │ DEL │
 //                   └─────┴─GUI─┴─LWR─┘   └─RSE─┴─SFT─┴─────┘
                         bindings = <
    &mt  LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
-   &lyl L_SYM ESC  &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
+   &to L_SYM       &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
    &mt LGUI K_APP  &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RGUI  RET
-                                                            &key_repeat  GUI_RET  LOW(TAB)       RSE(BSPC)  SFT_SPC  &kp DEL
+                                                            &key_repeat  GUI_RET  LOW(TAB)       RSE(ESC)  &kp SPACE  &kp DEL
                         >;
                 };
 
@@ -183,7 +182,7 @@ ZMK_HOLD_TAP(hpl,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ GUI │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │  °  │  §  │  ̣` │   │ AGR │ SPC │ CAP │
+//                   │  °  │  §  │  ̣`  │   │ AGR │ SPC │ CAP │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
                         bindings = <
    &kp LALT   &kp DE_AT    &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET       &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp LALT
@@ -202,13 +201,13 @@ ZMK_HOLD_TAP(hpl,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─────┤
 // │ GUI │ F9  │ F10 │ F11 │ F12 │  ¢  │   │  0  │  1  │  2  │  3  │  ,  │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │  ¥  │ GUI │ (x) │   │ BSP │ SPC │  $  │
+//                   │  ¥  │ GUI │ (x) │   │ ESC │ SPC │  $  │
 //                   └─────┴─────┴─────┘   └─────┴─SFT─┴─────┘
                         bindings = <
    &kp LALT   &kp F1 &kp F2  &kp F3  &kp F4  &kp DE_GBPND    &kp DE_FSLH &kp  N7       &kp  N8       &kp  N9      &kp  DE_MINUS     &kp LALT
    &kp LCTRL  &kp F5 &kp F6  &kp F7  &kp F8  &kp DE_EURO     &kp DE_PLUS &hmr LCTRL N4 &hmr LSHFT N5 &hmr LALT N6 &hmr LGUI DE_DOT  &kp RCTRL
    &kp LGUI   &kp F9 &kp F10 &kp F11 &kp F12 &kp DE_CENT     &kp N0      &kp  N1       &kp  N2       &kp  N3      &kp  DE_COMMA     &kp RGUI
-                            &kp DE_YEN  &kp LGUI  &trans     ATT(BSPC)  RSH(SPC)  &kp K_APP
+                            &kp DE_YEN  &kp LGUI  &trans     ATT(ESC)  RSH(SPC)  &kp K_APP
                         >;
                 };
 
@@ -219,15 +218,15 @@ ZMK_HOLD_TAP(hpl,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ CTL │ Hme │ Lft │ Dwn │ Rgt │ End │   │ Meh*│ Ctl*│ Gui*│ Alt*│ Sft*│ CTL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ GUI │ Und │ Cut │ Cpy │ Pst │ Red │   │ PSc │ CAP │ Ins │ AGr*│ SLk │ GUI │
+// │ GUI │ Ins │ Cut │ Cpy │ Pst │ ESC │   │ PSc │ CAP │ Ins │ AGr*│ SLk │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │ Prv │ V - │ Mte │   │ (x) │ V + │ Nxt │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
                         bindings = <
    &kp LALT   &kp PG_UP  &kp BSPC    &kp UP      &kp DEL     &kp PG_DN    &kp C_PREV  &kp C_PP   &kp C_NEXT &kp C_STOP  &sk C_EJECT &kp LALT
    &kp LCTRL  &kp HOME   &kp LEFT    &kp DOWN    &kp RIGHT   &kp END      &sk MEH     &sk LCTRL  &sk LGUI   &sk LALT    &sk LSHFT   &kp RCTRL
-   &kp LGUI   &kp K_UNDO &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_REDO  &kp PSCRN   &caps_word &kp INS    &sk RALT    &kp SLCK    &kp RGUI
-                                  &kp C_PREV  &kp C_VOL_DN  ATT(C_MUTE)  &trans  &kp C_VOL_UP  &kp C_NEXT
+   &kp LGUI   &kp INS    &kp CP_CUT  &kp CP_CPY  &kp CP_PST  &kp ESC      &kp PSCRN   &caps_word &kp INS    &sk RALT    &kp SLCK    &kp RGUI
+                                  &kp C_PREV  &kp C_VOL_DN   ATT(C_MUTE)  &trans  &kp C_VOL_UP  &kp C_NEXT
                         >;
                 };
 
@@ -245,7 +244,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &kp LALT   &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &kp LCTRL  &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &kp LGUI   TAB_PREV       &kp CCP_CUT    &kp CCP_CPY    &kp CCP_PST     &none            &none   &none     &none    &none    TAB_NEXT  &kp RGUI
+   &kp LGUI   TAB_PREV       &kp CP_CUT     &kp CP_CPY     &kp CP_PST      &none            &none   &none     &none    &none    TAB_NEXT  &kp RGUI
                                                             &none  &mkp MB1  &mkp MB2     &mkp MB3  &mkp MB1  &none
                         >;
                 };

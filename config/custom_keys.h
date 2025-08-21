@@ -59,9 +59,9 @@
 #define HYPER LG(LS(LA(LCTRL)))
 
 // cut copy paste
-#define CCP_CUT LS(DEL)
-#define CCP_CPY LC(INS)
-#define CCP_PST LS(INS)
+#define CP_CUT LS(DEL)
+#define CP_CPY LC(INS)
+#define CP_PST LS(INS)
 
 // // Linux extended chars
 #define DE_F1_2 RA(DE_N5)    // ½
