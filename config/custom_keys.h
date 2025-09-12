@@ -4,16 +4,32 @@
 #include <dt-bindings/zmk/keys.h>
 
 // Layer definitions (corne)
-#define BL_QWERTY 0
-#define BL_NEO2 1
-#define BL_BONE 2
-#define BL_NOTED 3
-#define BL_COL_DH 4
-#define L_SYM 5
-#define L_LOW 6
-#define L_RSE 7
-#define L_MSE 8
-#define L_ATC 9
+// #define BL_QWERTY 0
+// #define BL_NOTED 1
+// #define BL_BONE 2
+// #define BL_NEO2 3
+// #define BL_COL_DH 4
+// #define L_MAC 5
+// #define L_SYM 6
+// #define L_LOW 7
+// #define L_RSE 8
+// #define L_RSM 9
+// #define L_MSE 10
+// #define L_ATC 11
+enum CORNE_LAYERS {
+  BL_QWERTY,
+  BL_NOTED,
+  BL_BONE,
+  BL_NEO2,
+  BL_COL_DH,
+  L_MAC,
+  L_SYM,
+  L_LOW,
+  L_RSE,
+  L_RSM,
+  L_MSE,
+  L_ATC
+};
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
@@ -21,6 +37,7 @@
 #define SYM(kc) &lt L_SYM kc
 #define LOW(kc) &lt L_LOW kc
 #define RSE(kc) &lt L_RSE kc
+#define RSM(kc) &lt L_RSM kc
 #define MSE(kc) &lt L_MSE kc
 #define ATT(kc) &lt L_ATC kc
 
@@ -62,6 +79,15 @@
 #define CP_CUT LS(DEL)
 #define CP_CPY LC(INS)
 #define CP_PST LS(INS)
+#define CP_ALL LC(DE_A)
+#define CP_UNDO LC(DE_Z)
+#define CP_REDO LS(LC(DE_Z))
+#define MCP_CUT LG(DE_X)
+#define MCP_CPY LG(DE_C)
+#define MCP_PST LG(DE_V)
+#define MCP_ALL LG(DE_A)
+#define MCP_UNDO LG(DE_Z)
+#define MCP_REDO LS(LG(DE_Z))
 
 // // Linux extended chars
 #define DE_F1_2 RA(DE_N5)    // ½
@@ -72,6 +98,7 @@
 #define DE_ARRD RA(DE_U)     // ↓ down arrow
 #define DE_ARRR RA(DE_I)     // → right arrow
 #define DE_DIA RA(DE_UE)     // ¨ diaresis (dead)
+#define DE_SLNG RA(DE_S)     // ſ
 #define DE_LDOT RA(DE_J)     // ̣  dot below (dead)
 #define DE_HATS RA(DE_AE)    // ˇ hatschek (dead)
 #define DE_FDQL RA(DE_X)     // « double guillemets left
