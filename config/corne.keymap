@@ -7,8 +7,9 @@
 // active layers:
 #define LAYER_QWERTY_ENABLED
 #define LAYER_NOTED_ENABLED
-/* #define LAYER_BONE_ENABLED */
-// #define LAYER_NEO2_ENABLED
+#define LAYER_BONE_ENABLED
+#define LAYER_NEO2_ENABLED
+
 #define LAYER_COL_DH_ENABLED
 #define MAC_LAYER_ENABLED
 
@@ -88,8 +89,8 @@ ZMK_HOLD_TAP(hpl,
 
 #ifdef LAYER_QWERTY_ENABLED
                 base_layer_qwerty {
-                         display-name = "QWERTY";
-                        bindings = <
+                  display-name = "QWERTY";
+                  bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -190,6 +191,27 @@ ZMK_HOLD_TAP(hpl,
                         >;
                 };
 #endif // ifdef LAYER_COL_DH_ENABLED
+
+#ifdef LAYER_DVORAK_ENABLED
+                base_layer_dvorak {
+                        display-name = "DVORAK";
+                        bindings = <
+// ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+// │ BSP │  q  │  w  │  f  │  p  │  b  │   │  j  │  l  │  u  │  y  │  ö  │  ü  │
+// ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+// │ SYM │  a  │  r  │  s  │  t  │  g  │   │  m  │  n  │  e  │  i  │  o  │  ä  │
+// ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
+// │ GUI │  z  │  x  │  c  │  d  │  v  │   │  k  │  h  │  ,  │  .  │  ß  │ APP │
+// └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
+//                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
+//                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
+   &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
+   &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
+   &kp LGUI       &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
+                                                               RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
+                        >;
+                };
+#endif // ifdef LAYER_DVORAK_ENABLED
 
 #ifdef MAC_LAYER_ENABLED
                 mac_thumbs_layer {
@@ -306,18 +328,18 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │QWERT│NOTED│ BONE│ NEO │COLDH│   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │     │ BONE│ NEO │NOTED│QWERT│   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ StL │ BCA │ BCl │ BT← │ BT→ │ OuT │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
+// │ StL │     │     │DVORK│COLDH│ MAC │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ Pwr │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ Rst │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
+// │ Rst │ BCl │ BT↓ │ BT↑ │ BT0 │ OuT │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │ MAC │ Br- │ (x) │   │ (x) │ Br+ │     │
+//                   │ OuT │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
-   &bootloader    &to BL_QWERTY  &to BL_NOTED &to BL_BONE  &to BL_NEO2   &to BL_COL_DH    &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &studio_unlock &bt BT_CLR_ALL &bt BT_CLR   &bt BT_PRV   &bt BT_NXT    &out OUT_TOG     &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
-   &sys_reset     &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
-                                                    &tog L_MAC  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
+   &bootloader    &none          &to BL_BONE  &to BL_NEO2  &to BL_NOTED &tog BL_QWERTY   &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &studio_unlock &none          &none        &to BL_DVORK &to BL_COLDH &tog L_MAC       &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
+   &sys_reset     &bt BT_CLR     &bt BT_PRV   &bt BT_NXT   &bt BT_SEL 4 &out OUT_TOG     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
+                                                 &out OUT_TOG  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 

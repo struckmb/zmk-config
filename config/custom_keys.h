@@ -25,16 +25,22 @@
 #endif // ifdef LAYER_NEO2_ENABLED
 
 #ifdef LAYER_COL_DH_ENABLED
-#define BL_COL_DH (BL_NEO2 + 1)
+#define BL_COLDH (BL_NEO2 + 1)
 #else
-#define BL_COL_DH BL_NEO2
+#define BL_COLDH BL_NEO2
 #endif // ifdef LAYER_COL_DH_ENABLED
 
+#ifdef LAYER_DVORAK_ENABLED
+#define BL_DVORK (BL_COLDH + 1)
+#else
+#define BL_DVORK BL_COLDH
+#endif // ifdef LAYER_DVORAK_ENABLED
+
 #ifdef MAC_LAYER_ENABLED
-#define L_MAC (BL_COL_DH + 1)
+#define L_MAC (BL_DVORK + 1)
 #define L_RSM (L_MAC + 1)
 #else
-#define L_MAC BL_COL_DH
+#define L_MAC BL_DVORK
 #define L_RSM L_MAC
 #endif // ifdef MAC_LAYER_ENABLED
 
