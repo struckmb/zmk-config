@@ -78,6 +78,7 @@ ZMK_HOLD_TAP(hpl,
         keymap {
                 compatible = "zmk,keymap";
 
+#ifdef LAYER_QWERTY_ENABLED
                 base_layer_qwerty {
                          display-name = "QWERTY";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -96,7 +97,9 @@ ZMK_HOLD_TAP(hpl,
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
+#endif // ifdef LAYER_QWERTY_ENABLED
 
+#ifdef LAYER_NOTED_ENABLED
                 base_layer_noted {
                         display-name = "NOTED";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -115,7 +118,9 @@ ZMK_HOLD_TAP(hpl,
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
+#endif // ifdef LAYER_NOTED_ENABLED
 
+#ifdef LAYER_BONE_ENABLED
                 base_layer_bone {
                         display-name = "BONE";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -134,7 +139,9 @@ ZMK_HOLD_TAP(hpl,
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
+#endif // ifdef LAYER_BONE_ENABLED
 
+#ifdef LAYER_NEO2_ENABLED
                 base_layer_neo2 {
                         display-name = "NEO2";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -153,7 +160,9 @@ ZMK_HOLD_TAP(hpl,
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
+#endif // ifdef LAYER_NEO2_ENABLED
 
+#ifdef LAYER_COL_DH_ENABLED
                 base_layer_colmak {
                         display-name = "COL-DH";
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
@@ -172,8 +181,11 @@ ZMK_HOLD_TAP(hpl,
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
+#endif // ifdef LAYER_COL_DH_ENABLED
 
                 mac_thumbs_layer {
+//              [...]                                         [...]
+// └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RS*─┴─GUI─┴─LWR─┘   └─RS*─┴─SFT─┴─LWR─┘
                          bindings = <

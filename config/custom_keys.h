@@ -6,7 +6,7 @@
 #define LAYER_QWERTY_ENABLED
 #define LAYER_NOTED_ENABLED
 #define LAYER_BONE_ENABLED
-#define LAYER_NEO2_ENABLED
+// #define LAYER_NEO2_ENABLED
 #define LAYER_COL_DH_ENABLED
 
 // Layer definitions (corne)
