@@ -4,6 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+// active layers:
+#define LAYER_QWERTY_ENABLED
+#define LAYER_NOTED_ENABLED
+/* #define LAYER_BONE_ENABLED */
+// #define LAYER_NEO2_ENABLED
+#define LAYER_COL_DH_ENABLED
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -81,6 +88,7 @@ ZMK_HOLD_TAP(hpl,
 #ifdef LAYER_QWERTY_ENABLED
                 base_layer_qwerty {
                          display-name = "QWERTY";
+                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  e  │  r  │  t  │   │  z  │  u  │  i  │  o  │  p  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -90,7 +98,6 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-                        bindings = <
    &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E       &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I       &kp  DE_O      &kp  DE_P         &kp  DE_UE
    &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
    &kp LGUI       &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C       &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
@@ -102,6 +109,7 @@ ZMK_HOLD_TAP(hpl,
 #ifdef LAYER_NOTED_ENABLED
                 base_layer_noted {
                         display-name = "NOTED";
+                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  z  │  y  │  u  │  a  │  q  │   │  p  │  b  │  m  │  l  │  f  │  j  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -111,7 +119,6 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-                        bindings = <
    &mt LALT BSPC  &kp  DE_Z       &kp  DE_Y      &kp  DE_U       &kp  DE_A       &kp DE_Q       &kp DE_P &kp  DE_B       &kp  DE_M       &kp  DE_L      &kp  DE_F        &kp  DE_J
    &mo L_SYM      &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
    &kp LGUI       &lyl L_MSE DE_V &kp  DE_X      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_W &kp  DE_G       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RCTRL K_APP
@@ -123,6 +130,7 @@ ZMK_HOLD_TAP(hpl,
 #ifdef LAYER_BONE_ENABLED
                 base_layer_bone {
                         display-name = "BONE";
+                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  j  │  d  │  u  │  a  │  x  │   │  p  │  h  │  l  │  m  │  w  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -132,7 +140,6 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-                        bindings = <
    &mt LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
    &mo L_SYM      &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
    &kp LGUI       &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RCTRL K_APP
@@ -144,6 +151,7 @@ ZMK_HOLD_TAP(hpl,
 #ifdef LAYER_NEO2_ENABLED
                 base_layer_neo2 {
                         display-name = "NEO2";
+                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  x  │  v  │  l  │  c  │  w  │   │  k  │  h  │  g  │  f  │  q  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -153,7 +161,6 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-                        bindings = <
    &mt LALT BSPC  &kp  DE_X        &kp  DE_V      &kp  DE_L       &kp  DE_C       &kp DE_W       &kp DE_K &kp  DE_H       &kp  DE_G       &kp  DE_F      &kp  DE_Q        &kp  DE_SZ
    &mo L_SYM      &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
    &kp LGUI       &lyl L_MSE DE_UE &kp  DE_AE     &kp  DE_OE      &kp  DE_P       &kp DE_Z       &kp DE_B &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_J  &mt  RCTRL K_APP
@@ -165,6 +172,7 @@ ZMK_HOLD_TAP(hpl,
 #ifdef LAYER_COL_DH_ENABLED
                 base_layer_colmak {
                         display-name = "COL-DH";
+                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │ BSP │  q  │  w  │  f  │  p  │  b  │   │  j  │  l  │  u  │  y  │  ö  │  ü  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -174,7 +182,6 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-                        bindings = <
    &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
    &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
    &kp LGUI       &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
@@ -184,18 +191,17 @@ ZMK_HOLD_TAP(hpl,
 #endif // ifdef LAYER_COL_DH_ENABLED
 
                 mac_thumbs_layer {
+                        display-name = "";
+                        bindings = <
 //              [...]                                         [...]
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RS*─┴─GUI─┴─LWR─┘   └─RS*─┴─SFT─┴─LWR─┘
-                         bindings = <
     &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
                        RSM(ESC)  GUI_RET  LOW(TAB)       RSM(DE_DOT)  &kp SPACE  LOW(ESC)
                          >;
-
-
                 };
 
                 symbol_layer {
@@ -209,7 +215,7 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │  °  │  §  │ G+ˇ │   │  …  │ SPC │  ſ  │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
-                        bindings = <
+                         bindings = <
    &trans     &kp DE_AT    &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET       &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp DE_SLNG
    &none      &kp DE_BSLH  &kp DE_FSLH  &kp DE_LBRC  &kp DE_RBRC  &kp DE_STAR        &kp DE_QMARK &kp DE_LPAR  &kp DE_RPAR  &kp DE_MINUS &kp DE_COLON  &kp DE_SECT
    &kp LGUI   &kp DE_HASH  &kp DE_DLLR  &kp DE_PIPE  &kp DE_TILDE &kp DE_ACUTE       &kp DE_PLUS  &kp DE_PRCNT &kp DE_DQT   &kp DE_SQT   &kp DE_SEMI   &kp DE_HELL
@@ -282,14 +288,14 @@ ZMK_HOLD_TAP(hpl,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ CTL │ MB4 │ MLt │ MDn │ MRt │ MB5 │   │ Meh │ Ctl │ Gui │ Alt │ Sft │ CTL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ GUI │ TbL │ Cut │ Cpy │ Pst │     │   │     │     │     │ AGr │ TbR │ GUI │
+// │ GUI │ TbL │ Cut │ Cpy │ Pst │ All │   │     │     │     │ AGr │ TbR │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │     │ MB1 │ MB2 │   │ MB3 │ MB1 │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &none      &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &none      &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &none      TAB_PREV       &kp CP_CUT     &kp CP_CPY     &kp CP_PST      &none            &none   &none     &none    &none    TAB_NEXT  &kp RGUI
-                                                            &none  &mkp MB1  &mkp MB2     &mkp MB3  &mkp MB1  &none
+   &none      TAB_PREV       &kp KC_CUT     &kp KC_COPY    &kp KC_PASTE    &kp  LC(DE_A)    &none   &none     &none    &none    TAB_NEXT  &kp RGUI
+                                                          &none  &mkp MB1  &mkp MB2         &mkp MB3  &mkp MB1  &none
                         >;
                 };
 
@@ -297,23 +303,24 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │ BCA │ BCl │ BT← │ BT→ │ OuT │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │QWERT│NOTED│ BONE│ NEO │COLDH│   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ StL │COLDH│ NEO │ BONE│NOTED│QWERT│   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
+// │ StL │ BCA │ BCl │ BT← │ BT→ │ OuT │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ (…) │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ Rst │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │     │ Br- │ (x) │   │ (x) │ Br+ │     │
+//                   │ MAC │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
-   &bootloader    &bt BT_CLR_ALL &bt BT_CLR   &bt BT_PRV   &bt BT_NXT    &out OUT_TOG     &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &studio_unlock &to BL_COL_DH  &to BL_NEO2  &to BL_BONE  &to BL_NOTED  &to BL_QWERTY    &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
+   &bootloader    &to BL_QWERTY  &to BL_NOTED &to BL_BONE  &to BL_NEO2   &to BL_COL_DH    &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &studio_unlock &bt BT_CLR_ALL &bt BT_CLR   &bt BT_PRV   &bt BT_NXT    &out OUT_TOG     &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
    &sys_reset     &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
-                                                         &none  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
+                                                    &tog L_MAC  LSH(C_BRI_DN)  &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
                 };
 
 // --(layer template)------------------------------------------------------------------
 //                 some_layer {
+//                         display-name = "";
 //                         bindings = <
 // // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // // │     │     │     │     │     │     │   │     │     │     │     │     │     │

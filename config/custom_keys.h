@@ -3,12 +3,6 @@
 #include "keys_de.h"
 #include <dt-bindings/zmk/keys.h>
 
-#define LAYER_QWERTY_ENABLED
-#define LAYER_NOTED_ENABLED
-#define LAYER_BONE_ENABLED
-// #define LAYER_NEO2_ENABLED
-#define LAYER_COL_DH_ENABLED
-
 // Layer definitions (corne)
 #define BL_QWERTY 0
 
