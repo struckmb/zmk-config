@@ -294,7 +294,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &none      &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &none      &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &none      TAB_PREV       &kp KC_CUT     &kp KC_COPY    &kp KC_PASTE    &kp  LC(DE_A)    &none   &none     &none    &none    TAB_NEXT  &kp RGUI
+   &none      TAB_PREV       &kp  K_CUT     &kp  K_COPY    &kp  K_PASTE    &kp  LC(DE_A)    &none   &none     &none    &none    TAB_NEXT  &kp RGUI
                                                           &none  &mkp MB1  &mkp MB2         &mkp MB3  &mkp MB1  &none
                         >;
                 };
