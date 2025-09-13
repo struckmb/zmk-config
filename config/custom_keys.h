@@ -3,33 +3,46 @@
 #include "keys_de.h"
 #include <dt-bindings/zmk/keys.h>
 
+#define LAYER_QWERTY_ENABLED
+#define LAYER_NOTED_ENABLED
+#define LAYER_BONE_ENABLED
+#define LAYER_NEO2_ENABLED
+#define LAYER_COL_DH_ENABLED
+
 // Layer definitions (corne)
-// #define BL_QWERTY 0
-// #define BL_NOTED 1
-// #define BL_BONE 2
-// #define BL_NEO2 3
-// #define BL_COL_DH 4
-// #define L_MAC 5
-// #define L_SYM 6
-// #define L_LOW 7
-// #define L_RSE 8
-// #define L_RSM 9
-// #define L_MSE 10
-// #define L_ATC 11
-enum CORNE_LAYERS {
-  BL_QWERTY,
-  BL_NOTED,
-  BL_BONE,
-  BL_NEO2,
-  BL_COL_DH,
-  L_MAC,
-  L_SYM,
-  L_LOW,
-  L_RSE,
-  L_RSM,
-  L_MSE,
-  L_ATC
-};
+#define BL_QWERTY 0
+
+#ifdef LAYER_NOTED_ENABLED
+#define BL_NOTED BL_QWERTY + 1
+#else
+#define BL_NOTED BL_QWERTY
+#endif
+
+#ifdef LAYER_BONE_ENABLED
+#define BL_BONE BL_NOTED + 1
+#else
+#define BL_BONE BL_NOTED
+#endif
+
+#ifdef LAYER_NEO2_ENABLED
+#define BL_NEO2 BL_BONE + 1
+#else
+#define BL_NEO2 BL_BONE
+#endif
+
+#ifdef LAYER_COL_DH_ENABLED
+#define BL_COL_DH BL_NEO2 + 1
+#else
+#define BL_COL_DH BL_NEO2
+#endif
+
+#define L_MAC BL_COL_DH + 1
+#define L_SYM L_MAC + 1
+#define L_LOW L_SYM + 1
+#define L_RSE L_LOW + 1
+#define L_RSM L_RSE + 1
+#define L_MSE L_RSM + 1
+#define L_ATC L_MSE + 1
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
