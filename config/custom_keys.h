@@ -13,36 +13,36 @@
 #define BL_QWERTY 0
 
 #ifdef LAYER_NOTED_ENABLED
-#define BL_NOTED BL_QWERTY + 1
+#define BL_NOTED (BL_QWERTY + 1)
 #else
 #define BL_NOTED BL_QWERTY
 #endif
 
 #ifdef LAYER_BONE_ENABLED
-#define BL_BONE BL_NOTED + 1
+#define BL_BONE (BL_NOTED + 1)
 #else
 #define BL_BONE BL_NOTED
 #endif
 
 #ifdef LAYER_NEO2_ENABLED
-#define BL_NEO2 BL_BONE + 1
+#define BL_NEO2 (BL_BONE + 1)
 #else
 #define BL_NEO2 BL_BONE
 #endif
 
 #ifdef LAYER_COL_DH_ENABLED
-#define BL_COL_DH BL_NEO2 + 1
+#define BL_COL_DH (BL_NEO2 + 1)
 #else
 #define BL_COL_DH BL_NEO2
 #endif
 
-#define L_MAC BL_COL_DH + 1
-#define L_SYM L_MAC + 1
-#define L_LOW L_SYM + 1
-#define L_RSE L_LOW + 1
-#define L_RSM L_RSE + 1
-#define L_MSE L_RSM + 1
-#define L_ATC L_MSE + 1
+#define L_MAC (BL_COL_DH + 1)
+#define L_SYM (L_MAC + 1)
+#define L_LOW (L_SYM + 1)
+#define L_RSE (L_LOW + 1)
+#define L_RSM (L_RSE + 1)
+#define L_MSE (L_RSM + 1)
+#define L_ATC (L_MSE + 1)
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
