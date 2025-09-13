@@ -5,22 +5,52 @@
 
 // Layer definitions (corne)
 #define BL_QWERTY 0
-#define BL_NEO2 1
-#define BL_BONE 2
-#define BL_NOTED 3
-#define BL_COL_DH 4
-#define L_SYM 5
-#define L_LOW 6
-#define L_RSE 7
-#define L_MSE 8
-#define L_ATC 9
+
+#ifdef LAYER_NOTED_ENABLED
+#define BL_NOTED (BL_QWERTY + 1)
+#else
+#define BL_NOTED BL_QWERTY
+#endif // ifdef LAYER_NOTED_ENABLED
+
+#ifdef LAYER_BONE_ENABLED
+#define BL_BONE (BL_NOTED + 1)
+#else
+#define BL_BONE BL_NOTED
+#endif // ifdef LAYER_BONE_ENABLED
+
+#ifdef LAYER_NEO2_ENABLED
+#define BL_NEO2 (BL_BONE + 1)
+#else
+#define BL_NEO2 BL_BONE
+#endif // ifdef LAYER_NEO2_ENABLED
+
+#ifdef LAYER_COL_DH_ENABLED
+#define BL_COL_DH (BL_NEO2 + 1)
+#else
+#define BL_COL_DH BL_NEO2
+#endif // ifdef LAYER_COL_DH_ENABLED
+
+#ifdef MAC_LAYER_ENABLED
+#define L_MAC (BL_COL_DH + 1)
+#define L_RSM (L_MAC + 1)
+#else
+#define L_MAC BL_COL_DH
+#define L_RSM L_MAC
+#endif // ifdef MAC_LAYER_ENABLED
+
+#define L_RSE (L_RSM + 1)
+#define L_LOW (L_RSE + 1)
+#define L_SYM (L_LOW + 1)
+#define L_MSE (L_SYM + 1)
+#define L_ATC (L_MSE + 1)
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
-#define SYM(kc) &lt L_SYM kc
-#define LOW(kc) &lt L_LOW kc
+#define RSM(kc) &lt L_RSM kc
 #define RSE(kc) &lt L_RSE kc
+#define LOW(kc) &lt L_LOW kc
+#define SYM(kc) &lt L_SYM kc
 #define MSE(kc) &lt L_MSE kc
 #define ATT(kc) &lt L_ATC kc
 
@@ -62,6 +92,15 @@
 #define CP_CUT LS(DEL)
 #define CP_CPY LC(INS)
 #define CP_PST LS(INS)
+#define CP_ALL LC(DE_A)
+#define CP_UNDO LC(DE_Z)
+#define CP_REDO LS(LC(DE_Z))
+#define MCP_CUT LG(DE_X)
+#define MCP_CPY LG(DE_C)
+#define MCP_PST LG(DE_V)
+#define MCP_ALL LG(DE_A)
+#define MCP_UNDO LG(DE_Z)
+#define MCP_REDO LS(LG(DE_Z))
 
 // // Linux extended chars
 #define DE_F1_2 RA(DE_N5)    // ½
@@ -72,6 +111,7 @@
 #define DE_ARRD RA(DE_U)     // ↓ down arrow
 #define DE_ARRR RA(DE_I)     // → right arrow
 #define DE_DIA RA(DE_UE)     // ¨ diaresis (dead)
+#define DE_SLNG RA(DE_S)     // ſ
 #define DE_LDOT RA(DE_J)     // ̣  dot below (dead)
 #define DE_HATS RA(DE_AE)    // ˇ hatschek (dead)
 #define DE_FDQL RA(DE_X)     // « double guillemets left
