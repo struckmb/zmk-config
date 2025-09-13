@@ -36,15 +36,7 @@
 #define BL_DVORK BL_COLDH
 #endif // ifdef LAYER_DVORAK_ENABLED
 
-#ifdef MAC_LAYER_ENABLED
-#define L_MAC (BL_DVORK + 1)
-#define L_RSM (L_MAC + 1)
-#else
-#define L_MAC BL_DVORK
-#define L_RSM L_MAC
-#endif // ifdef MAC_LAYER_ENABLED
-
-#define L_RSE (L_RSM + 1)
+#define L_RSE (BL_DVORK + 1)
 #define L_LOW (L_RSE + 1)
 #define L_SYM (L_LOW + 1)
 #define L_MSE (L_SYM + 1)
@@ -53,7 +45,6 @@
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
-#define RSM(kc) &lt L_RSM kc
 #define RSE(kc) &lt L_RSE kc
 #define LOW(kc) &lt L_LOW kc
 #define SYM(kc) &lt L_SYM kc
@@ -99,14 +90,8 @@
 #define CP_CPY LC(INS)
 #define CP_PST LS(INS)
 #define CP_ALL LC(DE_A)
-#define CP_UNDO LC(DE_Z)
-#define CP_REDO LS(LC(DE_Z))
-#define MCP_CUT LG(DE_X)
-#define MCP_CPY LG(DE_C)
-#define MCP_PST LG(DE_V)
-#define MCP_ALL LG(DE_A)
-#define MCP_UNDO LG(DE_Z)
-#define MCP_REDO LS(LG(DE_Z))
+#define CP_UND LC(DE_Z)
+#define CP_RED LS(LC(DE_Z))
 
 // // Linux extended chars
 #define DE_F1_2 RA(DE_N5)    // ½
