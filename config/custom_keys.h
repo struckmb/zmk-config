@@ -10,41 +10,47 @@
 #define BL_NOTED (BL_QWERTY + 1)
 #else
 #define BL_NOTED BL_QWERTY
-#endif
+#endif // ifdef LAYER_NOTED_ENABLED
 
 #ifdef LAYER_BONE_ENABLED
 #define BL_BONE (BL_NOTED + 1)
 #else
 #define BL_BONE BL_NOTED
-#endif
+#endif // ifdef LAYER_BONE_ENABLED
 
 #ifdef LAYER_NEO2_ENABLED
 #define BL_NEO2 (BL_BONE + 1)
 #else
 #define BL_NEO2 BL_BONE
-#endif
+#endif // ifdef LAYER_NEO2_ENABLED
 
 #ifdef LAYER_COL_DH_ENABLED
 #define BL_COL_DH (BL_NEO2 + 1)
 #else
 #define BL_COL_DH BL_NEO2
-#endif
+#endif // ifdef LAYER_COL_DH_ENABLED
 
+#ifdef MAC_LAYER_ENABLED
 #define L_MAC (BL_COL_DH + 1)
-#define L_SYM (L_MAC + 1)
-#define L_LOW (L_SYM + 1)
-#define L_RSE (L_LOW + 1)
-#define L_RSM (L_RSE + 1)
-#define L_MSE (L_RSM + 1)
+#define L_RSM (L_MAC + 1)
+#else
+#define L_MAC BL_COL_DH
+#define L_RSM L_MAC
+#endif // ifdef MAC_LAYER_ENABLED
+
+#define L_RSE (L_RSM + 1)
+#define L_LOW (L_RSE + 1)
+#define L_SYM (L_LOW + 1)
+#define L_MSE (L_SYM + 1)
 #define L_ATC (L_MSE + 1)
 
 // thumb and layer keys
 #define LSH(kc) &mt LSHFT kc
 #define RSH(kc) &mt RSHFT kc
-#define SYM(kc) &lt L_SYM kc
-#define LOW(kc) &lt L_LOW kc
-#define RSE(kc) &lt L_RSE kc
 #define RSM(kc) &lt L_RSM kc
+#define RSE(kc) &lt L_RSE kc
+#define LOW(kc) &lt L_LOW kc
+#define SYM(kc) &lt L_SYM kc
 #define MSE(kc) &lt L_MSE kc
 #define ATT(kc) &lt L_ATC kc
 
