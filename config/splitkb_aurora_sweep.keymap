@@ -148,16 +148,16 @@ nice_view_spi: &spi0 {
         // ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
         // │PgUp │ BSp │  ↑  │ Del │PgDn │     │ F10 │  F1 │  F2 │  F4 │  F8 │
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │Home │  ←  │  ↓  │  →  │ End │     │OsAlt│OsCtl│OsGui│OsSft│ RSft│
+        // │Home │  ←  │  ↓  │  →  │ End │     │OsMeh│OsCtl│OsSft│OsAlt│OsGui│
         // ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-        // │ Ins │ Cut │Copy │Paste│ ESC │     │PrScr│OsAGr│OsMeh│OsHyp│CapsW│
+        // │ Ins │ Cut │Copy │Paste│ ESC │     │PrScr│ Ins │CapsW│OsAGr│OsHyp│
         // └─────┴─────┴─────┼─────┼─────┤     ├─────┼─────┼─────┴─────┴─────┘
         //                   │     │     │     │ App │     │
         //                   └─────┴─────┘     └─────┴─────┘
-        &kp PG_UP     &kp BSPC      &kp UP        &kp DEL       &kp PG_DN         &kp F10       &kp F1        &kp F2        &kp F4        &kp F8
-        &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END           &sk LALT      &sk LCTRL     &sk LGUI      &sk LSHFT     &kp RSHFT
-        &kp INS       &kp CP_CUT    &kp CP_CPY    &kp CP_PST    &kp ESC           &kp PSCRN     &sk RALT      &sk MEH       &sk HYPER     &caps_word
-                                                  &trans        &mo L_SYM_NR      &kp K_APP     &trans
+        &kp PG_UP   &kp BSPC    &kp UP      &kp DEL     &kp PG_DN     &kp F10    &kp F1     &kp F2       &kp F4     &kp F8
+        &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END       &sk MEH    &sk LCTRL  &sk LSHFT    &sk LALT   &sk LGUI
+        &kp INS     &kp CP_CUT  &kp CP_CPY  &kp CP_PST  &kp ESC       &kp PSCRN  &kp INS    &caps_word   &sk RALT   &sk HYPER
+                                                  &trans        &mo L_SYM_NR      &kp K_APP    &trans
         >;
     };
 

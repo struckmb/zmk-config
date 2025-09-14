@@ -73,8 +73,8 @@
 #define DE_UE (DE_U_UMLAUT)
 
 // userful things
-#define TAB_NEXT  &kp LC(TAB)
-#define TAB_PREV  &kp LC(LS(TAB))
+#define TAB_NEXT &kp LC(TAB)
+#define TAB_PREV &kp LC(LS(TAB))
 #define GUI_CARET &kp LG(DE_CARET)
 
 // hrm

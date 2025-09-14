@@ -196,17 +196,17 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "DVORAK";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BSP │  q  │  w  │  f  │  p  │  b  │   │  j  │  l  │  u  │  y  │  ö  │  ü  │
+// │ BSP │  ü  │  ,  │  .  │  p  │  y  │   │  f  │  g  │  c  │  t  │  z  │  ß  │
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ SYM │  a  │  r  │  s  │  t  │  g  │   │  m  │  n  │  e  │  i  │  o  │  ä  │
+// │ SYM │  a  │  o  │  e  │  i  │  u  │   │  h  │  d  │  r  │  n  │  s  │  l  │
 // ├─────┼─GUI─┼─ALT─┼─SFT─┼─CTL─┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─SYM─┤
-// │ GUI │  z  │  x  │  c  │  d  │  v  │   │  k  │  h  │  ,  │  .  │  ß  │ APP │
+// │  ä  │  ö  │  q  │  j  │  k  │  x  │   │  b  │  m  │  w  │  v  │  ä  │ APP │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─CTL─┘
 //                   │ ESC │ ENT │ TAB │   │ ./, │ SPC │ ESC │
 //                   └─RSE─┴─GUI─┴─LWR─┘   └─RSE─┴─────┴─LWR─┘
-   &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
-   &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
-   &kp LGUI       &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
+   &mt LALT BSPC  &kp  DE_UE       &kp  DE_COMMA  &kp  DE_DOT     &kp  DE_P       &kp DE_Y       &kp DE_F &kp  DE_G       &kp  DE_C       &kp  DE_T      &kp  DE_Z         &kp  DE_SZ
+   &mo L_SYM      &hml LGUI  DE_A  &hml LALT DE_O &hml LSHFT DE_E &hml LCTRL DE_I &kp DE_U       &kp DE_H &hmr RCTRL DE_D &hmr RSHFT DE_R &hmr LALT DE_N &hmr RGUI DE_S    &lyr L_SYM DE_L
+   &kp DE_AE      &lyl L_MSE DE_OE &kp  DE_Q      &kp  DE_J       &kp  DE_K       &kp DE_X       &kp DE_B &kp  DE_M       &kp  DE_W       &kp  DE_V      &lyr L_MSE DE_AE  &mt  RCTRL K_APP
                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE(DE_DOT)  &kp SPACE  LOW(ESC)
                         >;
                 };
@@ -220,13 +220,13 @@ ZMK_HOLD_TAP(hpl,
 // ├─ALT─┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ Ins │ Hme │ Lft │ Dwn │ Rgt │ End │   │ Meh*│ Ctl*│ Sft*│ Alt*│ Gui*│ SLk │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ GUI │ Udo │ Cut │ Cpy │ Pst │ SAl │   │ PSc │ Ins │ CLk │ AGr*│ Rdo │ CTL │
+// │ GUI │ Udo │ Cut │ Cpy │ Pst │ SAl │   │ PSc │ Ins │ CpW │ AGr*│ Rdo │ APP │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │ Prv │ V - │ Mte │   │ (x) │ V + │ Nxt │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &trans     &kp PG_UP  &kp BSPC   &kp UP     &kp DEL    &kp PG_DN       &kp C_PREV  &kp C_PP   &kp C_NEXT &kp C_STOP &sk C_EJECT  &kp PAUSE_BREAK
    &kp INS    &kp HOME   &kp LEFT   &kp DOWN   &kp RIGHT  &kp END         &sk MEH     &sk LCTRL  &sk LSHFT  &sk LALT   &sk LGUI     &kp SLCK
-   &kp LGUI   &kp CP_UND &kp CP_CUT &kp CP_CPY &kp CP_PST &kp CP_ALL      &kp PSCRN   &kp INS    &caps_word &sk RALT   &kp CP_RED   &kp RCTRL
+   &kp LGUI   &kp CP_UND &kp CP_CUT &kp CP_CPY &kp CP_PST &kp CP_ALL      &kp PSCRN   &kp INS    &caps_word &sk RALT   &kp CP_RED   &kp K_APP
                                   &kp C_PREV  &kp C_VOL_DN   ATT(C_MUTE)  &trans  &kp C_VOL_UP  &kp C_NEXT
                         >;
                 };
@@ -235,17 +235,17 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "LOWER";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ ALT │ F1  │ F2  │ F3  │ F4  │  £  │   │  /  │  7  │  8  │  9  │  +  │ ALT │
+// │ ___ │ F1  │ F2  │ F3  │ F4  │  £  │   │  /  │  7  │  8  │  9  │  +  │  $  │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ CTL │ F5  │ F6  │ F7  │ F8  │  €  │   │  .  │  4  │  5  │  6  │  -  │ CTL │
+// │  ¥  │ F5  │ F6  │ F7  │ F8  │  €  │   │  .  │  4  │  5  │  6  │  -  │  #  │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─────┤
-// │ GUI │ F9  │ F10 │ F11 │ F12 │  ¢  │   │  0  │  1  │  2  │  3  │  ,  │ GUI │
+// │     │ F9  │ F10 │ F11 │ F12 │  ¢  │   │  0  │  1  │  2  │  3  │  ,  │     │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │  ¥  │ GUI │ (x) │   │ ESC │ SPC │  $  │
 //                   └─────┴─────┴─────┘   └─────┴─SFT─┴─────┘
-   &kp LALT   &kp F1       &kp F2        &kp F3         &kp F4         &kp DE_GBPND    &kp DE_FSLH &kp  N7       &kp  N8       &kp  N9      &kp  DE_PLUS        &kp DE_DLLR
-   &kp LCTRL  &hmr LGUI F5 &hmr LALT F6  &hmr LSHFT F7  &hmr LCTRL F8  &kp DE_EURO     &kp DE_DOT  &hmr RCTRL N4 &hmr RSHFT N5 &hmr LALT N6 &hmr RGUI DE_MINUS  &kp DE_HASH
-   &kp LGUI   &kp F9       &kp F10       &kp F11        &kp F12        &kp DE_CENT     &kp N0      &kp  N1       &kp  N2       &kp  N3      &kp  DE_COMMA       &kp RCTRL
+   &trans      &kp F1       &kp F2        &kp F3         &kp F4         &kp DE_GBPND    &kp DE_FSLH &kp  N7       &kp  N8       &kp  N9      &kp  DE_PLUS        &kp DE_DLLR
+   &kp DE_YEN  &hmr LGUI F5 &hmr LALT F6  &hmr LSHFT F7  &hmr LCTRL F8  &kp DE_EURO     &kp DE_DOT  &hmr RCTRL N4 &hmr RSHFT N5 &hmr LALT N6 &hmr RGUI DE_MINUS  &kp DE_HASH
+   &kp LGUI    &kp F9       &kp F10       &kp F11        &kp F12        &kp DE_CENT     &kp N0      &kp  N1       &kp  N2       &kp  N3      &kp  DE_COMMA       &kp RCTRL
                             &kp DE_YEN  &kp LGUI  &trans     ATT(ESC)  RSH(SPC)  &kp K_APP
                         >;
                 };
@@ -255,9 +255,9 @@ ZMK_HOLD_TAP(hpl,
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 // │     │  @  │  _  │  [  │  ]  │  ^  │   │  !  │  <  │  >  │  =  │  &  │  ſ  │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ (x) │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  §  │
+// │     │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  §  │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ GUI │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │  …  │
+// │     │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │  …  │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │  °  │  §  │ G+ˇ │   │  …  │ SPC │  ſ  │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
@@ -271,19 +271,19 @@ ZMK_HOLD_TAP(hpl,
 
                 mouse_layer {
                         display-name = "MOUSE";
-                        bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ ALT │ MSD │ MSL │ MUp │ MSR │ MSU │   │     │     │     │     │     │ ALT │
+// │     │ MW↓ │ MW← │ Ms↑ │ MW→ │ MW↑ │   │     │     │     │     │     │ ALT │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ CTL │ MB4 │ MLt │ MDn │ MRt │ MB5 │   │ Meh │ Ctl │ Gui │ Alt │ Sft │ CTL │
+// │     │ MB4 │ Ms← │ Ms↓ │ Ms→ │ MB5 │   │ Meh │ Ctl │ Gui │ Alt │ Sft │ CTL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ GUI │ TbP │ Cut │ Cpy │ Pst │ All │   │     │     │     │ AGr │ TbN │ GUI │
+// │     │ Tb← │ Cut │ Cpy │ Pst │ All │   │     │     │     │ AGr │ Tb→ │ GUI │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │     │ MB1 │ MB2 │   │ MB3 │ MB1 │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
+                        bindings = <
    &none      &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &none      &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &none      TAB_PREV       &kp  CP_CUT    &kp  CP_CPY    &kp  CP_PST     &kp  CP_ALL      &none   &none     &none    &none    TAB_NEXT  &kp RGUI
+   &none      TAB_PREV       &kp  CP_CUT    &kp  CP_CPY    &kp  CP_PST     &kp  CP_ALL      &none   &none     &none    &one    TAB_NEXT   &kp RGUI
                                                           &none  &mkp MB1  &mkp MB2         &mkp MB3  &mkp MB1  &none
                         >;
                 };
@@ -292,16 +292,16 @@ ZMK_HOLD_TAP(hpl,
                         display-name = "ATTIC";
                         bindings = <
 // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-// │ BtL │     │ BONE│ NEO │NOTED│     │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
+// │ BtL │     │ BONE│ NEO │NOTED│ StL │   │  ¡  │  ‹  │  «  │  »  │  ›  │ BtL │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-// │ StL │     │DVORK│COLDH│QWERT│     │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ Pwr │
+// │ Rst │     │DVORK│COLDH│QWERT│     │   │  ¿  │  •  │  ‚  │  ‘  │  ’  │ Pwr │
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 // │ Rst │ BCl │ BT↓ │ BT↑ │ BT0 │ OuT │   │ n-– │ m-— │  „  │  “  │  ”  │ Rst │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │ OuT │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &bootloader    &none          &to BL_BONE  &to BL_NEO2  &to BL_NOTEDg &none            &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
-   &studio_unlock &none          &to BL_DVORK &to BL_COLDH &to BL_QWERTY &none            &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
+   &sys_reset     &none          &to BL_DVORK &to BL_COLDH &to BL_QWERTY &none            &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
    &sys_reset     &bt BT_CLR     &bt BT_PRV   &bt BT_NXT   &bt BT_SEL 4  &out OUT_TOG     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                         &none  LSH(C_BRI_DN)   &trans     &trans  RSH(C_BRI_UP)  &none
                         >;
