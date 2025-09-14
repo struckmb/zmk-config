@@ -283,7 +283,7 @@ ZMK_HOLD_TAP(hpl,
                         bindings = <
    &none      &msc SCRL_DOWN &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &msc SCRL_UP     &none   &none     &none    &sk RALT &none     &kp LALT
    &none      &mkp MB4       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB5         &sk MEH &sk LCTRL &sk LGUI &sk LALT &sk LSHFT &kp RCTRL
-   &none      TAB_PREV       &kp  CP_CUT    &kp  CP_CPY    &kp  CP_PST     &kp  CP_ALL      &none   &none     &none    &one    TAB_NEXT   &kp RGUI
+   &none      TAB_PREV       &kp  CP_CUT    &kp  CP_CPY    &kp  CP_PST     &kp  CP_ALL      &none   &none     &none    &none    TAB_NEXT  &kp RGUI
                                                           &none  &mkp MB1  &mkp MB2         &mkp MB3  &mkp MB1  &none
                         >;
                 };
@@ -300,7 +300,7 @@ ZMK_HOLD_TAP(hpl,
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
 //                   │ OuT │ Br- │ (x) │   │ (x) │ Br+ │     │
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
-   &bootloader    &none          &to BL_BONE  &to BL_NEO2  &to BL_NOTEDg &none            &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
+   &bootloader    &none          &to BL_BONE  &to BL_NEO2  &to BL_NOTED  &none            &kp DE_IEXC &kp DE_FSQL &kp DE_FDQL &kp DE_FDQR &kp DE_FSQR  &bootloader
    &sys_reset     &none          &to BL_DVORK &to BL_COLDH &to BL_QWERTY &none            &kp DE_IQUE &kp DE_CDOT &kp DE_SQUL &kp DE_SQUR &kp DE_SQUE  &kp C_PWR
    &sys_reset     &bt BT_CLR     &bt BT_PRV   &bt BT_NXT   &bt BT_SEL 4  &out OUT_TOG     &kp DE_EN   &kp DE_EM   &kp DE_DQUL &kp DE_DQUR &kp DE_DQUE  &sys_reset
                                                         &none  LSH(C_BRI_DN)   &trans     &trans  RSH(C_BRI_UP)  &none
