@@ -226,7 +226,7 @@ ZMK_HOLD_TAP(hpl,
 //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
    &trans     &kp PG_UP  &kp BSPC   &kp UP     &kp DEL    &kp PG_DN       &kp C_PREV  &kp C_PP   &kp C_NEXT &kp C_STOP &sk C_EJECT  &kp PAUSE_BREAK
    &kp INS    &kp HOME   &kp LEFT   &kp DOWN   &kp RIGHT  &kp END         &sk MEH     &sk LCTRL  &sk LSHFT  &sk LALT   &sk LGUI     &kp SLCK
-   &kp LGUI   &kp CP_UND &kp CP_CUT &kp CP_CPY &kp CP_PST &kp CP_ALL      &kp PSCRN   &kp INS    &caps_word &sk RALT   &kp CP_RED   &kp K_APP
+   &kp LGUI   &kp CP_UND &kp CP_CUT &kp CP_CPY &kp CP_PST &kp CP_ALL      &kp PSCRN   &kp INS    &caps_word &sk RALT   &kp K_APP    &kp K_APP
                                   &kp C_PREV  &kp C_VOL_DN   ATT(C_MUTE)  &trans  &kp C_VOL_UP  &kp C_NEXT
                         >;
                 };
@@ -241,12 +241,12 @@ ZMK_HOLD_TAP(hpl,
 // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─CTL─┼─SFT─┼─ALT─┼─GUI─┼─────┤
 // │     │ F9  │ F10 │ F11 │ F12 │  ¢  │   │  0  │  1  │  2  │  3  │  ,  │     │
 // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-//                   │  ¥  │ GUI │ (x) │   │ ESC │ SPC │  $  │
+//                   │  ¥  │ GUI │ (x) │   │ ESC │ SPC │ APP │
 //                   └─────┴─────┴─────┘   └─────┴─SFT─┴─────┘
-   &trans      &kp F1       &kp F2        &kp F3         &kp F4         &kp DE_GBPND    &kp DE_FSLH &kp  N7       &kp  N8       &kp  N9      &kp  DE_PLUS        &kp DE_DLLR
-   &kp DE_YEN  &hmr LGUI F5 &hmr LALT F6  &hmr LSHFT F7  &hmr LCTRL F8  &kp DE_EURO     &kp DE_DOT  &hmr RCTRL N4 &hmr RSHFT N5 &hmr LALT N6 &hmr RGUI DE_MINUS  &kp DE_HASH
-   &kp LGUI    &kp F9       &kp F10       &kp F11        &kp F12        &kp DE_CENT     &kp N0      &kp  N1       &kp  N2       &kp  N3      &kp  DE_COMMA       &kp RCTRL
-                            &kp DE_YEN  &kp LGUI  &trans     ATT(ESC)  RSH(SPC)  &kp K_APP
+   &trans      &kp F1       &kp F2        &kp F3         &kp F4         &kp DE_GBPND    &kp DE_FSLH  &kp  N7       &kp  N8       &kp  N9      &kp  DE_PLUS        &kp DE_DLLR
+   &kp DE_YEN  &hmr LGUI F5 &hmr LALT F6  &hmr LSHFT F7  &hmr LCTRL F8  &kp DE_EURO     &kp DE_COLON &hmr RCTRL N4 &hmr RSHFT N5 &hmr LALT N6 &hmr RGUI DE_MINUS  &kp DE_HASH
+   &kp LGUI    &kp F9       &kp F10       &kp F11        &kp F12        &kp DE_CENT     &kp N0       &kp  N1       &kp  N2       &kp  N3      &kp  DE_COMMA       &kp RCTRL
+                            &kp DE_YEN  &kp LGUI  &trans     ATT(DE_DOT)  RSH(SPC)  &kp K_APP
                         >;
                 };
 
