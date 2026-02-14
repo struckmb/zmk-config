@@ -27,21 +27,24 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4  // Right-hand keys
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                            // Thumb keys
 
+#define TAPPING_TERM_MS 300
+#define QUICK_TAP_MS 175
+#define REQUIRE_PRIOR_IDLE_MS 150
 /* HRMs left/right */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
@@ -50,18 +53,18 @@ ZMK_HOLD_TAP(hmr,
 /* Symbol layer left/right */
 ZMK_HOLD_TAP(lyl,
     flavor = "balanced";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&mo>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 ZMK_HOLD_TAP(lyr,
     flavor = "balanced";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&mo>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
@@ -69,17 +72,15 @@ ZMK_HOLD_TAP(lyr,
 /* Hold preferred (for GUI/RET) */
 ZMK_HOLD_TAP(hpl,
     flavor = "hold-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
 #define GUI_RET &hpl LGUI RET
-/* #define RSE_DOT &dot_comma */
-#define RSE_DOT &rse_dc L_RSE 0
-
+#define RSE_DC &rse_dc L_RSE 0
 
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
@@ -88,7 +89,7 @@ ZMK_HOLD_TAP(hpl,
 / {
   behaviors {
     // Mod-Morph: Tap = DOT, Shift + Tap = COMMA
-    dot_comma: backspace_delete {
+    dot_comma: mod_morph_dot_comma {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DE_DOT>, <&kp DE_COMMA>;
@@ -96,10 +97,10 @@ ZMK_HOLD_TAP(hpl,
     };
 
     // Hold-Tap: Hold = Layer RSE, Tap = Mod-Morph (Dot/Comma)
-    rse_dc: layer_tap_bspc_del {
+    rse_dc: hold_tap_dot_comma {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
-      flavor = "tap-preferred";
+      flavor = "balanced";
       tapping-term-ms = <200>;
       bindings = <&mo>, <&dot_comma>;
     };
@@ -123,7 +124,7 @@ base_layer_qwerty {
     &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_E       &kp  DE_R       &kp DE_T       &kp DE_Z &kp  DE_U       &kp  DE_I       &kp  DE_O      &kp  DE_P         &kp  DE_UE
     &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G       &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &hmr RGUI DE_OE   &lyr L_SYM DE_AE
     &kp LSHFT      &lyl L_MSE DE_Y &kp  DE_X      &kp  DE_C       &kp  DE_V       &kp DE_B       &kp DE_N &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_QWERTY_ENABLED
@@ -144,7 +145,7 @@ base_layer_noted {
     &mt LALT BSPC  &kp  DE_Z       &kp  DE_Y      &kp  DE_U       &kp  DE_A       &kp DE_Q       &kp DE_P &kp  DE_B       &kp  DE_M       &kp  DE_L      &kp  DE_F        &kp  DE_J
     &mo L_SYM      &hml LGUI  DE_C &hml LALT DE_S &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_N &hmr LALT DE_R &hmr RGUI DE_H   &lyr L_SYM DE_SZ
     &kp LSHFT      &lyl L_MSE DE_V &kp  DE_X      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_W &kp  DE_G       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_NOTED_ENABLED
@@ -165,7 +166,7 @@ base_layer_bone {
     &mt LALT BSPC  &kp  DE_J       &kp  DE_D      &kp  DE_U       &kp  DE_A       &kp DE_X       &kp DE_P &kp  DE_H       &kp  DE_L       &kp  DE_M      &kp  DE_W        &kp  DE_SZ
     &mo L_SYM      &hml LGUI  DE_C &hml LALT DE_T &hml LSHFT DE_I &hml LCTRL DE_E &kp DE_O       &kp DE_B &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_S &hmr RGUI DE_G   &lyr L_SYM DE_Q
     &kp LSHFT      &lyl L_MSE DE_F &kp  DE_V      &kp  DE_UE      &kp  DE_AE      &kp DE_OE      &kp DE_Y &kp  DE_Z       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_K  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_BONE_ENABLED
@@ -186,7 +187,7 @@ base_layer_neo2 {
     &mt LALT BSPC  &kp  DE_X        &kp  DE_V      &kp  DE_L       &kp  DE_C       &kp DE_W       &kp DE_K &kp  DE_H       &kp  DE_G       &kp  DE_F      &kp  DE_Q        &kp  DE_SZ
     &mo L_SYM      &hml LGUI  DE_U  &hml LALT DE_I &hml LSHFT DE_A &hml LCTRL DE_E &kp DE_O       &kp DE_S &hmr RCTRL DE_N &hmr RSHFT DE_R &hmr LALT DE_T &hmr RGUI  DE_D  &lyr L_SYM DE_Y
     &kp LSHFT      &lyl L_MSE DE_UE &kp  DE_AE     &kp  DE_OE      &kp  DE_P       &kp DE_Z       &kp DE_B &kp  DE_M       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_J  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)       RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_NEO2_ENABLED
@@ -207,7 +208,7 @@ base_layer_colmak {
     &mt LALT BSPC  &kp  DE_Q       &kp  DE_W      &kp  DE_F       &kp  DE_P       &kp DE_B       &kp DE_J &kp  DE_L       &kp  DE_U       &kp  DE_Y      &kp  DE_OE        &kp  DE_UE
     &mo L_SYM      &hml LGUI  DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G       &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &hmr RGUI DE_O    &lyr L_SYM DE_AE
     &kp LSHFT      &lyl L_MSE DE_Z &kp  DE_X      &kp  DE_C       &kp  DE_D       &kp DE_V       &kp DE_K &kp  DE_H       &kp  DE_COMMA   &kp  DE_DOT    &lyr L_MSE DE_SZ  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)      RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_COL_DH_ENABLED
@@ -228,7 +229,7 @@ base_layer_dvorak {
     &mt LALT BSPC   &kp  DE_UE       &kp  DE_COMMA  &kp  DE_DOT     &kp  DE_P       &kp DE_Y       &kp DE_F &kp  DE_G       &kp  DE_C       &kp  DE_T      &kp  DE_Z         &kp  DE_SZ
     &mo L_SYM       &hml LGUI  DE_A  &hml LALT DE_O &hml LSHFT DE_E &hml LCTRL DE_I &kp DE_U       &kp DE_H &hmr RCTRL DE_D &hmr RSHFT DE_R &hmr LALT DE_N &hmr RGUI DE_S    &lyr L_SYM DE_L
     &mt LSHFT DE_AE &lyl L_MSE DE_OE &kp  DE_Q      &kp  DE_J       &kp  DE_K       &kp DE_X       &kp DE_B &kp  DE_M       &kp  DE_W       &kp  DE_V      &lyr L_MSE DE_AE  &mt  RCTRL K_APP
-                                                                RSE(ESC)  GUI_RET  LOW(TAB)        RSE_DOT  &kp SPACE  LOW(ESC)
+                                                                RSE(ESC)  GUI_RET  LOW(TAB)        RSE_DC  &kp SPACE  LOW(ESC)
   >;
 };
 #endif // ifdef LAYER_DVORAK_ENABLED
