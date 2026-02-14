@@ -17,10 +17,10 @@ include:
   #   shield: splitkb_aurora_sweep_left nice_view_adapter nice_view
   # - board: nice_nano@2.0.0
   #   shield: splitkb_aurora_sweep_right nice_view_adapter nice_view
-  - board: nice_nano@2.0.0
+  - board: nice_nano
     shield: corne_left nice_view_adapter nice_view
     snippet: studio-rpc-usb-uart
-  - board: nice_nano@2.0.0
+  - board: nice_nano
     shield: corne_right nice_view_adapter nice_view
 # # - board: nice_nano@2.0.0
 # #   shield: settings_reset
