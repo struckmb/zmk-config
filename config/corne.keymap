@@ -77,7 +77,8 @@ ZMK_HOLD_TAP(hpl,
     hold-trigger-on-release;
 )
 #define GUI_RET &hpl LGUI RET
-#define RSE_DOT &rse_dc 0 0
+#define RSE_DOT &dot_comma
+/* #define RSE_DOT &rse_dc 0 0 */
 
 &caps_word {
   continue-list = <DE_AE DE_OE DE_UE DE_SZ DE_MINUS DE_UNDER BACKSPACE DELETE>;
@@ -88,21 +89,19 @@ ZMK_HOLD_TAP(hpl,
     // Mod-Morph: Tap = DOT, Shift + Tap = COMMA
     dot_comma: backspace_delete {
       compatible = "zmk,behavior-mod-morph";
-      label = "DOT_COMMA";
       #binding-cells = <0>;
       bindings = <&kp DE_DOT>, <&kp DE_COMMA>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
     // Hold-Tap: Hold = Layer RSE, Tap = Mod-Morph (Dot/Comma)
-    rse_dc: layer_tap_bspc_del {
-      compatible = "zmk,behavior-hold-tap";
-      label = "LAYER_TAP_DOT_COMMA";
-      #binding-cells = <2>;
-      flavor = "tap-preferred";
-      tapping-term-ms = <200>;
-      bindings = <&mo L_RSE>, <&dot_comma>;
-    };
+    /* rse_dc: layer_tap_bspc_del { */
+    /*   compatible = "zmk,behavior-hold-tap"; */
+    /*   #binding-cells = <2>; */
+    /*   flavor = "tap-preferred"; */
+    /*   tapping-term-ms = <200>; */
+    /*   bindings = <&mo L_RSE>, <&dot_comma>; */
+    /* }; */
   };
   keymap {
     compatible = "zmk,keymap";
