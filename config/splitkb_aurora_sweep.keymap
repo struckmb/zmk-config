@@ -21,13 +21,13 @@
 };
 
 // pin 1 is blocked by rgb, so use pin 16 as I have no encoders installed
-nice_view_spi: &spi0 {
-                 compatible = "nordic,nrf-spim";
-                 pinctrl-0 = <&spi0_default>;
-                 pinctrl-1 = <&spi0_sleep>;
-                 pinctrl-names = "default", "sleep";
-                 cs-gpios = <&pro_micro 16 GPIO_ACTIVE_HIGH>;  // default is D1 in the pinout
-               };
+/* nice_view_spi: &spi0 {
+                  compatible = "nordic,nrf-spim";
+                  pinctrl-0 = <&spi0_default>;
+                  pinctrl-1 = <&spi0_sleep>;
+                  pinctrl-names = "default", "sleep";
+                  cs-gpios = <&pro_micro 16 GPIO_ACTIVE_HIGH>;  // default is D1 in the pinout
+              }; */
 
 / {
   conditional_layers {
