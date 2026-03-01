@@ -278,19 +278,19 @@ lower_layer {
 symbol_layer {
   display-name = "SYMBOL";
   // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-  // │     │  @  │  _  │  [  │  ]  │  ^  │   │  !  │  <  │  >  │  =  │  &  │  ſ  │
+  // │     │  §  │  _  │  [  │  ]  │  ^  │   │  !  │  <  │  >  │  =  │  &  │  ſ  │
   // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-  // │     │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  §  │
+  // │     │  \  │  /  │  {  │  }  │  *  │   │  ?  │  (  │  )  │  -  │  :  │  @  │
   // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
   // │     │  #  │  $  │ "|" │  ~  │  ´  │   │  +  │  %  │  "  │  '  │  ;  │  …  │
   // └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-  //                   │  °  │  §  │ G+ˇ │   │  …  │ SPC │  ſ  │
+  //                   │  °  │  @  │ G+ˇ │   │  …  │ SPC │  ſ  │
   //                   └─────┴─────┴─────┘   └─────┴─────┴─────┘
   bindings = <
-    &trans  &kp DE_AT    &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET       &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp DE_SLNG
-    &none   &kp DE_BSLH  &kp DE_FSLH  &kp DE_LBRC  &kp DE_RBRC  &kp DE_STAR        &kp DE_QMARK &kp DE_LPAR  &kp DE_RPAR  &kp DE_MINUS &kp DE_COLON  &kp DE_SECT
+    &trans  &kp DE_SECT  &kp DE_UNDER &kp DE_LBKT  &kp DE_RBKT  &kp DE_CARET       &kp DE_EXCL  &kp DE_LT    &kp DE_GT    &kp DE_EQUAL &kp DE_AMPS   &kp DE_SLNG
+    &none   &kp DE_BSLH  &kp DE_FSLH  &kp DE_LBRC  &kp DE_RBRC  &kp DE_STAR        &kp DE_QMARK &kp DE_LPAR  &kp DE_RPAR  &kp DE_MINUS &kp DE_COLON  &kp DE_AT
     &none   &kp DE_HASH  &kp DE_DLLR  &kp DE_PIPE  &kp DE_TILDE &kp DE_ACUTE       &kp DE_PLUS  &kp DE_PRCNT &kp DE_DQT   &kp DE_SQT   &kp DE_SEMI   &kp DE_HELL
-                                          &kp DE_DEG  &kp DE_SECT  GUI_CARET       &kp DE_HELL  &kp SPACE  &kp DE_SLNG
+                                            &kp DE_DEG  &kp DE_AT  GUI_CARET       &kp DE_HELL  &kp SPACE  &kp DE_SLNG
   >;
 };
 
