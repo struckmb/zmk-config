@@ -4,18 +4,18 @@
 #include <dt-bindings/zmk/keys.h>
 
 // Layer definitions (corne)
-#define BL_QWERTY 0
+#define BL_NOTED 0
 
-#ifdef LAYER_NOTED_ENABLED
-#define BL_NOTED (BL_QWERTY + 1)
+#ifdef LAYER_QWERTY_ENABLED
+#define BL_QWERTY (BL_NOTED + 1)
 #else
-#define BL_NOTED BL_QWERTY
-#endif // ifdef LAYER_NOTED_ENABLED
+#define BL_QWERTY BL_NOTED
+#endif // ifdef LAYER_QWERTY_ENABLED
 
 #ifdef LAYER_BONE_ENABLED
-#define BL_BONE (BL_NOTED + 1)
+#define BL_BONE (BL_QWERTY + 1)
 #else
-#define BL_BONE BL_NOTED
+#define BL_BONE BL_QWERTY
 #endif // ifdef LAYER_BONE_ENABLED
 
 #ifdef LAYER_NEO2_ENABLED
@@ -52,9 +52,9 @@
 #define ATT(kc) &lt L_ATC kc
 
 // Layer definitions (sweep)
-#define QWERTZ 0
-#define NEO2 1
-#define BONE 2
+#define NOTED 0
+#define QWERT 1
+#define NBONE 2
 #define COLEMAK 3
 #define L_SYM_NR 4
 #define L_NAV_FN 5
