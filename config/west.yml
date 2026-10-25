@@ -2,23 +2,25 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: urob
-      url-base: https://github.com/urob
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
+    - name: geeksville
+      url-base: https://github.com/geeksville
     - name: beekeeb
       url-base: https://github.com/beekeeb
-
   projects:
     - name: zmk
       remote: zmkfirmware
-      # revision: main // main is unstable
-      revision: v0.3
       import: app/west.yml
-    - name: zmk-helpers
-      remote: urob
-      revision: main
-    - name: zmk-keyboard-toucan2
+      revision: v0.3
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: v0.3
+    - name: zmk_driver_azoteq
       remote: beekeeb
       revision: main
-
+    - name: zmk-input-zoom
+      remote: beekeeb
+      revision: main
   self:
     path: config
