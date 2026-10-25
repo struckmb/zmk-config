@@ -4,6 +4,9 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: beekeeb
+      url-base: https://github.com/beekeeb
+
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -13,5 +16,9 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
+    - name: zmk-keyboard-toucan2
+      remote: beekeeb
+      revision: main
+
   self:
     path: config
