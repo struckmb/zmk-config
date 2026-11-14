@@ -2,6 +2,7 @@ Session.vim
 .west/
 build/
 .zmk/
+.cache/
 /modules/
 /zephyr/
 /zmk/
