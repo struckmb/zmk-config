@@ -1,0 +1,2 @@
+#define ZMK_CONFIG_ENABLE_POINTER_LAYER
+#include "common.keymap"

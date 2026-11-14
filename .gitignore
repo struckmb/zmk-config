@@ -1,3 +1,12 @@
 Session.vim
-
+.west/
+build/
 .zmk/
+.cache/
+/modules/
+/zephyr/
+/zmk/
+/zmk-input-zoom/
+/zmk-rgbled-widget/
+/zmk_driver_azoteq/
+/config/defunc
