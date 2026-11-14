@@ -103,6 +103,7 @@
 #define DE_SCLN DE_SEMICOLON
 #define DE_SECTION LS(N3)
 #define DE_SECT DE_SECTION
+#define DE_PND LS(RA(N3))
 #define DE_ELLIPSIS RA(DOT)
 #define DE_ELLP DE_ELLIPSIS
 #define DE_SLNG RA(S)

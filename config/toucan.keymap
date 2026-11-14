@@ -60,17 +60,17 @@
                 &kp BSPC      &kp DE_ELLP &kp DE_UNDER &kp DE_LBKT &kp DE_RBKT &kp DE_CARET  &kp DE_EXCL &kp DE_LT   &kp DE_GT   &kp DE_EQUAL &kp DE_AMPS &kp DE_SLNG
                 &kp ESC       &kp DE_BSLH &kp DE_FSLH  &kp DE_LBRC &kp DE_RBRC &kp DE_STAR   &kp DE_QUESTION &kp DE_LPAR &kp DE_RPAR &kp DE_MINUS &kp DE_COLON &kp DE_AT
                 &kp LSHFT     &kp DE_HASH &kp DE_DOLLAR &kp DE_PIPE &kp DE_TILDE &kp DE_GRAVE &kp DE_PLUS &kp DE_PERCENT &kp DE_DQT &kp DE_SQT &kp DE_SCLN &kp DE_SECT
-                                                       &kp DE_AT &kp RET &kp LG(DE_CARET)  &trans &kp SPACE &kp RALT
+                                                       &kp ESC &kp RET &kp LG(DE_CARET)  &kp DE_AT &kp SPACE &kp DE_SECT
             >;
         };
 
         navi {
             display-name = "NAVI";
             bindings = <
-                &kp BSPC  &kp PG_UP &kp BSPC &kp UP   &kp DEL  &kp PG_DN   &kp DE_LDAQ &kp DE_LSAQ &kp DE_RSAQ &kp DE_RDAQ &kp DE_ACUTE &none
-                &kp ESC   &kp HOME &kp LEFT &kp DOWN &kp RIGHT &kp END    &kp DE_DEG  &mt LCTRL DE_MDOT &mt LSHFT DE_SLQU &mt LALT DE_LSQU &mt LGUI DE_RSQU &none
-                &kp LSHFT &kp CAPS &kp INS  &caps_word &kp K_APP &kp PSCRN &kp DE_NDSH &kp DE_MDSH &kp DE_DLQU &kp DE_LDQU &kp DE_RDQU &none
-                                                    &tog NAVI &trans &trans  &trans &kp DE_SLNG &tog QWERT
+                &kp BSPC  &kp PG_UP &kp BSPC &kp UP   &kp DEL  &kp PG_DN   &kp DE_LDAQ &kp DE_LSAQ &kp DE_RSAQ &kp DE_RDAQ &kp DE_ACUTE &kp C_NEXT
+                &kp ESC   &kp HOME &kp LEFT &kp DOWN &kp RIGHT &kp END    &kp DE_DEG  &mt LCTRL DE_MDOT &mt LSHFT DE_SLQU &mt LALT DE_LSQU &mt LGUI DE_RSQU &kp C_PLAY
+                &kp LSHFT &kp CAPS &kp INS  &caps_word &kp K_APP &kp PSCRN &kp DE_NDSH &kp DE_MDSH &kp DE_DLQU &kp DE_LDQU &kp DE_RDQU &kp C_PREV
+                                                    &tog NAVI &kp RET &tog NUMS  &tog QWERT &sk RALT &kp DE_SLNG
             >;
         };
 
@@ -87,10 +87,10 @@
         nums {
             display-name = "NUMS";
             bindings = <
-                &kp BSPC  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5     &kp DE_STAR &kp N7   &kp N8   &kp N9   &kp DE_FSLH &kp DE_COMMA
-                &kp ESC   &mt LGUI F6 &mt LALT F7 &mt LSHFT F8 &mt LCTRL F9 &kp F10 &kp DE_PLUS &mt RCTRL N4 &mt RSHFT N5 &mt LALT N6 &mt RGUI DE_MINUS &kp DE_DOT
-                &kp LSHFT &kp F11  &kp F12  &kp F13  &kp F14  &kp F15    &kp DE_COLON &kp N1 &kp N2 &kp N3 &kp DE_SCLN &kp DE_EQUAL
-                                                    &tog NAVI &kp DE_COMMA &trans  &kp DE_COMMA &kp N0 &kp DE_DOT
+                &kp BSPC  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5     &kp DE_STAR &kp N7   &kp N8   &kp N9   &kp DE_FSLH &kp DE_PND
+                &kp ESC   &mt LGUI F6 &mt LALT F7 &mt LSHFT F8 &mt LCTRL F9 &kp F10 &kp DE_PLUS &mt RCTRL N4 &mt RSHFT N5 &mt LALT N6 &mt RGUI DE_MINUS &kp DE_EURO
+                &kp LSHFT &kp F11  &kp F12  &kp F13  &kp F14  &kp F15    &kp DE_COLON &kp N1 &kp N2 &kp N3 &kp DE_SCLN &kp DE_CENT
+                                                    &tog NAVI &kp RET &tog NUMS  &kp DE_COMMA &kp DE_DOT &kp N0
             >;
         };
 
