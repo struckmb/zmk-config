@@ -1,0 +1,257 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT_DIR"
+
+ACTION=build
+SIDE=left
+SIDE_SPECIFIED=false
+BOTH_SIDES=false
+ALL_KEYBOARDS=false
+CLEAN=false
+CLEAN_ALL=false
+TEST_MODE=false
+KEYBOARD=
+
+show_help() {
+    cat <<EOF
+Usage: $(basename "$0") [options] <toucan|corne>
+       $(basename "$0") -a [options]
+       $(basename "$0") -c [-t]
+
+Builds and optionally flashes ZMK firmware. Flashing uses West's UF2 runner;
+connect one controller in UF2 bootloader mode when prompted.
+
+Options:
+  -a      Build both sides of all configured keyboards (cannot flash)
+  -b      Build and flash both sides, left then right
+  -c      Clean selected build directories before building; alone, clean all of build/
+  -f      Build and flash the selected side
+  -h      Show this help
+  -l      Select the left side (default)
+  -r      Select the right side
+  -t      Test mode: print commands without running them
+
+Keyboard: toucan or corne
+EOF
+}
+
+error() {
+    printf 'Error: %s\n' "$*" >&2
+    show_help >&2
+    exit 2
+}
+
+run_command() {
+    if "$TEST_MODE"; then
+        printf '+'
+        printf ' %q' "$@"
+        printf '\n'
+    else
+        "$@"
+    fi
+}
+
+configure_west_python_path() {
+    local python_site_path
+
+    python_site_path=$(python3 -c 'import sysconfig; print(sysconfig.get_path("purelib"))') || return 1
+    export PYTHONPATH="$python_site_path${PYTHONPATH:+:$PYTHONPATH}"
+}
+
+configure_zephyr_toolchain() {
+    local compiler
+
+    if [[ -z "${GNUARMEMB_TOOLCHAIN_PATH:-}" ]]; then
+        if ! compiler=$(command -v arm-none-eabi-gcc); then
+            printf 'Error: GNUARMEMB_TOOLCHAIN_PATH is unset and arm-none-eabi-gcc is not on PATH.\n' >&2
+            return 1
+        fi
+        if ! compiler=$(readlink -f -- "$compiler"); then
+            printf 'Error: Could not resolve the arm-none-eabi-gcc path.\n' >&2
+            return 1
+        fi
+        export GNUARMEMB_TOOLCHAIN_PATH="$(dirname -- "$(dirname -- "$compiler")")"
+    fi
+
+    export ZEPHYR_TOOLCHAIN_VARIANT="${ZEPHYR_TOOLCHAIN_VARIANT:-gnuarmemb}"
+}
+
+get_targets() {
+    local keyboards=()
+    local sides=()
+    local keyboard side
+
+    if "$ALL_KEYBOARDS"; then
+        keyboards=(toucan corne)
+        sides=(left right)
+    else
+        keyboards=("$KEYBOARD")
+        if "$BOTH_SIDES"; then
+            sides=(left right)
+        else
+            sides=("$SIDE")
+        fi
+    fi
+
+    for keyboard in "${keyboards[@]}"; do
+        for side in "${sides[@]}"; do
+            printf '%s_%s\n' "$keyboard" "$side"
+        done
+    done
+}
+
+clean_target() {
+    local target=$1
+    local build_dir="$ROOT_DIR/build/$target"
+
+    if "$TEST_MODE" || [[ -d "$build_dir" ]]; then
+        run_command rm -rf -- "$build_dir"
+    fi
+}
+
+build_target() {
+    local target=$1
+    local board shield
+    local -a west_args cmake_args
+
+    case "$target" in
+        toucan_left)
+            board=seeeduino_xiao_ble
+            shield="toucan_left rgbled_adapter nice_view_gem"
+            west_args=(-S studio-rpc-usb-uart)
+            cmake_args=("-DZMK_CONFIG=$ROOT_DIR/config" "-DSHIELD=$shield" -DCONFIG_ZMK_STUDIO=y)
+            ;;
+        toucan_right)
+            board=seeeduino_xiao_ble
+            shield="toucan_right rgbled_adapter"
+            west_args=()
+            cmake_args=("-DZMK_CONFIG=$ROOT_DIR/config" "-DSHIELD=$shield")
+            ;;
+        corne_left|corne_right)
+            board=nice_nano_v2
+            shield="$target nice_view_adapter nice_view"
+            west_args=()
+            cmake_args=("-DZMK_CONFIG=$ROOT_DIR/config" "-DSHIELD=$shield")
+            ;;
+        *)
+            printf 'Error: Unsupported build target: %s\n' "$target" >&2
+            return 1
+            ;;
+    esac
+
+    printf 'Building %s...\n' "$target"
+    run_command west build -s zmk/app -d "$ROOT_DIR/build/$target" \
+        -b "$board" "${west_args[@]}" -- "${cmake_args[@]}"
+}
+
+flash_target() {
+    local target=$1
+
+    if ! "$TEST_MODE" && [[ -t 0 ]]; then
+        printf 'Connect %s in UF2 bootloader mode, then press Enter to flash: ' "$target"
+        read -r
+    fi
+
+    printf 'Flashing %s...\n' "$target"
+    run_command west flash -d "$ROOT_DIR/build/$target"
+}
+
+POSITIONAL=()
+while (($#)); do
+    case "$1" in
+        --)
+            shift
+            POSITIONAL+=("$@")
+            break
+            ;;
+        -?*)
+            options=${1#-}
+            while [[ -n "$options" ]]; do
+                option=${options:0:1}
+                options=${options:1}
+                case "$option" in
+                    a) ALL_KEYBOARDS=true ;;
+                    b) BOTH_SIDES=true; ACTION=flash ;;
+                    c) CLEAN=true ;;
+                    f) ACTION=flash ;;
+                    h) show_help; exit 0 ;;
+                    l) SIDE=left; SIDE_SPECIFIED=true ;;
+                    r) SIDE=right; SIDE_SPECIFIED=true ;;
+                    t) TEST_MODE=true ;;
+                    *) error "Unknown option: -$option" ;;
+                esac
+            done
+            shift
+            ;;
+        *)
+            POSITIONAL+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if ((${#POSITIONAL[@]} > 1)); then
+    error "Specify at most one keyboard."
+fi
+if ((${#POSITIONAL[@]} == 1)); then
+    KEYBOARD=${POSITIONAL[0]}
+fi
+if [[ -n "$KEYBOARD" && "$KEYBOARD" != toucan && "$KEYBOARD" != corne ]]; then
+    error "Unknown keyboard '$KEYBOARD'; choose toucan or corne."
+fi
+if "$BOTH_SIDES" && "$SIDE_SPECIFIED"; then
+    error "Option -b cannot be combined with -l or -r."
+fi
+if "$ALL_KEYBOARDS" && { [[ -n "$KEYBOARD" ]] || "$SIDE_SPECIFIED" || "$BOTH_SIDES" || [[ "$ACTION" == flash ]]; }; then
+    error "Option -a builds all keyboards and cannot be combined with a keyboard, side, or flash option."
+fi
+if [[ -z "$KEYBOARD" ]] && ! "$ALL_KEYBOARDS"; then
+    if "$CLEAN" && ! "$SIDE_SPECIFIED" && ! "$BOTH_SIDES" && [[ "$ACTION" == build ]]; then
+        CLEAN_ALL=true
+    else
+        error "Specify a keyboard, or use -a to build all keyboards."
+    fi
+fi
+
+if ! "$TEST_MODE" && ! command -v west >/dev/null 2>&1; then
+    printf 'Error: west is not on PATH.\n' >&2
+    exit 1
+fi
+if ! "$TEST_MODE"; then
+    configure_west_python_path
+fi
+
+if "$CLEAN_ALL"; then
+    TARGETS=(toucan_left toucan_right corne_left corne_right)
+else
+    mapfile -t TARGETS < <(get_targets)
+fi
+
+if "$CLEAN"; then
+    if "$CLEAN_ALL"; then
+        run_command rm -rf -- "$ROOT_DIR/build"
+        run_command mkdir -p -- "$ROOT_DIR/build"
+        exit 0
+    fi
+
+    for target in "${TARGETS[@]}"; do
+        clean_target "$target"
+    done
+fi
+
+if ! "$TEST_MODE"; then
+    configure_zephyr_toolchain
+fi
+
+for target in "${TARGETS[@]}"; do
+    build_target "$target"
+done
+
+if [[ "$ACTION" == flash ]]; then
+    for target in "${TARGETS[@]}"; do
+        flash_target "$target"
+    done
+fi
